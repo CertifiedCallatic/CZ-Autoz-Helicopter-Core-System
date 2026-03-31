@@ -76,7 +76,7 @@ icon: "triangle-exclamation"
   <Accordion title="Engine won't start even with a charged battery">
     - Confirm the battery is in the correct **HelicopterBattery slot** (not general cargo)
     - Make sure the battery charge is **greater than 0** — a battery at exactly 0 charge will not work
-    - Check your RPT log for any error messages related to engine start
+    - If the battery is correct and charged but the engine still won't start, check whether the server is whitelisted — an unwhitelisted server disables all mod features including engine start. Open `$profile:\CZAutoz_Heli_whitelist_status.log` to confirm the whitelist result
   </Accordion>
 </AccordionGroup>
 
@@ -155,16 +155,16 @@ icon: "triangle-exclamation"
 
 ---
 
-## Interior Walk
+## Cabin Mode
 
 <AccordionGroup>
   <Accordion title="Move to Cabin action is not appearing">
-    - Interior Walk is only available on the **UH-1H Iroquois** and **MH-60L Blackhawk**
-    - You must be seated as **pilot or co-pilot** — cabin passengers do not have this action
+    - Cabin Mode is only available on the **UH-1H Iroquois** and **MH-60L Blackhawk**
+    - You must be seated as **pilot or co-pilot** — cabin passengers use the standard get-out action which exits them into the interior directly, so they do not have or need this action
     - Check that `CZH_cabinModeEnabled` is set to `1` in `mod_config.json`
   </Accordion>
 
-  <Accordion title="Interior Walk is disabled server-wide">
+  <Accordion title="Cabin Mode is disabled server-wide">
     Set `CZH_cabinModeEnabled = 1` in `mod_config.json` and restart the server.
   </Accordion>
 </AccordionGroup>
@@ -250,19 +250,21 @@ Unlike the status log, this file is **appended** — it accumulates across serve
 $profile:\CZAutoz_Heli_debug.log
 ```
 
-For diagnosing in-mod issues (repair actions not appearing, config not loading, physics anomalies). This log is **only written when debug logging is enabled** — it is off by default.
+<Warning>
+  **Do not enable debug logging unless you have been specifically asked to by a CZ Autoz developer.** It is not a general troubleshooting tool — it generates very large log files and can impact server performance on a live server. Only enable it when a developer requests it to investigate a specific reported issue.
+</Warning>
 
-To enable:
+For developer-assisted diagnostics only. This log is **only written when debug logging is enabled** — it is off by default and should stay that way.
+
+To enable when asked by a developer:
 
 1. Open `$profile:\CZAutoz_Heli\mod_config.json`
 2. Set `"CZH_debugLogging": 1`
 3. Restart the server
 4. Reproduce the issue
-5. Open `$profile:\CZAutoz_Heli_debug.log`
+5. Open `$profile:\CZAutoz_Heli_debug.log` and share the contents with the developer
 
-<Warning>
-  Turn `CZH_debugLogging` back to `0` once you are done. Leaving it on permanently generates large log files and can impact server performance.
-</Warning>
+Always set `CZH_debugLogging` back to `0` immediately after. Never leave it enabled on a live server.
 
 ---
 

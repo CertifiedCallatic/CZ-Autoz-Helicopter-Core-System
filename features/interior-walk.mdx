@@ -1,13 +1,13 @@
 ---
-title: "Interior Walk"
+title: "Cabin Mode"
 description: "Pilot or co-pilot can leave the cockpit and walk inside the cabin with full WASD, weapon use, and ADS — available on UH-1H and Blackhawk only."
 icon: "person-walking"
 ---
 
-Interior Walk (also referred to as **Cabin Mode**) allows the pilot or co-pilot of supported helicopters to leave their cockpit seat and walk freely **inside the helicopter's cabin** rather than exiting to the outside. Full WASD movement, weapon use, and aiming down sights (ADS) are available while inside.
+Cabin Mode allows the pilot or co-pilot of the UH-1H and Blackhawk to leave their cockpit seat and walk freely **inside the helicopter's cabin** rather than exiting to the outside. Full WASD movement, weapon use, and aiming down sights (ADS) are available while inside.
 
 <Note>
-  On helicopters **without** Cabin Mode, exiting the cockpit seat puts the player outside the aircraft through the door. Cabin Mode is exclusive to the UH-1H Iroquois and MH-60L Blackhawk.
+  On helicopters **without** Cabin Mode, exiting the cockpit seat puts the player outside the aircraft through the door.
 </Note>
 
 ## Supported Helicopters
@@ -47,11 +47,22 @@ At any time, use the **"Return to Cockpit"** action to return to your seat. You 
 | `CZH_cabinModeEnabled` | `1` = Cabin Mode enabled. `0` = disabled server-wide for all helicopters. | `1` |
 
 <Note>
-  Cabin Mode is a cockpit crew feature only. Standard cabin passengers cannot enter walk mode — only the pilot and co-pilot have the "Move to Cabin" action.
+  Cabin Mode is a cockpit crew feature only. Cabin passengers use the standard get-out action which exits them into the interior — they do not need or have the "Move to Cabin" action.
 </Note>
 
 ---
 
-## AW101 Merlin — Native Cabin Behaviour
+## Native Cabin Linking
 
-The Merlin does **not** use Cabin Mode. However, it behaves differently to the smaller helicopters — because the Merlin is a large fully enclosed fuselage, **exiting any seat places the player inside the aircraft**, not outside. Players are automatically linked to the helicopter when inside the fuselage and travel with it — including mid-flight. The rear ramp must be open for players to board or disembark.
+Separate from Cabin Mode, the UH-1H, MH-60L Blackhawk, AW101 Merlin, and MH-6 all support **native DayZ cabin linking**. When a player physically walks into or stands on the interior/rear opening of these helicopters, they are automatically linked to the aircraft and travel with it — no action required. This applies even mid-flight.
+
+| Helicopter | How it works |
+|------------|-------------|
+| **AW101 Merlin** | All seats exit into the enclosed fuselage interior — players are linked natively on seat exit and when standing inside the aircraft. Rear ramp must be open to board or disembark. |
+| **UH-1H Iroquois** | Players can walk onto the rear cabin opening and link natively, in addition to using Cabin Mode from the cockpit. |
+| **MH-60L Blackhawk** | Same as UH-1H — rear opening supports native linking alongside Cabin Mode. |
+| **MH-6 Little Bird** | The small rear platform area supports native linking — stepping onto it links the player to the aircraft. |
+
+<Note>
+  Native cabin linking is handled by the DayZ engine directly. It is not configurable through the mod's JSON settings.
+</Note>

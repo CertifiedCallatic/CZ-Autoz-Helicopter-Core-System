@@ -1,0 +1,89 @@
+---
+title: "Per-Helicopter Settings"
+description: "Every tunable parameter in the helicopter JSON config files — flight handling, damage zones, fuel, camera, audio, and battery."
+icon: "sliders"
+---
+
+# Per-Helicopter Settings
+
+Each helicopter has its own JSON config file at `$profile:\CZAutoz_Heli\`. The settings below apply to all variants of that helicopter type.
+
+---
+
+## Flight & Handling
+
+| Setting | What it does | Defaults |
+|---------|-------------|---------|
+| `CZH_liftMultiplier` | Overall lift force. Increase to lift off easier; decrease for a heavier feel. | MD500: 2.6 · MH-6: 2.8 · SA342M: 2.7 · UH-1H: 3.3 · MH60L: 4.3 · AW101: 4.3 |
+| `CZH_pitchStrength` | W/S response speed — higher = snappier pitch. | MD500: 1.4 · MH-6: 1.65 · SA342M: 1.4 · UH-1H: 1.3 · MH60L: 1.3 · AW101: 1.0 |
+| `CZH_bankStrength` | A/D response speed — higher = faster roll. | MD500: 1.95 · MH-6: 2.4 · SA342M: 2.0 · UH-1H: 1.55 · MH60L: 1.7 · AW101: 1.2 |
+| `CZH_yawStrength` | Q/E pedal rotation rate — higher = faster yaw. | MD500: 1.4 · MH-6: 1.6 · SA342M: 1.6 · UH-1H: 1.0 · MH60L: 1.1 · AW101: 0.8 |
+| `CZH_weathervaneStrength` | Automatic nose alignment to travel direction. `0` = off. | MD500: 0.9 · MH-6: 0.95 · SA342M: 0.85 · UH-1H: 0.55 · MH60L: 0.5 · AW101: 0.3 |
+| `CZH_dragForward` | Forward air resistance — higher = more drag, slower feel. | MD500: 0.22 · MH-6: 0.24 · SA342M: 0.20 · UH-1H: 0.30 · MH60L: 0.27 · AW101: 0.30 |
+| `CZH_inputSmoothRate` | Control sharpness — higher = more direct; lower = smoother/sluggish. | MD500: 55 · MH-6: 65 · SA342M: 55 · UH-1H: 45 · MH60L: 35 · AW101: 25 |
+| `CZH_groundEffectBonus` | Extra lift near the ground (0.12 = +12%). Fades with altitude. | 0.12 |
+| `CZH_etlBonus` | Extra lift in forward flight (0.10 = +10% at cruise speed). | 0.10 |
+| `CZH_etlSpeed` | Speed in km/h at which the ETL bonus is fully applied. | 72.0 |
+| `CZH_autoRotGravityFactor` | Gravity cancelled during engine-off autorotation. Higher = slower descent. | MD500: 0.60 · MH-6: 0.58 · SA342M: 0.62 · UH-1H: 0.67 · MH60L: 0.70 · AW101: 0.75 |
+| `CZH_autoRotDescentCap` | Maximum descent rate during autorotation (m/s). | MD500: 8.5 · MH-6: 8.0 · SA342M: 9.5 · UH-1H: 11.5 · MH60L: 14.0 · AW101: 16.0 |
+| `CZH_tailRotorSpinRate` | Uncontrolled yaw spin rate when tail rotor is destroyed (deg/s). | MD500: 125 · MH-6: 130 · SA342M: 130 · UH-1H: 118 · MH60L: 110 · AW101: 100 |
+| `CZH_tailRotorDescentRate` | Forced descent rate when tail rotor is destroyed (m/s²). | 2.5 |
+
+---
+
+## Damage Zones
+
+Setting **all zones to 0** makes the helicopter fully invincible.
+
+| Setting | What it covers | Default |
+|---------|----------------|---------|
+| `CZH_dmgZoneChassis` | Landing gear / skids | Skid helicopters: `0` · Wheeled (MH60L, AW101): `1` |
+| `CZH_dmgZoneBody` | Fuselage / airframe | `1` |
+| `CZH_dmgZoneEngine` | Engine | `1` |
+| `CZH_dmgZoneFuel` | Fuel tank (damaged tank leaks faster) | `1` |
+| `CZH_dmgZoneRotor1` | Main rotor — destroyed = helicopter falls | `1` |
+| `CZH_dmgZoneRotor2` | Tail rotor — destroyed = uncontrolled yaw spin | `1` |
+
+---
+
+## Fuel & Gameplay
+
+| Setting | What it does | Default |
+|---------|-------------|---------|
+| `CZH_fuelBurnLPH` | Fuel consumption in litres per hour. `0` = unlimited fuel. Formula: `(CZH_maxFuel / desired_minutes) * 60` | MD500: 126 · MH-6: 112 · SA342M: 128 · UH-1H: 333 · MH60L: 545 · AW101: 644 |
+| `CZH_maxFuel` | Tank capacity in litres. | MD500: 242 · MH-6: 235 · SA342M: 448 · UH-1H: 833 · MH60L: 1362 · AW101: 3222 |
+| `CZH_refuelOnRestart` | Refuel to full on server restart. `0` = no, `1` = yes. | `1` |
+| `CZH_refuelDistance` | Max distance in metres for the refuel action to appear. | `4.2` |
+| `CZH_playerCrashDamage` | Crew take HP damage on hard impacts. `0` = off, `1` = on. | `0` |
+| `CZH_dmgContactCoef` | Impact damage multiplier — lower = tougher airframe. | MD500: 0.080 · MH-6: 0.055 · SA342M: 0.065 · UH-1H: 0.055 · MH60L: 0.045 · AW101: 0.035 |
+| `CZH_crashThreshold` | Impact sensitivity — higher = harder hits needed for heavy damage. | MD500: 12 · MH-6: 14 · SA342M: 13 · UH-1H: 20 · MH60L: 20 · AW101: 22 |
+| `CZH_pushForceMultiplier` | Force applied when helicopter contacts players or objects. | MD500/MH-6/SA342M: 1.0 · UH-1H: 1.5 · MH60L: 2.2 · AW101: 2.5 |
+
+---
+
+## Camera
+
+| Setting | What it does | Default |
+|---------|-------------|---------|
+| `c_camDistance` | Third-person camera follow distance in metres. | MD500/MH-6/SA342M: 11 · UH-1H: 15 · MH60L: 17.5 · AW101: 22 |
+
+---
+
+## Audio
+
+| Setting | What it does | Default |
+|---------|-------------|---------|
+| `CZH_engineVolume` | Engine sound volume multiplier (0.0–2.0+). | `1.0` |
+| `CZH_rotorVolume` | Rotor sound volume multiplier (0.0–2.0+). | `1.0` (AW101: `1.5`) |
+| `CZH_warningVolume` | Volume for rotor emergency alarm and fuel warning beep. | `1.0` |
+| `CZH_crashVolume` | Crash sound volume multiplier. | `1.0` |
+
+---
+
+## Battery
+
+| Setting | What it does | Default |
+|---------|-------------|---------|
+| `CZH_batteryStartDrain` | Battery drained per engine start and stop. Max = 500 units. `0` = disabled. | `10.0` |
+| `CZH_batteryChargeRate` | Battery recharged per second while engine is running. `0` = disabled. | `5.0` |
+| `CZH_batteryLightDrain` | Battery drained per second while lights are on. `0` = disabled. | `2.0` |

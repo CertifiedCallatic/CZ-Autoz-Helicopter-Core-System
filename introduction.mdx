@@ -1,0 +1,85 @@
+---
+title: "CZ Autoz Helicopter"
+description: "A comprehensive helicopter simulation mod for DayZ — six unique aircraft, physics-based flight, full server customisation."
+---
+
+# CZ Autoz Helicopter
+
+CZ Autoz Helicopter brings six fully-simulated aircraft to DayZ, each with its own weight, drag, and handling feel. Every aspect of the flight model, damage system, and gameplay behaviour can be tuned by server owners through simple JSON config files — no modding knowledge required.
+
+<CardGroup cols={2}>
+  <Card title="Helicopters" icon="helicopter" href="/helicopters/overview">
+    Six aircraft from the nimble MD500 to the 18-seat AW101 Merlin
+  </Card>
+  <Card title="Features" icon="star" href="/features/flight-model">
+    Physics flight model, autopilot, interior walk, damage zones, and more
+  </Card>
+  <Card title="Server Config" icon="sliders" href="/server-config/quick-start">
+    40+ tunable parameters per helicopter via JSON files
+  </Card>
+  <Card title="Required Items" icon="battery-full" href="/server-config/required-items">
+    HelicopterBattery and HelicopterRepairKit class names
+  </Card>
+</CardGroup>
+
+---
+
+## The Six Helicopters
+
+| Helicopter | Seats | Interior Walk | Startup Time |
+|------------|-------|---------------|-------------|
+| MD500 Civilian | 4 | — | ~17 s |
+| MH-6 Little Bird | 6 | — | ~17 s |
+| SA342M Gazelle | 4 | — | ~32 s |
+| UH-1H Iroquois | 5 | ✓ | ~49 s |
+| MH-60L Blackhawk | 8 | ✓ | ~20 s |
+| AW101 Merlin | 18 | — | ~60 s |
+
+---
+
+## Core Features at a Glance
+
+- **Physics-based flight** — each helicopter has unique mass, drag, and control feel
+- **Autopilot / Auto-hover** — press `X` to lock into a stable hover; holds altitude, heading, and position
+- **6 independent damage zones** — Body, Engine, Chassis, Fuel, Main Rotor, Tail Rotor; each toggleable per server
+- **Autorotation** — engine-off rotor inertia glide allows a controlled emergency landing
+- **Interior Walk** — pilot or co-pilot of the UH-1H and Blackhawk can walk inside the cabin with full movement and weapon use
+- **Battery system** — HelicopterBattery required before engine start; charges while running, drains on lights
+- **Repair system** — HelicopterRepairKit repairs all damage zones (engine off, grounded)
+- **Cargo** — base storage built in, plus up to 10 extra 1,000-slot modules per helicopter
+- **HUD** — airspeed (knots), altitude AGL, health bar, autopilot status
+- **Fuel warning** — audio beeps at configurable threshold, increasing frequency as fuel drops
+- **Activity logging** — player events logged with display name and Steam GUID
+- **Auto-updating config** — new mod update keys are added automatically; your custom values are never overwritten
+
+---
+
+## Config Files
+
+All configuration files are generated automatically on first server start at:
+
+```
+$profile:\CZAutoz_Heli\
+```
+
+| File | What it controls |
+|------|-----------------|
+| `MD500_Civilian_config.json` | MD500 Civilian (all variants) |
+| `MH6_config.json` | MH-6 Little Bird |
+| `SA342M_config.json` | SA342M Gazelle |
+| `UH1H_config.json` | UH-1H Iroquois (all variants) |
+| `MH60LBlackhawk_config.json` | MH-60L Blackhawk (all variants) |
+| `AW101Merlin_config.json` | AW101 Merlin (all variants) |
+| `mod_config.json` | Global settings for all helicopters |
+
+<Note>
+  Sub-variants (e.g. `UH1H_Nasa`, `MH60LBlackhawk_Desert`) each have their own JSON file with the same configurable fields as the base type.
+</Note>
+
+A full configuration guide is also generated on each server start at:
+
+```
+$profile:\CZAutoz_Heli\Guide\description_config_EN.md
+```
+
+Open this in any Markdown viewer (VS Code, Obsidian, GitHub, Notepad++ with Markdown plugin) for a formatted reference. The guide is available in 25+ languages in the same `Guide\` folder.

@@ -1,0 +1,77 @@
+---
+title: "HUD & Fuel"
+description: "In-cockpit HUD showing airspeed, altitude, health, and autopilot status. Audio fuel warnings with configurable threshold."
+icon: "gauge-high"
+---
+
+# HUD & Fuel System
+
+## HUD
+
+The helicopter HUD is displayed for both the **pilot and co-pilot** whenever they are seated in a cockpit seat. It shows:
+
+| Element | Description |
+|---------|-------------|
+| **Airspeed** | Current speed in knots |
+| **Altitude AGL** | Height above ground level in metres |
+| **Health Bar** | Current helicopter HP |
+| **Autopilot Status** | Whether autopilot is currently active |
+
+---
+
+## Fuel System
+
+### Fuel Capacity & Burn Rate
+
+| Helicopter | Tank Capacity | Burn Rate | Approx. Flight Time |
+|------------|--------------|-----------|-------------------|
+| MD500 Civilian | 242 L | 126 L/hr | ~1h 55m |
+| MH-6 Little Bird | 235 L | 112 L/hr | ~2h 06m |
+| SA342M Gazelle | 448 L | 128 L/hr | ~3h 30m |
+| UH-1H Iroquois | 833 L | 333 L/hr | ~2h 30m |
+| MH-60L Blackhawk | 1,362 L | 545 L/hr | ~2h 30m |
+| AW101 Merlin | 3,222 L | 644 L/hr | ~5h 00m |
+
+### Unlimited Fuel
+
+Set `CZH_fuelBurnLPH = 0` to disable fuel consumption entirely.
+
+### Custom Flight Duration Formula
+
+```
+CZH_fuelBurnLPH = (CZH_maxFuel / desired_flight_minutes) * 60
+```
+
+**Example** — UH-1H for exactly 1 hour of flight:
+```
+CZH_fuelBurnLPH = (833 / 60) * 60 = 833
+```
+
+### Refuel Settings
+
+| Setting | What it does | Default |
+|---------|-------------|---------|
+| `CZH_refuelOnRestart` | `1` = helicopter refuels to full on each server restart | `1` |
+| `CZH_refuelDistance` | Max distance in metres for the refuel action to appear | `4.2` |
+
+### Fuel Warning System
+
+Audio warning beeps alert the crew when fuel is running low:
+
+- Beeps begin at the configured fuel fraction threshold
+- The beep interval **shortens as fuel continues to drop** — urgency increases
+- Both pilot and co-pilot hear the warning
+
+| Setting | What it does | Default |
+|---------|-------------|---------|
+| `CZH_fuelWarnThreshold` | Fuel fraction at which beeps begin. `0.20` = starts at 20% remaining. | `0.20` |
+| `CZH_warningVolume` | Volume of the fuel warning beep and rotor emergency alarm | `1.0` |
+
+### Audio Volume Settings
+
+| Setting | What it controls | Default |
+|---------|-----------------|---------|
+| `CZH_engineVolume` | Engine sound (0.0–2.0+) | `1.0` |
+| `CZH_rotorVolume` | Rotor sound (0.0–2.0+) | `1.0` (AW101: `1.5`) |
+| `CZH_warningVolume` | Warning beeps and alarms | `1.0` |
+| `CZH_crashVolume` | Crash sound | `1.0` |

@@ -1,0 +1,68 @@
+---
+title: "Repair & Battery"
+description: "HelicopterRepairKit repairs all damage zones. HelicopterBattery is required before engine start."
+icon: "screwdriver-wrench"
+---
+
+# Repair & Battery Systems
+
+## Repair System
+
+### Requirements
+
+All repairs require:
+- **`HelicopterRepairKit`** held in the player's hands
+- **Engine must be off**
+- **Helicopter must be grounded**
+
+### What Gets Repaired
+
+The HelicopterRepairKit repairs **all 6 damage zones**: Body, Engine, Chassis, Fuel, Main Rotor, Tail Rotor.
+
+### Progressive Repair
+
+Zone repair is progressive — each hold action repairs **one damage level**. If a zone has taken heavy damage, multiple hold actions may be required to fully restore it.
+
+Each repair also restores a fraction of global HP (`CZH_repairGlobalHpPct`).
+
+### Repair Settings
+
+All repair settings live in `mod_config.json` and apply globally.
+
+| Setting | What it does | Default |
+|---------|-------------|---------|
+| `CZH_repairKitUses` | Number of repairs a kit can perform before going ruined | `5` |
+| `CZH_rotorRepairTime` | Hold time in seconds to repair a rotor | `45` |
+| `CZH_zoneRepairTime` | Hold time in seconds to repair body/engine/chassis/fuel zone | `30` |
+| `CZH_repairGlobalHpPct` | Global HP fraction added per repair (0.10 = +10% per action) | `0.10` |
+
+---
+
+## Battery System
+
+### Requirements
+
+A **`HelicopterBattery`** must be in the `HelicopterBattery` inventory slot with **charge greater than 0** before the engine can be started.
+
+### Battery Behaviour
+
+| Event | Effect |
+|-------|--------|
+| Engine start | Drains `CZH_batteryStartDrain` units |
+| Engine stop | Drains `CZH_batteryStartDrain` units |
+| Engine running | Recharges `CZH_batteryChargeRate` units per second |
+| Lights on | Drains `CZH_batteryLightDrain` units per second |
+
+Battery maximum charge is **500 units**.
+
+### Battery Settings
+
+| Setting | What it does | Default |
+|---------|-------------|---------|
+| `CZH_batteryStartDrain` | Battery drained per engine start/stop. `0` = no drain. | `10.0` |
+| `CZH_batteryChargeRate` | Battery recharged per second while engine is running. `0` = no recharge. | `5.0` |
+| `CZH_batteryLightDrain` | Battery drained per second while lights are on. `0` = no drain. | `2.0` |
+
+<Tip>
+  To disable the battery requirement entirely, set `CZH_batteryStartDrain = 0`. The helicopter will start without needing a battery in the slot.
+</Tip>

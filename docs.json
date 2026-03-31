@@ -1,0 +1,62 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "CZ Autoz Helicopter",
+  "colors": {
+    "primary": "#0EA5E9",
+    "light": "#38BDF8",
+    "dark": "#0284C7"
+  },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": ["introduction"]
+          },
+          {
+            "group": "Helicopters",
+            "pages": [
+              "helicopters/overview",
+              "helicopters/md500-civilian",
+              "helicopters/mh6-little-bird",
+              "helicopters/sa342m-gazelle",
+              "helicopters/uh1h-iroquois",
+              "helicopters/mh60l-blackhawk",
+              "helicopters/aw101-merlin"
+            ]
+          },
+          {
+            "group": "Features",
+            "pages": [
+              "features/flight-model",
+              "features/autopilot",
+              "features/damage-zones",
+              "features/repair-battery",
+              "features/interior-walk",
+              "features/cargo-system",
+              "features/hud-fuel"
+            ]
+          },
+          {
+            "group": "Server Configuration",
+            "pages": [
+              "server-config/quick-start",
+              "server-config/per-helicopter-settings",
+              "server-config/global-settings",
+              "server-config/required-items"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "socials": {
+      "discord": "https://discord.gg/czautoz"
+    }
+  }
+}

@@ -1,0 +1,79 @@
+---
+title: "Global Settings"
+description: "mod_config.json — server-wide settings affecting all helicopters: cargo modules, repair, toggles, and logging."
+icon: "gear"
+---
+
+# Global Settings — mod_config.json
+
+Edit `$profile:\CZAutoz_Heli\mod_config.json` to change settings that apply to **all helicopters** on your server.
+
+Delete this file and restart to regenerate it with all default values.
+
+<Note>
+  When the mod updates and adds new config keys, they are automatically inserted into your existing `mod_config.json`. Your custom values are never overwritten.
+</Note>
+
+---
+
+## Extra Cargo Modules
+
+Each extra module adds **1,000 inventory slots**. Maximum **10 modules** per helicopter.
+
+| Setting | Helicopter | Max total slots |
+|---------|------------|----------------|
+| `CZH_extra_modules_md500` | MD500 Civilian | 10,250 |
+| `CZH_extra_modules_mh6` | MH-6 Little Bird | 10,250 |
+| `CZH_extra_modules_sa342m` | SA342M Gazelle | 10,250 |
+| `CZH_extra_modules_uh1h` | UH-1H Iroquois | 10,500 |
+| `CZH_extra_modules_blackhawk` | MH-60L Blackhawk | 10,500 |
+| `CZH_extra_modules_merlin` | AW101 Merlin | 11,000 |
+
+| Setting | What it does | Default |
+|---------|-------------|---------|
+| `CZH_seatedCargoAccess` | `1` = crew can open extra cargo while seated. `0` = locked while seated. | `1` |
+
+---
+
+## Repair
+
+All repairs require HelicopterRepairKit in hands, engine off, helicopter grounded.
+
+| Setting | What it does | Default |
+|---------|-------------|---------|
+| `CZH_repairKitUses` | Number of repairs a kit can perform before going ruined. | `5` |
+| `CZH_rotorRepairTime` | Hold time in seconds to repair a rotor. | `45` |
+| `CZH_zoneRepairTime` | Hold time in seconds to repair a body/engine/chassis/fuel zone. | `30` |
+| `CZH_repairGlobalHpPct` | Global HP fraction added per repair (0.10 = +10% global HP per action). | `0.10` |
+
+<Note>
+  Zone repair is progressive — one hold repairs one damage level. Full repair of a heavily damaged zone may require multiple holds.
+</Note>
+
+---
+
+## Thresholds & Toggles
+
+| Setting | What it does | Default |
+|---------|-------------|---------|
+| `CZH_fuelWarnThreshold` | Fuel fraction at which warning beeps begin. `0.20` = starts at 20% remaining. | `0.20` |
+| `CZH_playerCrashDamageMax` | Max HP damage to crew per hard impact (requires `CZH_playerCrashDamage = 1` on the helicopter). | `75` |
+| `CZH_rotorBladeShear` | `1` = rotor blades shear off on geometry contact (trees, buildings, terrain). `0` = no shear. | `1` |
+| `CZH_rotorDiscCollision` | `1` = spinning rotor disc has physical collision. `0` = no disc collision. | `1` |
+| `CZH_rotorPlayerKillEnabled` | `1` = players entering a spinning rotor disc are instantly killed. `0` = disabled. | `1` |
+| `CZH_groundFlipRecovery` | `1` = pressing `X` while grounded and inverted flips the helicopter upright. `0` = disabled. | `0` |
+| `CZH_autoPilotEnabled` | `1` = autopilot works normally. `0` = disabled server-wide (`X` key does nothing). | `1` |
+| `CZH_cabinModeEnabled` | `1` = Interior Walk enabled. `0` = disabled server-wide for all helicopters. | `1` |
+
+---
+
+## Logging
+
+| Setting | What it does | Default |
+|---------|-------------|---------|
+| `CZH_debugLogging` | `1` = verbose debug output written to `CZAutoz_Heli_debug.log`. Only enable when troubleshooting — do not leave on in production. | `0` |
+| `CZH_activityLogging` | `1` = all player helicopter events logged to a daily file at `$profile:\CZAutoz_Heli_Activity_YYYY-MM-DD.log`. Each entry includes the player's display name and Steam GUID. | `0` |
+
+<Tip>
+  Activity logging is useful for keeping a record of who has been flying which helicopters and when — helpful for admin investigations.
+</Tip>

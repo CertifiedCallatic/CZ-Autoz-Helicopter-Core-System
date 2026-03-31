@@ -1,0 +1,66 @@
+---
+title: "SA342M Gazelle"
+description: "4-seat helicopter with a reversed cockpit layout — pilot on the RIGHT. Door latching system requires front doors removed before rear."
+icon: "helicopter"
+---
+
+# SA342M Gazelle
+
+The SA342M Gazelle is a sleek 4-seat helicopter with one unique characteristic: its cockpit is reversed compared to all other helicopters in the mod. The longer startup time reflects its more complex simulation.
+
+## Specifications
+
+| Property | Value |
+|----------|-------|
+| **Total Seats** | 4 |
+| **Cockpit** | 2 |
+| **Cabin** | 2 |
+| **Interior Walk** | No |
+| **Startup Time** | ~32 seconds |
+| **Config File** | `SA342M_config.json` |
+
+## Variants
+
+| Variant | Description |
+|---------|-------------|
+| Standard | Default livery |
+| Woodland | Camouflage woodland scheme |
+| Tiger Meet | Tiger Meet special livery |
+
+## Reversed Cockpit
+
+<Warning>
+  The Gazelle's cockpit layout is the **opposite** of every other helicopter in this mod.
+
+  - **Pilot seat** → **RIGHT side**
+  - **Co-pilot seat** → **LEFT side**
+
+  Keep this in mind when assigning crew or using side-specific features.
+</Warning>
+
+## Door Latching
+
+The Gazelle has a door latching system that affects the order in which doors can be opened:
+
+- **Right rear door** requires the **pilot (right front) door** to be removed first
+- **Left rear door** requires the **co-pilot (left front) door** to be removed first
+
+This is a physical constraint — you cannot open the rear doors without first removing the corresponding front door.
+
+## Default Flight Tuning
+
+| Parameter | Default |
+|-----------|---------|
+| `CZH_liftMultiplier` | 2.7 |
+| `CZH_pitchStrength` | 1.4 |
+| `CZH_bankStrength` | 2.0 |
+| `CZH_yawStrength` | 1.6 |
+| `CZH_weathervaneStrength` | 0.85 |
+| `CZH_dragForward` | 0.20 |
+| `CZH_inputSmoothRate` | 55 |
+| `CZH_autoRotGravityFactor` | 0.62 |
+| `CZH_autoRotDescentCap` | 9.5 m/s |
+| `CZH_tailRotorSpinRate` | 130 deg/s |
+| `c_camDistance` | 11 m |
+| `CZH_maxFuel` | 448 L |
+| `CZH_fuelBurnLPH` | 128 L/hr |

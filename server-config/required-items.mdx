@@ -1,0 +1,86 @@
+---
+title: "Required Items"
+description: "Classnames for HelicopterBattery and HelicopterRepairKit — both required for normal helicopter operation."
+icon: "battery-full"
+---
+
+# Required Items
+
+Two items are required for full helicopter functionality. Both are custom items added by the CZ Autoz Helicopter mod and need to be added to your server's loot economy.
+
+---
+
+## HelicopterBattery
+
+| Property | Value |
+|----------|-------|
+| **Classname** | `HelicopterBattery` |
+| **Inventory slot** | `HelicopterBattery` (dedicated slot in helicopter inventory) |
+| **Required for** | Starting the engine |
+
+### Behaviour
+
+- Must be in the `HelicopterBattery` slot with **charge greater than 0** before the engine can be started
+- **Drains** by `CZH_batteryStartDrain` units on each engine start and engine stop
+- **Recharges** at `CZH_batteryChargeRate` units per second while the engine is running
+- **Drains** at `CZH_batteryLightDrain` units per second while lights are on
+- Battery maximum charge is **500 units**
+
+<Tip>
+  To disable the battery requirement entirely, set `CZH_batteryStartDrain = 0` in the helicopter's JSON config. The engine will start without needing a charged battery in the slot.
+</Tip>
+
+---
+
+## HelicopterRepairKit
+
+| Property | Value |
+|----------|-------|
+| **Classname** | `HelicopterRepairKit` |
+| **Must be held** | In the player's hands |
+| **Engine state** | Must be off |
+| **Helicopter state** | Must be grounded |
+
+### What it Repairs
+
+Repairs all 6 damage zones: Body, Engine, Chassis, Fuel, Main Rotor, Tail Rotor.
+
+### Repair Kit Durability
+
+A single kit can perform `CZH_repairKitUses` repairs (default: **5**) before going ruined. Configure in `mod_config.json`.
+
+---
+
+## Adding Items to Your Server
+
+Add both classnames to your server's `types.xml` to control spawn rates. Example entries:
+
+```xml
+<type name="HelicopterBattery">
+    <nominal>5</nominal>
+    <lifetime>3600</lifetime>
+    <restock>1800</restock>
+    <min>2</min>
+    <quantmin>-1</quantmin>
+    <quantmax>-1</quantmax>
+    <cost>100</cost>
+    <flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+    <category name="tools"/>
+</type>
+
+<type name="HelicopterRepairKit">
+    <nominal>5</nominal>
+    <lifetime>3600</lifetime>
+    <restock>1800</restock>
+    <min>2</min>
+    <quantmin>-1</quantmin>
+    <quantmax>-1</quantmax>
+    <cost>100</cost>
+    <flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+    <category name="tools"/>
+</type>
+```
+
+<Note>
+  Adjust `nominal`, `min`, and `lifetime` to suit your server's economy. The values above are examples only.
+</Note>

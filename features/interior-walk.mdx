@@ -1,0 +1,51 @@
+---
+title: "Interior Walk"
+description: "Pilot or co-pilot can leave the cockpit and walk inside the cabin with full WASD, weapon use, and ADS — available on UH-1H and Blackhawk."
+icon: "person-walking"
+---
+
+# Interior Walk
+
+Interior Walk allows the pilot or co-pilot of certain helicopters to leave their cockpit seat and walk freely inside the cabin while the helicopter is in flight. Full WASD movement, weapon use, and aiming down sights (ADS) are all available.
+
+## Supported Helicopters
+
+| Helicopter | Interior Walk |
+|------------|:------------:|
+| MD500 Civilian | ✗ |
+| MH-6 Little Bird | ✗ |
+| SA342M Gazelle | ✗ |
+| **UH-1H Iroquois** | ✓ |
+| **MH-60L Blackhawk** | ✓ |
+| AW101 Merlin | ✗ |
+
+## How to Use
+
+### Entering the Cabin
+
+1. Be seated as **pilot or co-pilot**
+2. Look for the **"Move to Cabin"** interaction action
+3. Activate it — after a short 1.5-second transition your character is linked to the helicopter's coordinate space and moves with it in flight
+
+### Inside the Cabin
+
+- Full **WASD movement** — walk around inside the helicopter
+- **Weapon use** — draw and fire weapons
+- **ADS** — aim down sights normally
+- Physical **wall boundaries** prevent walking through the fuselage
+
+### Returning to the Cockpit
+
+1. Look for the **"Return to Cockpit"** action
+2. Activate it — your character re-seats in the cockpit
+3. Returns to your original seat (pilot or co-pilot) if free; otherwise places you in the alternate cockpit seat
+
+## Server Configuration
+
+| Setting | What it does | Default |
+|---------|-------------|---------|
+| `CZH_cabinModeEnabled` | `1` = Interior Walk enabled. `0` = disabled server-wide for all helicopters. | `1` |
+
+<Note>
+  Interior Walk is a cockpit crew feature only. Standard cabin passengers cannot enter walk mode — only the pilot and co-pilot have the "Move to Cabin" action.
+</Note>

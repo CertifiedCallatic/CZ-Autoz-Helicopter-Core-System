@@ -1,0 +1,67 @@
+---
+title: "Quick Start"
+description: "Get your server configured in minutes — where the config files are, how to edit them, and how to reset to defaults."
+icon: "rocket"
+---
+
+# Server Configuration Quick Start
+
+## Where Are the Config Files?
+
+All config files are automatically generated on the first server start at:
+
+```
+$profile:\CZAutoz_Heli\
+```
+
+<Note>
+  `$profile:` refers to your DayZ server profile directory — the folder that contains your `BattlEye`, `mpmissions`, and `.RPT` log files.
+</Note>
+
+## File List
+
+| File | Controls |
+|------|----------|
+| `MD500_Civilian_config.json` | MD500 Civilian — all variants |
+| `MH6_config.json` | MH-6 Little Bird |
+| `SA342M_config.json` | SA342M Gazelle |
+| `UH1H_config.json` | UH-1H Iroquois — all variants |
+| `MH60LBlackhawk_config.json` | MH-60L Blackhawk — all variants |
+| `AW101Merlin_config.json` | AW101 Merlin — all variants |
+| `mod_config.json` | Global settings for all helicopters |
+
+<Tip>
+  Sub-variants (e.g. `UH1H_Nasa`, `MH60LBlackhawk_Desert`) each get their own JSON file with the same configurable fields as the base type.
+</Tip>
+
+## How to Edit
+
+1. Navigate to `$profile:\CZAutoz_Heli\`
+2. Open the JSON file for the helicopter you want to adjust in any text editor
+3. Change the values
+4. **Restart the server** — changes only take effect on next start
+
+## How to Reset to Defaults
+
+Delete the helicopter's JSON file and restart. It will be regenerated with all default values.
+
+## Auto-Updating Config
+
+When the mod updates and introduces new config keys:
+- New keys are **automatically added** to your existing files
+- Your **custom values are preserved** — nothing is overwritten
+- Old configs are **backed up** to `$profile:\CZAutoz_Heli\backup\` before any changes are made
+
+<Warning>
+  Do **not** manually change the `CZH_version` field in any JSON file. Doing so triggers an automatic config reset for that helicopter, discarding your custom values.
+</Warning>
+
+## Generated Reference Guide
+
+On every server start, a full configuration reference is written to:
+
+```
+$profile:\CZAutoz_Heli\Guide\description_config_EN.md
+```
+
+This guide is available in **25+ languages** in the same `Guide\` folder. Open any file in a Markdown viewer (VS Code, Obsidian, GitHub) for a formatted reference.

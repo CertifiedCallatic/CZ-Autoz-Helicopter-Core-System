@@ -1,0 +1,84 @@
+---
+title: "Damage Zones"
+description: "6 independent damage zones per helicopter — each toggleable. Disable all to make the helicopter fully invincible."
+icon: "shield-halved"
+---
+
+# Damage Zones
+
+Each helicopter has 6 independent damage zones. Each zone can be individually enabled or disabled per helicopter via its JSON config file. Setting all zones to `0` makes that helicopter completely invincible.
+
+## The 6 Zones
+
+| Zone Setting | What it covers | Effect when destroyed |
+|-------------|----------------|----------------------|
+| `CZH_dmgZoneBody` | Fuselage / airframe | Reduced structural integrity |
+| `CZH_dmgZoneEngine` | Engine | Engine failure, forced autorotation |
+| `CZH_dmgZoneChassis` | Landing gear / skids | Loss of stable ground contact |
+| `CZH_dmgZoneFuel` | Fuel tank | Increased fuel leak rate |
+| `CZH_dmgZoneRotor1` | Main rotor | **Helicopter falls — immediate crash** |
+| `CZH_dmgZoneRotor2` | Tail rotor | **Uncontrolled yaw spin** |
+
+## Defaults
+
+| Helicopter | Chassis | Body | Engine | Fuel | Main Rotor | Tail Rotor |
+|------------|---------|------|--------|------|------------|------------|
+| MD500, MH-6, SA342M, UH-1H | 0 | 1 | 1 | 1 | 1 | 1 |
+| MH-60L Blackhawk | 1 | 1 | 1 | 1 | 1 | 1 |
+| AW101 Merlin | 1 | 1 | 1 | 1 | 1 | 1 |
+
+Skid-equipped helicopters have chassis damage disabled by default. Wheeled helicopters (Blackhawk, Merlin) have it enabled.
+
+## Rotor Damage
+
+### Main Rotor Destroyed
+The helicopter immediately loses lift and falls. There is no recovery.
+
+### Tail Rotor Destroyed
+The helicopter enters an uncontrolled yaw spin. Spin rate is set by `CZH_tailRotorSpinRate` and a forced descent is applied at `CZH_tailRotorDescentRate`.
+
+| Helicopter | Tail Rotor Spin Rate |
+|------------|---------------------|
+| MD500 Civilian | 125 deg/s |
+| MH-6 Little Bird | 130 deg/s |
+| SA342M Gazelle | 130 deg/s |
+| UH-1H Iroquois | 118 deg/s |
+| MH-60L Blackhawk | 110 deg/s |
+| AW101 Merlin | 100 deg/s |
+
+## Rotor Blade Shear
+
+Rotor blades can shear off on contact with geometry (trees, buildings, terrain):
+
+| Setting | Default |
+|---------|---------|
+| `CZH_rotorBladeShear` | `1` = blades shear on contact · `0` = no shear |
+
+## Rotor Disc Collision & Player Kill
+
+| Setting | What it does | Default |
+|---------|-------------|---------|
+| `CZH_rotorDiscCollision` | `1` = spinning rotor disc has physical collision | `1` |
+| `CZH_rotorPlayerKillEnabled` | `1` = players entering a spinning rotor disc are instantly killed | `1` |
+
+## Making a Helicopter Invincible
+
+Set all 6 zone values to `0` in the helicopter's JSON config file:
+
+```json
+"CZH_dmgZoneChassis": 0,
+"CZH_dmgZoneBody": 0,
+"CZH_dmgZoneEngine": 0,
+"CZH_dmgZoneFuel": 0,
+"CZH_dmgZoneRotor1": 0,
+"CZH_dmgZoneRotor2": 0
+```
+
+## Impact Damage
+
+| Setting | What it does | Default |
+|---------|-------------|---------|
+| `CZH_dmgContactCoef` | Impact damage multiplier — lower = tougher airframe | MD500: 0.080 · MH-6: 0.055 · SA342M: 0.065 · UH-1H: 0.055 · MH60L: 0.045 · AW101: 0.035 |
+| `CZH_crashThreshold` | Impact sensitivity — higher = harder hits needed for heavy damage | MD500: 12 · MH-6: 14 · SA342M: 13 · UH-1H: 20 · MH60L: 20 · AW101: 22 |
+| `CZH_playerCrashDamage` | `1` = crew take HP damage on hard impacts (per helicopter) | `0` |
+| `CZH_playerCrashDamageMax` | Max HP damage per impact — global setting in `mod_config.json` | `75` |

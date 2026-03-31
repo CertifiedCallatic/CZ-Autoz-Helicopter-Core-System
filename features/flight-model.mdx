@@ -1,0 +1,69 @@
+---
+title: "Flight Model"
+description: "Physics-based flight simulation — unique handling per helicopter, ground effect, ETL, and autorotation."
+icon: "wind"
+---
+
+# Flight Model
+
+Every helicopter in CZ Autoz uses a server-side physics simulation with unique mass, drag, and control parameters. No two aircraft fly the same way — a nimble MD500 and a heavy AW101 Merlin require very different technique.
+
+## How It Works
+
+The flight model runs on the server and applies forces to the helicopter body every physics tick:
+
+| Force | Control | Parameter |
+|-------|---------|-----------|
+| Lift | Main rotor thrust | `CZH_liftMultiplier` |
+| Pitch | W / S keys | `CZH_pitchStrength` |
+| Roll | A / D keys | `CZH_bankStrength` |
+| Yaw | Q / E keys | `CZH_yawStrength` |
+| Forward drag | Air resistance | `CZH_dragForward` |
+| Weathervane | Auto nose alignment | `CZH_weathervaneStrength` |
+| Input smoothing | Control sharpness | `CZH_inputSmoothRate` |
+
+## Ground Effect
+
+When flying close to the ground, the helicopter receives additional lift:
+
+- Configured via `CZH_groundEffectBonus` (default `0.12` = +12% lift)
+- Fades linearly as altitude increases
+- Makes low hovering feel slightly more stable
+
+## Effective Translational Lift (ETL)
+
+Forward flight generates extra lift:
+
+- Configured via `CZH_etlBonus` (default `0.10` = +10% at cruise speed)
+- `CZH_etlSpeed` sets the speed in km/h at which the full bonus applies (default `72.0`)
+- A helicopter will fly more efficiently in forward flight than in a stationary hover
+
+## Autorotation
+
+If the engine stops (fuel out, engine destroyed, or manually shut down), the rotor continues spinning through inertia:
+
+- The helicopter enters a controlled descent rather than an immediate freefall
+- `CZH_autoRotGravityFactor` controls how much gravity is cancelled during the glide
+- `CZH_autoRotDescentCap` sets the maximum descent rate in m/s
+- A skilled pilot can perform a survivable landing using autorotation technique
+
+| Helicopter | Gravity Factor | Max Descent |
+|------------|---------------|-------------|
+| MD500 Civilian | 0.60 | 8.5 m/s |
+| MH-6 Little Bird | 0.58 | 8.0 m/s |
+| SA342M Gazelle | 0.62 | 9.5 m/s |
+| UH-1H Iroquois | 0.67 | 11.5 m/s |
+| MH-60L Blackhawk | 0.70 | 14.0 m/s |
+| AW101 Merlin | 0.75 | 16.0 m/s |
+
+## Ground Flip Recovery
+
+If a helicopter ends up inverted on the ground (bank angle ≥ 90°), pressing `X` will flip it upright.
+
+- Disabled by default — enable with `CZH_groundFlipRecovery = 1` in `mod_config.json`
+- Only activates when grounded and inverted — not in flight
+
+## Pilot Exits In Flight
+
+- If the **pilot voluntarily exits** while airborne, autopilot engages automatically to hold position
+- If the **pilot is killed in their seat**, the helicopter continues on its last heading with no autopilot snap — it will fly freely until it crashes or someone takes control

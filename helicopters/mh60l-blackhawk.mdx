@@ -1,0 +1,63 @@
+---
+title: "MH-60L Blackhawk"
+description: "8-seat medium transport with Interior Walk and independently toggleable sliding cockpit windows."
+icon: "helicopter"
+---
+
+# MH-60L Blackhawk
+
+The MH-60L Blackhawk is a capable 8-seat medium transport helicopter. Along with the UH-1H, it is one of two aircraft with full Interior Walk. It also features independently toggleable sliding cockpit windows for both pilot and co-pilot.
+
+## Specifications
+
+| Property | Value |
+|----------|-------|
+| **Total Seats** | 8 |
+| **Cockpit** | 2 (pilot + co-pilot) |
+| **Cabin** | 6 |
+| **Interior Walk** | ✓ Yes |
+| **Startup Time** | ~20 seconds |
+| **Config File** | `MH60LBlackhawk_config.json` |
+
+## Variants
+
+| Variant | Description |
+|---------|-------------|
+| Olive Drab | Standard military olive drab |
+| Desert Tan | Desert camouflage tan |
+
+## Interior Walk
+
+The Blackhawk supports the same Interior Walk system as the UH-1H:
+
+1. Pilot or co-pilot uses **"Move to Cabin"** to enter walk mode
+2. Full WASD movement, weapon use, and ADS inside the cabin
+3. **"Return to Cockpit"** re-seats them (prefers original seat)
+
+See [Interior Walk](/features/interior-walk) for full details.
+
+## Sliding Windows
+
+The Blackhawk has independently toggleable sliding windows on each cockpit door:
+
+- **Pilot** and **co-pilot** each control their own window separately
+- Look at the **cockpit side glass** to get the toggle action
+- Windows can be opened or closed at any time, in flight or on the ground
+
+## Default Flight Tuning
+
+| Parameter | Default |
+|-----------|---------|
+| `CZH_liftMultiplier` | 4.3 |
+| `CZH_pitchStrength` | 1.3 |
+| `CZH_bankStrength` | 1.7 |
+| `CZH_yawStrength` | 1.1 |
+| `CZH_weathervaneStrength` | 0.5 |
+| `CZH_dragForward` | 0.27 |
+| `CZH_inputSmoothRate` | 35 |
+| `CZH_autoRotGravityFactor` | 0.70 |
+| `CZH_autoRotDescentCap` | 14.0 m/s |
+| `CZH_tailRotorSpinRate` | 110 deg/s |
+| `c_camDistance` | 17.5 m |
+| `CZH_maxFuel` | 1362 L |
+| `CZH_fuelBurnLPH` | 545 L/hr |

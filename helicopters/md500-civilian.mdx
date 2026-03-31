@@ -1,0 +1,64 @@
+---
+title: "MD500 Civilian"
+description: "Lightweight 4-seat open-air utility helicopter. Fast startup, nimble handling, 4 colour variants."
+icon: "helicopter"
+---
+
+# MD500 Civilian
+
+The MD500 Civilian is a lightweight, open-air helicopter. With no enclosed cabin, both cockpit and rear seats are fully exposed to the elements. It is one of the faster-spooling aircraft in the mod and handles with a light, responsive feel.
+
+## Specifications
+
+| Property | Value |
+|----------|-------|
+| **Total Seats** | 4 |
+| **Cockpit** | 2 (pilot + co-pilot, open-air) |
+| **Rear Cargo** | 2 (open-air) |
+| **Interior Walk** | No |
+| **Startup Time** | ~17 seconds |
+| **Config File** | `MD500_Civilian_config.json` |
+
+## Variants
+
+| Variant | Description |
+|---------|-------------|
+| Civilian White | Clean white civilian livery |
+| Classic Red/Silver | Classic utility colour scheme |
+| Blue Charter | Charter aviation blue |
+| Green Tour | Tour operator green |
+
+<Note>
+  Each variant has its own JSON config file (e.g. `MD500_Civilian_White_config.json`) with the same configurable fields as the base type.
+</Note>
+
+## Doors
+
+The MD500 has 4 removable door panels — one per seat position:
+
+- Pilot door (front left)
+- Co-pilot door (front right)
+- Left rear door
+- Right rear door
+
+Doors are removed via the interaction action and become physical items that can be picked up or left at the landing site.
+
+## Default Flight Tuning
+
+| Parameter | Default |
+|-----------|---------|
+| `CZH_liftMultiplier` | 2.6 |
+| `CZH_pitchStrength` | 1.4 |
+| `CZH_bankStrength` | 1.95 |
+| `CZH_yawStrength` | 1.4 |
+| `CZH_weathervaneStrength` | 0.9 |
+| `CZH_dragForward` | 0.22 |
+| `CZH_inputSmoothRate` | 55 |
+| `CZH_autoRotGravityFactor` | 0.60 |
+| `CZH_autoRotDescentCap` | 8.5 m/s |
+| `CZH_tailRotorSpinRate` | 125 deg/s |
+| `c_camDistance` | 11 m |
+| `CZH_maxFuel` | 242 L |
+| `CZH_fuelBurnLPH` | 126 L/hr |
+
+See [Per-Helicopter Settings](/server-config/per-helicopter-settings) for a full description of every parameter.

@@ -274,9 +274,11 @@ Always set `CZH_debugLogging` back to `0` immediately after. Never leave it enab
 $profile:\CZAutoz_Heli_Activity_YYYY-MM-DD.log
 ```
 
-A daily timestamped record of all player helicopter activity — engine starts/stops, refuels, repairs, ramp and window operations. Each entry includes the player's display name, Steam GUID, and helicopter classname. Enabled by setting `CZH_activityLogging = 1` in `mod_config.json`.
+A daily timestamped record of every significant player helicopter event — engine starts/stops, seat enter/exit, repairs, refuels, cargo changes, crashes, rotor kills, combat logging indicators, and more. Each entry includes the player's display name, Steam GUID, and helicopter classname.
 
-See [Global Settings](/server-config/global-settings#logging) for the full list of recorded events.
+This is the primary tool for admin investigations, compensation decisions, and dispute resolution. Enabled by setting `CZH_activityLogging = 1` in `mod_config.json` — we recommend enabling it on all servers.
+
+See [Global Settings](/server-config/global-settings#logging) for the full list of recorded events and what data each one captures.
 
 ---
 
@@ -284,6 +286,6 @@ See [Global Settings](/server-config/global-settings#logging) for the full list 
 
 If your issue isn't covered here, visit the CZ Autoz Discord for community support.
 
-<Card title="CZ Autoz Discord" icon="discord" href="https://discord.gg/czautoz">
+<Card title="CZ Autoz Discord" icon="discord" href="https://discord.gg/7qWZzPUuTq">
   Get help from the community and the development team
 </Card>

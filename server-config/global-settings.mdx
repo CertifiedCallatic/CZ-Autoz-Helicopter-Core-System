@@ -74,45 +74,107 @@ All repairs require HelicopterRepairKit in hands, engine off, helicopter grounde
 | Setting | What it does | Default |
 |---------|-------------|---------|
 | `CZH_debugLogging` | `1` = verbose debug output written to `CZAutoz_Heli_debug.log`. Only enable when troubleshooting — do not leave on in production. | `0` |
-| `CZH_activityLogging` | `1` = all player helicopter events logged to a daily file at `$profile:\CZAutoz_Heli_Activity_YYYY-MM-DD.log`. Each entry includes the player's display name and Steam GUID. | `0` |
+| `CZH_activityLogging` | `1` = all player helicopter events logged to a daily file at `$profile:\CZAutoz_Heli_Activity_YYYY-MM-DD.log`. Each entry includes the player's display name and Steam GUID. **Recommended to enable on all servers.** | `0` |
 
 ### Activity Log Events
 
-When `CZH_activityLogging = 1`, the following events are recorded with timestamp, player display name, Steam GUID, and helicopter classname:
+The activity log is designed as an **admin tool for investigations, compensation, and dispute resolution**. Every significant player interaction with a helicopter is recorded with a precise timestamp, player display name, and Steam GUID — giving you a complete, chronological picture of exactly what happened, who was involved, and when.
 
-| Event | Trigger |
-|-------|---------|
-| `ENGINE_START` | Player starts the engine |
-| `ENGINE_STOP` | Player stops the engine |
-| `PILOT_ENTER` | Player takes the pilot seat |
-| `PILOT_EXIT` | Player leaves the pilot seat |
-| `PILOT_KILLED` | Pilot is killed while seated |
-| `COPILOT_ENTER` | Player takes the co-pilot seat |
-| `COPILOT_EXIT` | Player leaves the co-pilot seat |
-| `CABIN_ENTER` | Pilot or co-pilot enters Interior Walk mode (UH-1H / Blackhawk) |
-| `CABIN_EXIT` | Player returns to cockpit from Interior Walk mode |
-| `REFUEL` | Player refuels the helicopter (logs fuel % after fill) |
-| `ZONE_REPAIR` | Player repairs a damage zone (body, engine, chassis, or fuel) |
-| `ROTOR_REPAIR` | Player repairs a rotor (main or tail) |
-| `WINDOW` | Player opens or closes a sliding window (Blackhawk) |
-| `RAMP` | Player opens or closes the rear ramp (Merlin) |
-| `LANDING_GEAR` | Player deploys or retracts the landing gear |
-| `ITEM_ATTACHED` | Item placed into a helicopter inventory slot |
-| `ITEM_DETACHED` | Item removed from a helicopter inventory slot |
-| `CRASH` | Hard impact — helicopter sustains crash damage |
-| `WATER_SLAM` | High-speed water contact |
-| `ROTOR_SHEAR` | Main or tail rotor blade sheared off on geometry |
-| `ROTOR_PLAYER_KILL` | A player is killed by contact with a spinning rotor disc |
-| `FLIP_RECOVERY` | Ground flip recovery triggered (requires `CZH_groundFlipRecovery = 1`) |
-| `DESTROYED` | Helicopter is destroyed |
+Common admin use cases:
+- **Combat logging** — confirm whether a player left a helicopter mid-fight or mid-pursuit
+- **Theft and griefing** — identify who took a helicopter, who was flying it, and what was removed from cargo
+- **Compensation requests** — verify whether a crash was caused by server-side damage, a rotor shear, or pilot error before compensating
+- **Dispute resolution** — cross-reference a player's account of events against the timestamped log
+- **Rotor kills** — confirm who was piloting when a player was killed by a rotor disc, including both victim and pilot GUIDs
+
+When `CZH_activityLogging = 1`, every event is recorded with a timestamp, the helicopter classname, and the player's display name and Steam GUID where applicable. All seat, engine, and physics events also include the helicopter's **world position** (X/Z coordinates) at the time of the event.
+
+#### Helicopter Presence
+
+| Event | What is logged |
+|-------|----------------|
+| `HELI_SPAWNED` | Fires once on the first server tick for each helicopter — helicopter classname and world position. Covers persisted, mission-spawned, and admin-spawned helicopters |
+
+#### Engine
+
+| Event | What is logged |
+|-------|----------------|
+| `ENGINE_START` | Player name, GUID, helicopter type, world position |
+| `ENGINE_STOP` | Player name, GUID, helicopter type, world position |
+
+#### Seats
+
+| Event | What is logged |
+|-------|----------------|
+| `PILOT_ENTER` | Player name, GUID, helicopter type, world position |
+| `PILOT_EXIT` | Player name, GUID, helicopter type, world position (voluntary exit only) |
+| `PILOT_KILLED` | Player name, GUID, helicopter type, world position (body detected in seat with `IsAlive() = false`) |
+| `COPILOT_ENTER` | Player name, GUID, helicopter type, world position |
+| `COPILOT_EXIT` | Player name, GUID, helicopter type, world position (voluntary exit only) |
+| `COPILOT_KILLED` | Player name, GUID, helicopter type, world position |
+| `CARGO_ENTER` | Player name, GUID, seat index, helicopter type, world position |
+| `CARGO_EXIT` | Player name, GUID, seat index, helicopter type, world position (voluntary exit only) |
+| `CARGO_KILLED` | Player name, GUID, seat index, helicopter type, world position |
+
+#### Cabin Mode
+
+| Event | What is logged |
+|-------|----------------|
+| `CABIN_ENTER` | Player name, GUID, origin seat index, helicopter type |
+| `CABIN_EXIT` | Player name, GUID, destination seat index, helicopter type |
+
+#### PvP Kill Detection
+
+| Event | What is logged |
+|-------|----------------|
+| `CREW_KILLED_BY_PLAYER` | Victim name + GUID, killer name + GUID, kill context (`seat 0`/`seat 1`/`seat 2+`, `cabin walk`, `on deck`, `free walk`), helicopter type, world position. Only fires when the killer is another player — environment and crash deaths are covered by `PILOT_KILLED`, `CARGO_KILLED`, and `CREW_CRASH_DAMAGE` |
+
+#### Combat & Damage
+
+| Event | What is logged |
+|-------|----------------|
+| `CREW_CRASH_DAMAGE` | Fires for each crew member who takes damage in a hard impact — player name, GUID, exact damage value, helicopter type, world position |
+| `CRASH` | Pilot name, GUID, impulse value, hit zone, helicopter type, world position |
+| `WATER_SLAM` | Pilot name, GUID, impact speed (m/s), helicopter damage, player damage dealt, world position |
+| `ROTOR_KILL` | Victim name + GUID, pilot name + GUID, helicopter type |
+| `ROTOR_DEAD` | Which rotor (main/tail), pilot name + GUID, helicopter type |
+| `ROTOR_SHEAR` | Which rotor (main/tail), pilot name + GUID, helicopter type |
+| `FUEL_EMPTY` | Pilot name + GUID, helicopter type |
+| `DESTROYED` | Killer name + GUID (or `environment` if not a player), pilot name + GUID, helicopter type, world position |
+
+#### Flight Systems
+
+| Event | What is logged |
+|-------|----------------|
+| `AUTOPILOT_ON` | Pilot name, GUID, hold altitude (m), helicopter type |
+| `AUTOPILOT_OFF` | Pilot name, GUID, helicopter type |
+| `AUTOROTATION_ENTER` | Pilot name, GUID, rotor spool value, current descent rate, helicopter type |
+| `AUTOROTATION_EXIT` | Pilot name, GUID, helicopter type (fires when engine spools back up and normal flight resumes) |
+| `FLIP_RECOVERY` | Player name, GUID, helicopter type (requires `CZH_groundFlipRecovery = 1`) |
+
+#### Maintenance & Repairs
+
+| Event | What is logged |
+|-------|----------------|
+| `REFUEL` | Player name, GUID, fuel percentage after fill, helicopter type |
+| `ZONE_REPAIR` | Player name, GUID, zone repaired (body/engine/chassis/fuel), helicopter type |
+| `ROTOR_REPAIR` | Player name, GUID, which rotor (main/tail), helicopter type |
+| `ITEM_ATTACHED` | Item classname, slot name, helicopter type. The acting player cannot be identified at the engine level |
+| `ITEM_DETACHED` | Item classname, slot name, helicopter type. The acting player cannot be identified at the engine level |
+
+#### Lights & Controls
+
+| Event | What is logged |
+|-------|----------------|
+| `SPOTLIGHT` | Pilot name, GUID, new state (ON/OFF), helicopter type |
+| `NAV_LIGHTS` | Pilot name, GUID, new state (ON/OFF), helicopter type |
+| `WINDOW` | Player name, GUID, which window (left/right), new state (OPENED/CLOSED), helicopter type |
+| `RAMP` | Player name, GUID, new state (opened/closed), helicopter type |
+| `LANDING_GEAR` | Player name, GUID, new state (deployed/retracted), helicopter type |
 
 <Tip>
-  Activity logging gives you a full timestamped record of who was operating which helicopter, when they started and stopped it, whether it was repaired or refuelled, and by whom — invaluable for admin investigations.
+  **We strongly recommend enabling activity logging on all servers.** It has no meaningful performance impact and gives you the evidence you need to handle compensation requests, combat log reports, theft disputes, and any other helicopter-related situation fairly and accurately. Without it, you are relying entirely on player accounts of what happened.
 </Tip>
-
-<Note>
-  Autorotation entry and exit events (`AUTOROT_ENTRY` / `AUTOROT_EXIT`) are written to the **debug log** (`CZAutoz_Heli_debug.log`) rather than the activity log, and only when `CZH_debugLogging = 1`.
-</Note>
 
 ### Whitelist Logs
 

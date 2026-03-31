@@ -59,5 +59,8 @@
       "discord": "https://discord.gg/czautoz"
     }
   },
-  "logo": "/CZAutoz_Logo.svg"
+  "logo": "/CZAutoz_Logo.svg",
+  "appearance": {
+    "default": "dark"
+  }
 }

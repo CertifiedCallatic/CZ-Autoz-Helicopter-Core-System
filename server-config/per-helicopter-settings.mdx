@@ -20,11 +20,11 @@ Each helicopter has its own JSON config file at `$profile:\CZAutoz_Heli\`. The s
 |---------|-------------|---------|
 | `CZH_liftMultiplier` | Overall lift force. Increase to lift off easier; decrease for a heavier feel. | MD500: 2.6 · MH-6: 2.8 · SA342M: 2.7 · UH-1H: 3.3 · MH60L: 4.3 · AW101: 4.3 |
 | `CZH_pitchStrength` | W/S response speed — higher = snappier pitch. | MD500: 1.4 · MH-6: 1.65 · SA342M: 1.4 · UH-1H: 1.3 · MH60L: 1.3 · AW101: 1.0 |
-| `CZH_bankStrength` | A/D response speed — higher = faster roll. | MD500: 1.95 · MH-6: 2.4 · SA342M: 2.0 · UH-1H: 1.55 · MH60L: 1.7 · AW101: 1.2 |
+| `CZH_bankStrength` | A/D response speed — higher = faster roll. | MD500: 2.05 · MH-6: 2.05 · SA342M: 2.0 · UH-1H: 1.85 · MH60L: 1.9 · AW101: 1.2 |
 | `CZH_yawStrength` | Q/E pedal rotation rate — higher = faster yaw. | MD500: 1.4 · MH-6: 1.6 · SA342M: 1.6 · UH-1H: 1.0 · MH60L: 1.1 · AW101: 0.8 |
-| `CZH_weathervaneStrength` | Automatic nose alignment to travel direction. `0` = off. | MD500: 0.9 · MH-6: 0.95 · SA342M: 0.85 · UH-1H: 0.55 · MH60L: 0.5 · AW101: 0.3 |
+| `CZH_weathervaneStrength` | Automatic nose alignment to travel direction. `0` = off. | MD500: 0.85 · MH-6: 0.85 · SA342M: 0.85 · UH-1H: 0.55 · MH60L: 0.5 · AW101: 0.3 |
 | `CZH_dragForward` | Forward air resistance — higher = more drag, slower feel. | MD500: 0.22 · MH-6: 0.24 · SA342M: 0.20 · UH-1H: 0.30 · MH60L: 0.27 · AW101: 0.30 |
-| `CZH_inputSmoothRate` | Control sharpness — higher = more direct; lower = smoother/sluggish. | MD500: 55 · MH-6: 65 · SA342M: 55 · UH-1H: 45 · MH60L: 35 · AW101: 25 |
+| `CZH_inputSmoothRate` | Control sharpness — higher = more direct; lower = smoother/sluggish. | MD500: 55 · MH-6: 65 · SA342M: 55 · UH-1H: 50 · MH60L: 42 · AW101: 25 |
 | `CZH_groundEffectBonus` | Extra lift near the ground (0.12 = +12%). Fades with altitude. | 0.12 |
 | `CZH_etlBonus` | Extra lift in forward flight (0.10 = +10% at cruise speed). | 0.10 |
 | `CZH_etlSpeed` | Speed in km/h at which the ETL bonus is fully applied. | 72.0 |
@@ -32,10 +32,10 @@ Each helicopter has its own JSON config file at `$profile:\CZAutoz_Heli\`. The s
 | `CZH_autoRotDescentCap` | Maximum descent rate during autorotation (m/s). | MD500: 8.5 · MH-6: 8.0 · SA342M: 9.5 · UH-1H: 11.5 · MH60L: 14.0 · AW101: 16.0 |
 | `CZH_tailRotorSpinRate` | Uncontrolled yaw spin rate when tail rotor is destroyed (deg/s). | MD500: 125 · MH-6: 130 · SA342M: 130 · UH-1H: 118 · MH60L: 110 · AW101: 100 |
 | `CZH_tailRotorDescentRate` | Forced descent rate when tail rotor is destroyed (m/s²). | 2.5 |
-| `CZH_rotorSpoolRate` | How fast the rotor spins up on engine start (higher = faster spool). Affects startup time feel. | MD500/MH-6: 0.06 · SA342M/UH-1H: 0.055 · MH60L: 0.03 · AW101: 0.024 |
+| `CZH_rotorSpoolRate` | How fast the rotor spins up on engine start (higher = faster spool). Affects startup time feel. | MD500: 0.083 · MH-6: 0.092 · SA342M: 0.078 · UH-1H: 0.055 · MH60L: 0.044 · AW101: 0.036 |
 | `CZH_altitudeCeiling` | Altitude in metres where lift reaches zero. Helicopter cannot climb above this. | Per-helicopter — matches the service ceiling listed on each helicopter page |
 | `CZH_envelopeThreshold` | Fraction of the helicopter's top speed at which VNE drag penalty begins (0.80 = drag starts at 80% of max speed). | `0.80` |
-| `CZH_envelopeDragScale` | Drag multiplier applied above the VNE threshold — higher = harder speed cap, lower = softer approach. | AW101: 8.0 · others: lower |
+| `CZH_envelopeDragScale` | Drag multiplier applied above the VNE threshold — higher = harder speed cap, lower = softer approach. | 6.5 (all helicopters) |
 
 ---
 
@@ -45,7 +45,7 @@ Setting **all zones to 0** makes the helicopter fully invincible.
 
 | Setting | What it covers | Default |
 |---------|----------------|---------|
-| `CZH_dmgZoneChassis` | Landing gear / skids | Skid helicopters: `0` · Wheeled (MH60L, AW101): `1` |
+| `CZH_dmgZoneChassis` | Landing gear / skids | MD500 · MH-6 · SA342M · UH-1H: `0` · MH-60L · AW101: `1` |
 | `CZH_dmgZoneBody` | Fuselage / airframe | `1` |
 | `CZH_dmgZoneEngine` | Engine | `1` |
 | `CZH_dmgZoneFuel` | Fuel tank (damaged tank leaks faster) | `1` |

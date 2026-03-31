@@ -31,9 +31,10 @@ The MH-60L Blackhawk is a capable 8-seat medium transport helicopter. Along with
 
 The Blackhawk supports the same Interior Walk system as the UH-1H:
 
-1. Pilot or co-pilot uses **"Move to Cabin"** to enter walk mode
-2. Full WASD movement, weapon use, and ADS inside the cabin
-3. **"Return to Cockpit"** re-seats them (prefers original seat)
+1. While seated as **pilot or co-pilot**, look back to find the **"Move to Cabin"** action
+2. Activate it — your character leaves their cockpit seat and walks freely inside the cabin, moving with the helicopter during flight
+3. Full WASD movement, weapon use, and ADS inside the cabin
+4. At any time, use **"Return to Cockpit"** to return to your seat (original seat if free, otherwise alternate)
 
 See [Interior Walk](/features/interior-walk) for full details.
 
@@ -47,14 +48,18 @@ The Blackhawk has independently toggleable sliding windows on each cockpit door:
 - Can be opened or closed at any time — in flight, on the ground, engine on or off
 - Window open/close events are recorded in the activity log when `CZH_activityLogging = 1`
 
+## Landing Gear
+
+The Blackhawk has a fixed wheeled undercarriage — the landing gear **does not retract or extend**. It remains in the deployed position at all times.
+
 ## Wheel / Skid Classnames
 
 | Item Classname | Position |
 |---------------|----------|
-| `MH60LBlackhawk_FrontWheel` | Front wheel |
-| `MH60LBlackhawk_RearWheel` | Rear wheels |
-| `MH60LBlackhawk_FrontWheel_Desert` | Front wheel (desert variant) |
-| `MH60LBlackhawk_RearWheel_Desert` | Rear wheels (desert variant) |
+| `MH60LBlackhawk_FrontWheel` | Front wheels (×2 — fills both front wheel slots) |
+| `MH60LBlackhawk_RearWheel` | Rear wheel (×1 — single rear wheel slot) |
+| `MH60LBlackhawk_FrontWheel_Desert` | Front wheels — desert variant (×2) |
+| `MH60LBlackhawk_RearWheel_Desert` | Rear wheel — desert variant (×1) |
 
 ## Default Flight Tuning
 
@@ -62,11 +67,11 @@ The Blackhawk has independently toggleable sliding windows on each cockpit door:
 |-----------|---------|
 | `CZH_liftMultiplier` | 4.3 |
 | `CZH_pitchStrength` | 1.3 |
-| `CZH_bankStrength` | 1.7 |
+| `CZH_bankStrength` | 1.9 |
 | `CZH_yawStrength` | 1.1 |
 | `CZH_weathervaneStrength` | 0.5 |
 | `CZH_dragForward` | 0.27 |
-| `CZH_inputSmoothRate` | 35 |
+| `CZH_inputSmoothRate` | 42 |
 | `CZH_autoRotGravityFactor` | 0.70 |
 | `CZH_autoRotDescentCap` | 14.0 m/s |
 | `CZH_tailRotorSpinRate` | 110 deg/s |

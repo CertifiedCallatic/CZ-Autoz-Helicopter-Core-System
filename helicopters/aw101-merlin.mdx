@@ -1,10 +1,10 @@
 ---
 title: "AW101 Merlin"
-description: "18-seat heavy transport — the largest and heaviest helicopter in the mod. Rear loading ramp and automatic retractable tricycle landing gear."
+description: "18-seat heavy transport — the largest and heaviest helicopter in the mod. Rear loading ramp, pilot-operated retractable landing gear, and a fully enclosed fuselage."
 icon: "helicopter"
 ---
 
-The AW101 Merlin is the largest and heaviest helicopter in the mod, capable of carrying 18 people. With its rear loading ramp, retractable tricycle landing gear, and large enclosed fuselage, it is purpose-built for large group transport. All passengers exit inside the fuselage — the rear ramp is essential for efficient boarding.
+The AW101 Merlin is the largest and heaviest helicopter in the mod, capable of carrying 18 people. With its rear loading ramp, pilot-operated retractable landing gear, and large enclosed fuselage, it is purpose-built for large group transport. All passengers board and exit through the rear fuselage — the rear ramp is essential for efficient boarding.
 
 ## Specifications
 
@@ -44,7 +44,15 @@ The Merlin has an openable rear loading ramp:
 
 ## Retractable Landing Gear
 
-The Merlin uses a tricycle landing gear setup that retracts and extends automatically — no manual input is required from the pilot. Gear is managed by the flight system.
+The Merlin has a retractable tricycle landing gear operated by the **pilot** using the `F` key (landing gear action) from the pilot seat. Raise the gear after takeoff and lower it before landing.
+
+<Note>
+  Landing gear deploy/retract events are recorded in the activity log as `LANDING_GEAR` when `CZH_activityLogging = 1`.
+</Note>
+
+## Native Cabin Behaviour
+
+The Merlin does not use the Cabin Mode system (no "Move to Cabin" / "Return to Cockpit" actions). However, because the Merlin has a **fully enclosed fuselage**, exiting any seat places the player **inside the aircraft** rather than outside — they are automatically linked to the helicopter and travel with it. This applies even mid-flight. The rear ramp must be open for players to board or leave the aircraft.
 
 ## Door / Wheel Item Classnames
 

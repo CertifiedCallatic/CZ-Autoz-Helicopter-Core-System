@@ -7,7 +7,7 @@ icon: "person-walking"
 Interior Walk (also referred to as **Cabin Mode**) allows the pilot or co-pilot of supported helicopters to leave their cockpit seat and walk freely **inside the helicopter's cabin** rather than exiting to the outside. Full WASD movement, weapon use, and aiming down sights (ADS) are available while inside.
 
 <Note>
-  On helicopters **without** Cabin Mode, exiting the cockpit seat puts the player outside the aircraft through the door — there is no interior to walk into. Cabin Mode is a feature exclusive to the UH-1H Iroquois and MH-60L Blackhawk.
+  On helicopters **without** Cabin Mode, exiting the cockpit seat puts the player outside the aircraft through the door. Cabin Mode is exclusive to the UH-1H Iroquois and MH-60L Blackhawk.
 </Note>
 
 ## Supported Helicopters
@@ -26,8 +26,8 @@ Interior Walk (also referred to as **Cabin Mode**) allows the pilot or co-pilot 
 ### Entering the Cabin
 
 1. Be seated as **pilot or co-pilot**
-2. Look for the **"Move to Cabin"** interaction action
-3. Activate it — after a short transition your character exits the cockpit seat and enters the helicopter's interior cabin, linked to the aircraft's coordinate space so you move with it in flight
+2. Look back to find the **"Move to Cabin"** action
+3. Activate it — your character leaves their cockpit seat and walks freely inside the helicopter's cabin, moving with the aircraft in flight
 
 ### Inside the Cabin
 
@@ -38,9 +38,7 @@ Interior Walk (also referred to as **Cabin Mode**) allows the pilot or co-pilot 
 
 ### Returning to the Cockpit
 
-1. Look for the **"Return to Cockpit"** action
-2. Activate it — your character re-seats in the cockpit
-3. Returns to your original seat (pilot or co-pilot) if free; otherwise places you in the alternate cockpit seat
+At any time, use the **"Return to Cockpit"** action to return to your seat. You are placed back in your original pilot or co-pilot seat if it is free; otherwise in the alternate cockpit seat.
 
 ## Server Configuration
 
@@ -51,3 +49,9 @@ Interior Walk (also referred to as **Cabin Mode**) allows the pilot or co-pilot 
 <Note>
   Cabin Mode is a cockpit crew feature only. Standard cabin passengers cannot enter walk mode — only the pilot and co-pilot have the "Move to Cabin" action.
 </Note>
+
+---
+
+## AW101 Merlin — Native Cabin Behaviour
+
+The Merlin does **not** use Cabin Mode. However, it behaves differently to the smaller helicopters — because the Merlin is a large fully enclosed fuselage, **exiting any seat places the player inside the aircraft**, not outside. Players are automatically linked to the helicopter when inside the fuselage and travel with it — including mid-flight. The rear ramp must be open for players to board or disembark.

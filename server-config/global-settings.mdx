@@ -84,21 +84,35 @@ When `CZH_activityLogging = 1`, the following events are recorded with timestamp
 |-------|---------|
 | `ENGINE_START` | Player starts the engine |
 | `ENGINE_STOP` | Player stops the engine |
+| `PILOT_ENTER` | Player takes the pilot seat |
+| `PILOT_EXIT` | Player leaves the pilot seat |
+| `PILOT_KILLED` | Pilot is killed while seated |
+| `COPILOT_ENTER` | Player takes the co-pilot seat |
+| `COPILOT_EXIT` | Player leaves the co-pilot seat |
+| `CABIN_ENTER` | Pilot or co-pilot enters Interior Walk mode (UH-1H / Blackhawk) |
+| `CABIN_EXIT` | Player returns to cockpit from Interior Walk mode |
 | `REFUEL` | Player refuels the helicopter (logs fuel % after fill) |
 | `ZONE_REPAIR` | Player repairs a damage zone (body, engine, chassis, or fuel) |
 | `ROTOR_REPAIR` | Player repairs a rotor (main or tail) |
 | `WINDOW` | Player opens or closes a sliding window (Blackhawk) |
 | `RAMP` | Player opens or closes the rear ramp (Merlin) |
 | `LANDING_GEAR` | Player deploys or retracts the landing gear |
-| `LIGHTS` | Player toggles navigation lights on or off |
-| `INTERIOR_WALK` | Player enters or exits Interior Walk mode (UH-1H / Blackhawk) |
-| `AUTOROT_ENTRY` | Main rotor fails — autorotation begins |
-| `AUTOROT_EXIT` | Autorotation ends (helicopter has landed or recovered) |
+| `ITEM_ATTACHED` | Item placed into a helicopter inventory slot |
+| `ITEM_DETACHED` | Item removed from a helicopter inventory slot |
+| `CRASH` | Hard impact — helicopter sustains crash damage |
+| `WATER_SLAM` | High-speed water contact |
+| `ROTOR_SHEAR` | Main or tail rotor blade sheared off on geometry |
 | `ROTOR_PLAYER_KILL` | A player is killed by contact with a spinning rotor disc |
+| `FLIP_RECOVERY` | Ground flip recovery triggered (requires `CZH_groundFlipRecovery = 1`) |
+| `DESTROYED` | Helicopter is destroyed |
 
 <Tip>
   Activity logging gives you a full timestamped record of who was operating which helicopter, when they started and stopped it, whether it was repaired or refuelled, and by whom — invaluable for admin investigations.
 </Tip>
+
+<Note>
+  Autorotation entry and exit events (`AUTOROT_ENTRY` / `AUTOROT_EXIT`) are written to the **debug log** (`CZAutoz_Heli_debug.log`) rather than the activity log, and only when `CZH_debugLogging = 1`.
+</Note>
 
 ### Whitelist Logs
 

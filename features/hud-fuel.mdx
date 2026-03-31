@@ -48,7 +48,7 @@ CZH_fuelBurnLPH = (833 / 120) * 60 = 416.5
 
 ### How to Refuel
 
-Hold a fuel container (such as a **Jerrycan**) and approach within `CZH_refuelDistance` metres of the helicopter. The refuel action will appear — activate it to transfer fuel from the container into the helicopter's tank.
+Hold a fuel container (such as a **Jerrycan**), approach within `CZH_refuelDistance` metres of the helicopter, and look at the **fuel refill point** on the helicopter's model. The refuel action will appear on that component — activate it to transfer fuel from the container into the tank. Only gasoline-type containers are accepted.
 
 ### Refuel Settings
 
@@ -70,11 +70,6 @@ Audio warning beeps alert the crew when fuel is running low:
 | `CZH_fuelWarnThreshold` | Fuel fraction at which beeps begin. `0.20` = starts at 20% remaining. | `0.20` |
 | `CZH_warningVolume` | Volume of the fuel warning beep and rotor emergency alarm | `1.0` |
 
-### Audio Volume Settings
-
-| Setting | What it controls | Default |
-|---------|-----------------|---------|
-| `CZH_engineVolume` | Engine sound (0.0–2.0+) | `1.0` |
-| `CZH_rotorVolume` | Rotor sound (0.0–2.0+) | `1.0` (AW101: `1.5`) |
-| `CZH_warningVolume` | Warning beeps and alarms | `1.0` |
-| `CZH_crashVolume` | Crash sound | `1.0` |
+<Note>
+  Audio volume settings (`CZH_engineVolume`, `CZH_rotorVolume`, `CZH_warningVolume`, `CZH_crashVolume`) are configured per variant in each helicopter's JSON file. See [Per-Helicopter Settings](/server-config/per-helicopter-settings#audio) for the full table and per-variant tuning details.
+</Note>

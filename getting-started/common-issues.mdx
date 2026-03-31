@@ -121,16 +121,36 @@ icon: "triangle-exclamation"
 
 ---
 
+## Refuelling
+
+<AccordionGroup>
+  <Accordion title="Refuel action won't appear">
+    The refuel action has several requirements — all must be met for it to show:
+
+    - **Hold a gasoline container** — must be in your hands (e.g. Jerrycan). Only gasoline-type fuel is accepted; other liquid types will not work
+    - **Look at the fuel refill point** on the helicopter model — the action appears on a specific component on the airframe, not just anywhere near the helicopter
+    - **Within range** — you must be within `CZH_refuelDistance` metres of the refill point (default 4.2 m)
+    - **Tank not already full** — the action won't appear if the helicopter's fuel is at 100%
+    - **Container not ruined** — a ruined container cannot be used
+  </Accordion>
+</AccordionGroup>
+
+---
+
 ## Repair & Damage
 
 <AccordionGroup>
-  <Accordion title="Cannot repair the helicopter">
-    All repairs require:
-    1. **HelicopterRepairKit** held in the player's hands (not in inventory — must be in hands)
-    2. **Engine must be off**
-    3. **Helicopter must be grounded**
+  <Accordion title="Cannot repair the helicopter / repair action not appearing">
+    All repairs require every one of the following conditions:
 
-    If all three conditions are met and the repair action still doesn't appear, check that `HelicopterRepairKit` is in your `types.xml` and is spawning correctly.
+    1. **HelicopterRepairKit held in hands** — must be actively held, not in inventory or backpack
+    2. **Engine off** — or the main rotor must be fully destroyed (a destroyed main rotor unlocks repairs even if the engine is still spooling down)
+    3. **Rotor spool below 50%** — the rotor must have slowed to below half speed before repairs are available
+    4. **Helicopter within 5 m AGL** — must be on or very close to the ground
+    5. **Player must be standing** — crouched or prone stances block the repair action
+    6. **Proximity** — main/tail rotor repairs require you within 3 m of the rotor; all other zones within 5 m
+
+    If all conditions are met and the action still doesn't appear, confirm `HelicopterRepairKit` is in your `types.xml` and spawning in the world.
   </Accordion>
 
   <Accordion title="Helicopter takes damage too easily / is too fragile">

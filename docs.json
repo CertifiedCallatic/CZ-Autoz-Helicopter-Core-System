@@ -36,11 +36,12 @@
           {
             "group": "Features",
             "pages": [
+              "features/flying-guide",
               "features/flight-model",
               "features/autopilot",
               "features/damage-zones",
               "features/repair-battery",
-              "features/interior-walk",
+              "features/cabin-mode",
               "features/cargo-system",
               "features/hud-fuel",
               "features/lights",
@@ -76,12 +77,10 @@
         "title": "CZ Autoz Helicopter Core System",
         "items": [
           {
-            "label": "Created by Callatic",
-            "href": "https://discord.gg/7qWZzPUuTq"
+            "label": "Created by Callatic"
           },
           {
-            "label": "CZ Autoz Community",
-            "href": "https://discord.gg/7qWZzPUuTq"
+            "label": "CZ Autoz Community"
           }
         ]
       },

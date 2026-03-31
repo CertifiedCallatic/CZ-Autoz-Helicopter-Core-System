@@ -4,24 +4,35 @@ description: "Built-in base cargo per helicopter, plus up to 10 extra 1,000-slot
 icon: "box"
 ---
 
-Every helicopter has built-in base cargo storage. Server owners can add up to **10 extra cargo modules** per helicopter, each providing **1,000 additional inventory slots**. The "Max total slots" figures in the table below include both the built-in base storage and all 10 extra modules combined.
+Every helicopter has built-in base cargo storage. Server owners can add up to **10 extra cargo modules** per helicopter, each providing **1,000 additional inventory slots**.
 
 Extra module settings live in [`mod_config.json`](/server-config/global-settings#extra-cargo-modules).
 
+## Base Storage
+
+Each helicopter's built-in inventory capacity with no extra modules installed:
+
+| Helicopter | Base Slots |
+|------------|-----------|
+| MD500 Civilian | 250 |
+| MH-6 Little Bird | 250 |
+| SA342M Gazelle | 250 |
+| UH-1H Iroquois | 500 |
+| MH-60L Blackhawk | 500 |
+| AW101 Merlin | 1,000 |
+
 ## Extra Cargo Modules
 
-Extra modules are configured in `mod_config.json`. Set the number of extra modules (0–10) for each helicopter type.
+Extra modules are configured in `mod_config.json`. Set the number of extra modules (0–10) for each helicopter type. Each module adds **1,000 slots**. Maximum is **10 modules** per helicopter.
 
-| Setting | Helicopter | Max total slots |
-|---------|------------|----------------|
-| `CZH_extra_modules_md500` | MD500 Civilian | 10,250 |
-| `CZH_extra_modules_mh6` | MH-6 Little Bird | 10,250 |
-| `CZH_extra_modules_sa342m` | SA342M Gazelle | 10,250 |
-| `CZH_extra_modules_uh1h` | UH-1H Iroquois | 10,500 |
-| `CZH_extra_modules_blackhawk` | MH-60L Blackhawk | 10,500 |
-| `CZH_extra_modules_merlin` | AW101 Merlin | 11,000 |
-
-Each extra module adds **1,000 slots**. Maximum is **10 modules** per helicopter.
+| Setting | Helicopter | Base Slots | Max total slots |
+|---------|------------|-----------|----------------|
+| `CZH_extra_modules_md500` | MD500 Civilian | 250 | 10,250 |
+| `CZH_extra_modules_mh6` | MH-6 Little Bird | 250 | 10,250 |
+| `CZH_extra_modules_sa342m` | SA342M Gazelle | 250 | 10,250 |
+| `CZH_extra_modules_uh1h` | UH-1H Iroquois | 500 | 10,500 |
+| `CZH_extra_modules_blackhawk` | MH-60L Blackhawk | 500 | 10,500 |
+| `CZH_extra_modules_merlin` | AW101 Merlin | 1,000 | 11,000 |
 
 ### Example
 

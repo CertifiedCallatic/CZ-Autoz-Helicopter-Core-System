@@ -6,18 +6,24 @@ description: "A comprehensive helicopter simulation mod for DayZ — six unique 
 
 CZ Autoz Helicopter brings six fully-simulated aircraft to DayZ, each with its own weight, drag, and handling feel. Every aspect of the flight model, damage system, and gameplay behaviour can be tuned by server owners through simple JSON config files — no modding knowledge required.
 
-<CardGroup cols={2}>
+<CardGroup cols={3}>
   <Card title="Helicopters" icon="helicopter" href="/helicopters/overview">
     Six aircraft from the nimble MD500 to the 18-seat AW101 Merlin
   </Card>
   <Card title="Features" icon="star" href="/features/flight-model">
     Physics flight model, Auto Hover, cabin mode, damage zones, and more
   </Card>
-  <Card title="Server Config" icon="sliders" href="/server-config/quick-start">
-    40+ tunable parameters per helicopter via JSON files
+  <Card title="Controls" icon="keyboard" href="/features/controls">
+    Full key reference for flight, engine, lights, repair, and crew actions
   </Card>
-  <Card title="Required Items" icon="battery-full" href="/server-config/required-items">
-    HelicopterBattery and HelicopterRepairKit class names
+  <Card title="Quick Start" icon="rocket" href="/getting-started/setup">
+    Purchase, whitelist, install, and get flying in minutes
+  </Card>
+  <Card title="Server Config" icon="sliders" href="/server-config/quick-start">
+    40+ tunable parameters per helicopter via JSON config files
+  </Card>
+  <Card title="Roadmap" icon="map" href="/roadmap">
+    Planned features and future development direction
   </Card>
 </CardGroup>
 
@@ -42,7 +48,7 @@ CZ Autoz Helicopter brings six fully-simulated aircraft to DayZ, each with its o
 - **Auto Hover** — press `X` to lock into a stable hover; holds altitude, heading, and position
 - **6 independent damage zones** — Body, Engine, Chassis, Fuel, Main Rotor, Tail Rotor; each toggleable per server
 - **Autorotation** — engine-off rotor inertia glide allows a controlled emergency landing
-- **Cabin Mode** — pilot or co-pilot of the UH-1H and Blackhawk look back and use the **Move to Cabin** action to leave their cockpit seat and walk freely inside the cabin with full movement and weapon use; at any time they can use **Return to Cockpit** to return to their seat
+- **Cabin Mode** — pilot or co-pilot can leave their cockpit seat and walk freely inside the cabin with full WASD, weapon use, and ADS — available on UH-1H and Blackhawk
 - **Battery system** — HelicopterBattery required before engine start; charges while running, drains on lights
 - **Repair system** — HelicopterRepairKit repairs all damage zones (engine off, grounded)
 - **Cargo** — base storage built in, plus up to 10 extra 1,000-slot modules per helicopter

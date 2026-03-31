@@ -1,0 +1,169 @@
+---
+title: "Pilot's Flying Guide"
+description: "A practical guide to flying CZ Autoz helicopters — startup, takeoff, hovering, landing, autorotation, and emergency procedures."
+icon: "circle-info"
+---
+
+This guide covers how to actually fly — from startup to shutdown — including the physics systems that affect handling and what to do when things go wrong. For key bindings, see the [Controls Reference](/features/controls).
+
+---
+
+## Before You Fly
+
+**Battery**
+The `HelicopterBattery` must be in the helicopter's battery slot with charge greater than zero. Without it, the engine start action will not appear. The battery charges automatically while the engine is running — lights drain it, so leave them off until you're in the air if the battery is low.
+
+**Damage Zones**
+The HUD shows six zone health indicators (Body, Engine, Chassis, Fuel, Main Rotor, Tail Rotor). Check them before starting — a damaged main rotor will reduce lift, and a damaged tail rotor will make yaw control difficult.
+
+---
+
+## Starting Up
+
+1. Sit in the **pilot or co-pilot seat**
+2. Hold the **Start Engine** action (~1 second)
+3. The rotor begins to spool up — watch the animation and listen for the rotor sound to build
+4. Wait until the rotor has reached full speed before attempting to lift off
+
+Startup time varies significantly between helicopters:
+
+| Helicopter | Approx. Spool Time |
+|------------|-------------------|
+| MD500 Civilian | ~17 s |
+| MH-6 Little Bird | ~17 s |
+| SA342M Gazelle | ~32 s |
+| MH-60L Blackhawk | ~20 s |
+| UH-1H Iroquois | ~49 s |
+| AW101 Merlin | ~60 s |
+
+<Note>
+  The engine cannot be stopped while the helicopter is airborne and moving. This is intentional — it prevents accidental engine cuts mid-flight.
+</Note>
+
+---
+
+## Takeoff
+
+1. Increase collective with **Shift** gradually — don't yank it to full
+2. As the helicopter lightens, use **Q / E** to correct any yaw rotation
+3. When you feel lift, continue increasing collective to rise off the ground
+4. **Ground effect** gives extra lift within approximately 10 m AGL — takeoffs feel easier close to the ground than climbing through mid-altitude
+5. Once airborne, pitch forward slightly with **W** to begin building forward speed
+
+---
+
+## Forward Flight
+
+Once moving, push pitch forward and let speed build. At around **72 km/h** you will notice the helicopter climbs more easily — this is **Effective Translational Lift (ETL)**, a real helicopter aerodynamic effect where forward movement makes the rotor more efficient. At cruise speed you'll need less collective to maintain altitude than in a stationary hover.
+
+**Speed limits:** Each helicopter has a VNE (velocity never exceed). Above 80% of that speed, progressive drag kicks in and pushes the nose down — you cannot sustainably fly above it.
+
+**Weathervane:** At low forward speed, the helicopter naturally aligns its nose to the direction of travel. This automatic tendency is strongest on lighter helicopters and weakest on the heavy Merlin.
+
+---
+
+## Hovering
+
+Hovering is the most demanding phase of helicopter flight:
+
+- Hold altitude with **Shift** (climb) and **Z** (descend)
+- Small **Q / E** inputs to hold heading
+- **Ground effect** gives a helpful stability cushion below ~10 m AGL — hovering close to the ground is slightly easier
+- Press **X** to engage **Auto Hover** — the helicopter decelerates, stabilises, and holds altitude, heading, and position automatically. Any control input immediately disengages it.
+
+Auto Hover is your best tool during cabin mode entries, crew transfers, or any time you need hands-off stability.
+
+---
+
+## Landing
+
+1. Reduce forward speed with **S** — bring airspeed back toward zero
+2. At low speed, reduce collective gradually to descend
+3. As you descend through 10 m AGL, **ground effect returns** — you may need slightly less collective than expected
+4. Flare the descent rate with a small collective increase just before touchdown
+5. Touch down gently and reduce collective to zero once skids or wheels contact the ground
+
+<Tip>
+  Auto Hover is useful for setting up a landing — engage it over your LZ, confirm you're clear of obstacles, then descend straight down with collective.
+</Tip>
+
+---
+
+## Auto Hover
+
+Press **X** at any time in the pilot or co-pilot seat.
+
+- The helicopter smoothly decelerates and transitions into a locked hover
+- Holds **altitude, heading, and XY position**
+- Any control input immediately disengages it — no need to press X again
+
+**Automatic engagement:** Auto Hover engages on its own if the pilot voluntarily exits while the helicopter is airborne. This stops the aircraft drifting away unmanned.
+
+**It does not engage if the pilot is killed.** A pilot killed in their seat leaves the helicopter flying on its last heading with no hold — the co-pilot must take control, or it will eventually crash.
+
+---
+
+## Autorotation (Engine Failure)
+
+If the engine fails — from fuel exhaustion, engine destruction, or manual shutdown — the rotor continues spinning through inertia. This is **autorotation** and it is your path to a survivable landing.
+
+**During the glide:**
+- The helicopter descends in a controlled glide rather than an immediate freefall
+- Descent rate is capped per helicopter (lighter aircraft glide better than heavy ones)
+- The rotor stays spinning as long as you maintain airspeed
+
+**The flare:**
+- On your final approach, pull collective up — this converts rotor inertia into a brief vertical lift boost, slowing your descent rate for the last few metres
+- Time this correctly and you can land safely with a dead engine
+
+| Helicopter | Max Autorotation Descent |
+|------------|------------------------|
+| MD500 Civilian | 8.5 m/s |
+| MH-6 Little Bird | 8.0 m/s |
+| SA342M Gazelle | 9.5 m/s |
+| UH-1H Iroquois | 11.5 m/s |
+| MH-60L Blackhawk | 14.0 m/s |
+| AW101 Merlin | 16.0 m/s |
+
+---
+
+## Emergency Procedures
+
+**Fuel low**
+Warning beeps start at 20% fuel remaining (configurable). The beep interval shortens as fuel continues to drop — increasing urgency. Find a landing zone immediately. Both pilot and co-pilot hear the warning.
+
+**Tail rotor destroyed**
+The helicopter enters an uncontrolled yaw spin. Spin rate depends on helicopter type. Attempt an immediate autorotation landing — yaw authority is gone, but collective still works. You have limited time before the spin becomes unrecoverable.
+
+**Main rotor destroyed**
+The helicopter loses lift immediately and falls. There is no recovery from main rotor destruction.
+
+**Inverted on the ground**
+If `CZH_groundFlipRecovery` is enabled on your server, pressing **X** while grounded and inverted will flip the helicopter upright. This is disabled by default.
+
+---
+
+## Helicopter Differences
+
+All six helicopters use the same controls but feel significantly different:
+
+| Helicopter | Character |
+|------------|-----------|
+| MD500 Civilian | Light, nimble, very responsive — easiest to learn on |
+| MH-6 Little Bird | Similar to MD500 but slightly more agile |
+| SA342M Gazelle | Note: **pilot sits on the RIGHT** — opposite to all other helicopters |
+| UH-1H Iroquois | Medium, predictable, good for cargo work |
+| MH-60L Blackhawk | Heavy, stable — requires more collective and input |
+| AW101 Merlin | Very heavy — sluggish responses, highest startup time, lowest service ceiling |
+
+Heavier helicopters are more stable in cruise but harder to hover precisely. Lighter helicopters are agile but can feel twitchy for new pilots.
+
+---
+
+## Shutting Down
+
+1. Land fully — wheels or skids on the ground
+2. Hold the **Stop Engine** action (~1 second)
+3. The rotor will spool down
+
+The engine cannot be stopped while airborne and moving — the action is blocked as a safety measure.

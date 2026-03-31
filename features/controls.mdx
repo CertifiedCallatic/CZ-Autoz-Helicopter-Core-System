@@ -1,0 +1,86 @@
+---
+title: "Controls Reference"
+description: "Complete control reference for flying and operating CZ Autoz helicopters — flight inputs, engine, lights, and crew actions."
+icon: "keyboard"
+---
+
+## Flight Controls
+
+These controls apply while seated as **pilot or co-pilot**.
+
+| Key | Action |
+|-----|--------|
+| `W` | Pitch forward (nose down, gain forward speed) |
+| `S` | Pitch back (nose up, slow down / reverse) |
+| `A` | Bank left (roll left) |
+| `D` | Bank right (roll right) |
+| `Q` | Yaw left (rotate left on pedals) |
+| `E` | Yaw right (rotate right on pedals) |
+| `Shift` | Increase collective (climb) |
+| `Ctrl` | Decrease collective (descend) |
+| `X` | **Autopilot / Auto-hover toggle** — decelerates to a locked hover and holds altitude, heading, and position. Press again or apply input to disengage. Also used for [ground flip recovery](/features/flight-model#ground-flip-recovery) when grounded and inverted. |
+
+---
+
+## Engine & Lights
+
+| Action | Who | Notes |
+|--------|-----|-------|
+| Start Engine | Pilot, Co-pilot | Hold action (~1 sec). Requires charged `HelicopterBattery` in battery slot. |
+| Stop Engine | Pilot, Co-pilot | Hold action (~1 sec). Blocked if the helicopter is airborne and moving — you cannot cut the engine mid-flight. |
+| Toggle Spotlight | Pilot only | Hold action. Long-range white searchlight. Requires battery charge to turn on. |
+| Toggle Navigation Lights | Pilot only | Hold action. Port (red), starboard (green), tail (white) and anti-collision beacon (red). Requires battery charge to turn on. |
+
+<Note>
+  Both light types drain the battery at `CZH_batteryLightDrain` units per second while on. If the battery dies while lights are on, the lights will turn off automatically.
+</Note>
+
+---
+
+## Crew & Passenger Actions
+
+| Action | Who | Helicopter | Notes |
+|--------|-----|------------|-------|
+| Move to Cabin | Pilot, Co-pilot | UH-1H, Blackhawk | Enters [Interior Walk](/features/interior-walk) mode — walk freely inside the cabin |
+| Return to Cockpit | Interior Walk player | UH-1H, Blackhawk | Returns to cockpit seat from interior walk mode |
+| Toggle Sliding Window | Pilot, Co-pilot | Blackhawk only | Look at cockpit side glass for the action |
+| Open / Close Rear Ramp | Pilot, Co-pilot, outside players | AW101 Merlin only | Must be grounded. Opens the cargo cabin for boarding |
+| Walk into cabin | Any player | AW101 Merlin | Walk through the open ramp to link to the aircraft — no action required |
+| Walk out of cabin | Any player | AW101 Merlin | Walk off the ramp to unlink and return to normal movement |
+| Remove / Replace Door | Any crew | MD500, SA342M, UH-1H | Doors become physical items |
+
+---
+
+## Repair Actions
+
+All repair actions require `HelicopterRepairKit` held in hands, engine off, and helicopter grounded.
+
+| Action | Hold Time | Notes |
+|--------|-----------|-------|
+| Repair Main Rotor | 45 sec (default) | Player must be standing (not crouched/prone). One repair level per hold. |
+| Repair Tail Rotor | 45 sec (default) | Same conditions as main rotor. |
+| Repair Body Zone | 30 sec (default) | Repairs fuselage damage. One level per hold. |
+| Repair Engine Zone | 30 sec (default) | Repairs engine damage. One level per hold. |
+| Repair Chassis Zone | 30 sec (default) | Repairs landing gear/skid damage. |
+| Repair Fuel Zone | 30 sec (default) | Repairs fuel tank damage. |
+
+---
+
+## Refuelling
+
+| Action | Who | Notes |
+|--------|-----|-------|
+| Refuel | Any player | Hold a fuel container (e.g. Jerrycan) and approach within `CZH_refuelDistance` metres (default 4.2 m) of the helicopter |
+
+---
+
+## Interior Walk Controls
+
+While in Interior Walk mode (UH-1H / Blackhawk only):
+
+| Input | Action |
+|-------|--------|
+| `W / A / S / D` | Walk inside the cabin |
+| Mouse | Look around |
+| All weapon actions | Fully functional — draw, aim (ADS), fire |
+| Return to Cockpit action | Re-seats you in your cockpit seat |

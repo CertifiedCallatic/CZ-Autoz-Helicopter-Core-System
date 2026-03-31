@@ -13,7 +13,7 @@ The AW101 Merlin is the largest and heaviest helicopter in the mod, capable of c
 | **Total Seats** | 18 |
 | **Cockpit** | 2 (pilot + co-pilot) |
 | **Interior** | 16 |
-| **Interior Walk** | No |
+| **Interior Walk** | ✓ Yes (open-cabin link system) |
 | **Startup Time** | ~60 seconds |
 | **Mass** | 10,000 kg (heaviest in the mod) |
 | **Max Airspeed** | 232 km/h |
@@ -34,10 +34,13 @@ The AW101 Merlin is the largest and heaviest helicopter in the mod, capable of c
 
 The Merlin has an openable rear loading ramp:
 
-- Use the **ramp action** while grounded to open or close it
+- Use the **Open/Close Rear Ramp** action while **grounded** to operate it
+- The ramp **cannot be operated mid-flight** — the action is blocked while airborne
+- The action is blocked while the ramp is already mid-travel — wait for it to finish before issuing another command
+- Available to **pilot, co-pilot, and players standing outside** near the rear of the aircraft
 - All 16 passengers enter and exit through the rear of the fuselage
-- Practical for large group boarding — open the ramp, load up, close and lift off
-- Ramp action available to pilot and co-pilot
+- Practical for large group boarding — land, open the ramp, load up, close and lift off
+- Ramp open/close events are recorded in the activity log when `CZH_activityLogging = 1`
 
 ## Retractable Landing Gear
 

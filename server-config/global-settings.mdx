@@ -76,6 +76,37 @@ All repairs require HelicopterRepairKit in hands, engine off, helicopter grounde
 | `CZH_debugLogging` | `1` = verbose debug output written to `CZAutoz_Heli_debug.log`. Only enable when troubleshooting — do not leave on in production. | `0` |
 | `CZH_activityLogging` | `1` = all player helicopter events logged to a daily file at `$profile:\CZAutoz_Heli_Activity_YYYY-MM-DD.log`. Each entry includes the player's display name and Steam GUID. | `0` |
 
+### Activity Log Events
+
+When `CZH_activityLogging = 1`, the following events are recorded with timestamp, player display name, Steam GUID, and helicopter classname:
+
+| Event | Trigger |
+|-------|---------|
+| `ENGINE_START` | Player starts the engine |
+| `ENGINE_STOP` | Player stops the engine |
+| `REFUEL` | Player refuels the helicopter (logs fuel % after fill) |
+| `ZONE_REPAIR` | Player repairs a damage zone (body, engine, chassis, or fuel) |
+| `ROTOR_REPAIR` | Player repairs a rotor (main or tail) |
+| `WINDOW` | Player opens or closes a sliding window (Blackhawk) |
+| `RAMP` | Player opens or closes the rear ramp (Merlin) |
+| `LANDING_GEAR` | Player deploys or retracts the landing gear |
+| `LIGHTS` | Player toggles navigation lights on or off |
+| `INTERIOR_WALK` | Player enters or exits Interior Walk mode (UH-1H / Blackhawk) |
+| `AUTOROT_ENTRY` | Main rotor fails — autorotation begins |
+| `AUTOROT_EXIT` | Autorotation ends (helicopter has landed or recovered) |
+| `ROTOR_PLAYER_KILL` | A player is killed by contact with a spinning rotor disc |
+
 <Tip>
-  Activity logging is useful for keeping a record of who has been flying which helicopters and when — helpful for admin investigations.
+  Activity logging gives you a full timestamped record of who was operating which helicopter, when they started and stopped it, whether it was repaired or refuelled, and by whom — invaluable for admin investigations.
 </Tip>
+
+### Whitelist Logs
+
+The mod also generates two dedicated whitelist log files on every server start, regardless of `CZH_activityLogging`:
+
+| File | Contents |
+|------|----------|
+| `$profile:\CZAutoz_Heli_whitelist_status.log` | Human-readable whitelist check result — overwritten on each start |
+| `$profile:\CZAutoz_Heli_whitelist_debug.log` | Detailed whitelist API diagnostics — appended on each check |
+
+See [Common Issues](/getting-started/common-issues#logging--diagnostics) for how to use these when troubleshooting.

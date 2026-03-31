@@ -14,6 +14,7 @@ The helicopter HUD is displayed for both the **pilot and co-pilot** whenever the
 | **Altitude AGL** | Height above ground level in metres |
 | **Health Bar** | Current helicopter HP |
 | **Autopilot Status** | Whether autopilot is currently active |
+| **Light Status Icons** | Whether the spotlight and navigation lights are on or off |
 
 ---
 
@@ -44,6 +45,10 @@ CZH_fuelBurnLPH = (CZH_maxFuel / desired_flight_minutes) * 60
 ```
 CZH_fuelBurnLPH = (833 / 60) * 60 = 833
 ```
+
+### How to Refuel
+
+Hold a fuel container (such as a **Jerrycan**) and approach within `CZH_refuelDistance` metres of the helicopter. The refuel action will appear — activate it to transfer fuel from the container into the helicopter's tank.
 
 ### Refuel Settings
 

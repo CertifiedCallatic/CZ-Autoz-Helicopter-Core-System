@@ -27,6 +27,22 @@ Each helicopter has 6 independent damage zones. Each zone can be individually en
 
 Skid-equipped helicopters have chassis damage disabled by default. Wheeled helicopters (Blackhawk, Merlin) have it enabled.
 
+## Zone Health Levels & HUD Indicators
+
+Each damage zone progresses through four states, shown as colour-coded indicators on the in-cockpit HUD:
+
+| Level | HUD Colour | Condition |
+|-------|-----------|-----------|
+| 0 | **White** | Undamaged |
+| 1 | **Yellow** | Light damage (~75% HP remaining) |
+| 2 | **Amber** | Heavy damage (~55% HP remaining) |
+| 3 | **Red** | Critical damage (~35% HP remaining) |
+| 4 | — | **Destroyed** — zone is inoperable |
+
+Zone repair is progressive — each repair hold advances the zone one level upward (e.g. Red → Amber). A critically damaged zone requires multiple repair actions to fully restore.
+
+---
+
 ## Rotor Damage
 
 ### Main Rotor Destroyed

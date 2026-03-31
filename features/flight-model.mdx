@@ -54,6 +54,34 @@ If the engine stops (fuel out, engine destroyed, or manually shut down), the rot
 | MH-60L Blackhawk | 0.70 | 14.0 m/s |
 | AW101 Merlin | 0.75 | 16.0 m/s |
 
+## Service Ceiling
+
+Each helicopter has a configurable altitude ceiling above which lift drops to zero:
+
+| Setting | What it does | Default |
+|---------|-------------|---------|
+| `CZH_altitudeCeiling` | Altitude in metres where lift reaches zero — the helicopter cannot climb above this | Per-helicopter (matches the service ceiling listed on each helicopter page) |
+| `CZH_altitudeLiftStart` | Altitude in metres where lift begins tapering off | Slightly below `CZH_altitudeCeiling` |
+
+The lift reduction is gradual — performance starts degrading before the ceiling is hit, not suddenly at it.
+
+---
+
+## Never-Exceed Speed (VNE)
+
+Each helicopter has a fixed maximum speed — this is the max airspeed shown on each helicopter's page. Flying above this threshold causes the flight model to apply increasingly heavy drag, pushing the nose down and arresting further speed gain. The top speed itself is fixed and cannot be changed in the config, but the behaviour at the envelope boundary can be tuned:
+
+| Setting | What it does | Default |
+|---------|-------------|---------|
+| `CZH_envelopeThreshold` | Fraction of max airspeed at which drag penalty begins (`0.80` = drag kicks in at 80% of top speed) | `0.80` |
+| `CZH_envelopeDragScale` | Drag multiplier applied above the threshold — higher = harder speed cap, lower = softer | Per-helicopter (AW101: `8.0`, lighter helis: lower) |
+
+<Note>
+  The VNE system is intentional — it prevents helicopters from being flown beyond their realistic performance envelope. The top speed is fixed per helicopter. You can soften or harden the approach to that limit using `CZH_envelopeThreshold` and `CZH_envelopeDragScale`.
+</Note>
+
+---
+
 ## Ground Flip Recovery
 
 If a helicopter ends up inverted on the ground (bank angle ≥ 90°), pressing `X` will flip it upright.

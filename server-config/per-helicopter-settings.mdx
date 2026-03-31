@@ -32,6 +32,10 @@ Each helicopter has its own JSON config file at `$profile:\CZAutoz_Heli\`. The s
 | `CZH_autoRotDescentCap` | Maximum descent rate during autorotation (m/s). | MD500: 8.5 · MH-6: 8.0 · SA342M: 9.5 · UH-1H: 11.5 · MH60L: 14.0 · AW101: 16.0 |
 | `CZH_tailRotorSpinRate` | Uncontrolled yaw spin rate when tail rotor is destroyed (deg/s). | MD500: 125 · MH-6: 130 · SA342M: 130 · UH-1H: 118 · MH60L: 110 · AW101: 100 |
 | `CZH_tailRotorDescentRate` | Forced descent rate when tail rotor is destroyed (m/s²). | 2.5 |
+| `CZH_rotorSpoolRate` | How fast the rotor spins up on engine start (higher = faster spool). Affects startup time feel. | MD500/MH-6: 0.06 · SA342M/UH-1H: 0.055 · MH60L: 0.03 · AW101: 0.024 |
+| `CZH_altitudeCeiling` | Altitude in metres where lift reaches zero. Helicopter cannot climb above this. | Per-helicopter — matches the service ceiling listed on each helicopter page |
+| `CZH_envelopeThreshold` | Fraction of the helicopter's top speed at which VNE drag penalty begins (0.80 = drag starts at 80% of max speed). | `0.80` |
+| `CZH_envelopeDragScale` | Drag multiplier applied above the VNE threshold — higher = harder speed cap, lower = softer approach. | AW101: 8.0 · others: lower |
 
 ---
 

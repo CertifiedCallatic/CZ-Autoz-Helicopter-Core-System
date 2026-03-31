@@ -42,7 +42,9 @@
               "features/repair-battery",
               "features/interior-walk",
               "features/cargo-system",
-              "features/hud-fuel"
+              "features/hud-fuel",
+              "features/lights",
+              "features/controls"
             ]
           },
           {
@@ -61,7 +63,35 @@
   "footer": {
     "socials": {
       "discord": "https://discord.gg/czautoz"
-    }
+    },
+    "links": [
+      {
+        "title": "CZ Autoz Helicopter Core System",
+        "links": [
+          {
+            "label": "Created by Callatic",
+            "href": "https://discord.gg/czautoz"
+          },
+          {
+            "label": "CZ Autoz Community",
+            "href": "https://discord.gg/czautoz"
+          }
+        ]
+      },
+      {
+        "title": "Resources",
+        "links": [
+          {
+            "label": "Server Status",
+            "href": "https://status.czautoz.co.uk"
+          },
+          {
+            "label": "Discord Support",
+            "href": "https://discord.gg/czautoz"
+          }
+        ]
+      }
+    ]
   },
   "logo": "/CZAutoz_Logo.svg",
   "appearance": {

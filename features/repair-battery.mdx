@@ -9,9 +9,24 @@ icon: "screwdriver-wrench"
 ### Requirements
 
 All repairs require:
-- **`HelicopterRepairKit`** held in the player's hands
+- **`HelicopterRepairKit`** held in the player's hands (not in inventory — must be actively held)
 - **Engine must be off**
 - **Helicopter must be grounded**
+- **Player must be standing** (not crouched or prone)
+
+### Proximity Requirements
+
+Different repair zones have different proximity checks:
+
+| Zone Type | Max Distance (AGL) |
+|-----------|-------------------|
+| Main Rotor / Tail Rotor | Within 3 m |
+| Body / Chassis / Fuel | Within 5 m |
+| Engine | Within 5 m — **only repairable if the main rotor is destroyed** |
+
+<Note>
+  The Engine zone can only be accessed for repair when the main rotor is in a destroyed state. If the main rotor is intact, the engine repair action will not appear.
+</Note>
 
 ### What Gets Repaired
 

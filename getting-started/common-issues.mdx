@@ -5,7 +5,7 @@ icon: "triangle-exclamation"
 ---
 
 <Note>
-  Before troubleshooting, always check your server's `.RPT` log file for error messages. Enable debug logging (`CZH_debugLogging = 1` in `mod_config.json`) for more detailed output when investigating issues.
+  **Start here before anything else.** CZ Autoz Helicopter generates its own dedicated log files — these will tell you exactly what is wrong far faster than anything else. See [Logging & Diagnostics](#logging--diagnostics) below for the full list and what each file contains.
 </Note>
 
 ---
@@ -14,12 +14,19 @@ icon: "triangle-exclamation"
 
 <AccordionGroup>
   <Accordion title="Helicopters don't work / controls are unresponsive">
-    The most common cause is an **IP not being whitelisted**.
+    The most common cause is an **IP not being whitelisted**. The first thing to do is check the whitelist status log — it tells you exactly what the mod found:
 
-    - Make sure you have submitted your server's **public IP** in the [#ip-whitelisting](https://discord.com/channels/768275677480353824/1168185657672356011) channel via the CZ Autoz Bot
-    - Verify the IP submitted matches your server's current public IP exactly — a single digit error will cause restricted operation
-    - If your server IP has changed (e.g. new host, new instance), you must re-whitelist the new IP
-    - After whitelisting, **restart the server** for changes to take effect
+    ```
+    $profile:\CZAutoz_Heli_whitelist_status.log
+    ```
+
+    The log will show your server's detected IP and port, the whitelist result (`WHITELISTED` or `NOT WHITELISTED`), and the exact reason if it failed. Common reasons shown in the log:
+
+    - **IP not registered** — go to [#ip-whitelisting](https://discord.com/channels/768275677480353824/1168185657672356011) and submit your IP via the bot
+    - **Port mismatch** — the port in the log doesn't match what was registered; re-whitelist with the correct port
+    - **API unreachable** — the mod couldn't reach the whitelist service; check your server's outbound internet access, check `CZAutoz_Heli_whitelist_debug.log` for connection details, and verify the service is online at [status.czautoz.co.uk](https://status.czautoz.co.uk)
+    - If your server IP has changed (new host, new instance), re-whitelist the new IP via the bot
+    - After whitelisting, **restart the server** for it to take effect
   </Accordion>
 
   <Accordion title="Config files are not being generated">
@@ -187,17 +194,87 @@ icon: "triangle-exclamation"
 
 ## Logging & Diagnostics
 
-Enable debug logging for detailed output when investigating an issue:
+CZ Autoz Helicopter generates its own dedicated log files — separate from the standard DayZ `.RPT`. **These are your first stop for any issue.** They are written to your server's profile directory and contain specific, readable diagnostics that the generic RPT cannot provide.
+
+### Log File Overview
+
+| File | Written | Purpose |
+|------|---------|---------|
+| `$profile:\CZAutoz_Heli_whitelist_status.log` | Every server start (overwritten) | Human-readable whitelist result — status, detected IP/port, exact failure reason |
+| `$profile:\CZAutoz_Heli_whitelist_debug.log` | Every whitelist check (appended) | Low-level API call details, retry attempts, connection errors |
+| `$profile:\CZAutoz_Heli_debug.log` | While `CZH_debugLogging = 1` | Verbose mod diagnostics — physics, repair checks, config loading |
+| `$profile:\CZAutoz_Heli_Activity_YYYY-MM-DD.log` | While `CZH_activityLogging = 1` | Timestamped player activity — who flew which helicopter and when |
+
+---
+
+### Whitelist Status Log
+
+```
+$profile:\CZAutoz_Heli_whitelist_status.log
+```
+
+**Check this first whenever helicopters are not responding or controls are dead.** The mod writes this file on every server start. Open it and look for the STATUS line:
+
+| Status | Meaning |
+|--------|---------|
+| `STATUS : WHITELISTED` | IP verified — mod is fully active |
+| `STATUS : NOT WHITELISTED` | IP check failed — features are disabled |
+
+The file also shows the **server IP and port the mod detected** — compare these against what you submitted to the whitelist bot. If they don't match, that is your problem. If the status is `NOT WHITELISTED`, the file contains the exact reason and what to do about it.
+
+<Tip>
+  This file is overwritten on every server start — it always shows the result of the most recent check.
+</Tip>
+
+---
+
+### Whitelist Debug Log
+
+```
+$profile:\CZAutoz_Heli_whitelist_debug.log
+```
+
+Check this if the status log shows an unexpected result, or if the mod reports it couldn't reach the whitelist API. This file contains the raw API responses, retry attempts, HTTP status codes, and connection error details. Useful for diagnosing firewall blocks or network issues between your server and the whitelist service.
+
+Unlike the status log, this file is **appended** — it accumulates across server starts. Each entry is timestamped so you can identify the relevant session.
+
+<Tip>
+  Before digging into the debug log, check whether the CZ Autoz whitelist service itself is online: [status.czautoz.co.uk](https://status.czautoz.co.uk). If the service is down, an API unreachable result is expected and no server-side fix is needed — wait for service restoration and restart.
+</Tip>
+
+---
+
+### Mod Debug Log
+
+```
+$profile:\CZAutoz_Heli_debug.log
+```
+
+For diagnosing in-mod issues (repair actions not appearing, config not loading, physics anomalies). This log is **only written when debug logging is enabled** — it is off by default.
+
+To enable:
 
 1. Open `$profile:\CZAutoz_Heli\mod_config.json`
 2. Set `"CZH_debugLogging": 1`
 3. Restart the server
 4. Reproduce the issue
-5. Check `$profile:\CZAutoz_Heli_debug.log` for detailed output
+5. Open `$profile:\CZAutoz_Heli_debug.log`
 
 <Warning>
-  Always set `CZH_debugLogging` back to `0` after troubleshooting. Leaving it enabled on a live server will generate large log files and may impact performance.
+  Turn `CZH_debugLogging` back to `0` once you are done. Leaving it on permanently generates large log files and can impact server performance.
 </Warning>
+
+---
+
+### Activity Log
+
+```
+$profile:\CZAutoz_Heli_Activity_YYYY-MM-DD.log
+```
+
+A daily timestamped record of all player helicopter activity — engine starts/stops, refuels, repairs, ramp and window operations. Each entry includes the player's display name, Steam GUID, and helicopter classname. Enabled by setting `CZH_activityLogging = 1` in `mod_config.json`.
+
+See [Global Settings](/server-config/global-settings#logging) for the full list of recorded events.
 
 ---
 

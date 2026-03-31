@@ -1,0 +1,57 @@
+---
+title: "Lights"
+description: "Spotlight and navigation lights — how they work, battery requirements, and server configuration."
+icon: "lightbulb"
+---
+
+Each helicopter has two independent light systems, both operated by the pilot only.
+
+---
+
+## Spotlight
+
+A long-range white searchlight mounted on the helicopter.
+
+- Activated via the **Toggle Spotlight** hold action (pilot only)
+- Illuminates a wide cone forward from the aircraft — useful for night operations and searching terrain
+- **Requires battery charge to turn on.** If the battery is dead, the spotlight cannot be activated
+- Turning the spotlight **off** is never blocked — you can always shut it off regardless of battery state
+- Drains the battery at `CZH_batteryLightDrain` units per second while active
+
+---
+
+## Navigation Lights
+
+Standard aviation navigation lights for visibility and orientation.
+
+- Activated via the **Toggle Navigation Lights** hold action (pilot only)
+- Includes:
+  - **Port light** — red, left side
+  - **Starboard light** — green, right side
+  - **Tail light** — white, rear
+  - **Anti-collision beacon** — red, flashing
+- **Requires battery charge to turn on**
+- Turning off is never blocked
+- Drains the battery at `CZH_batteryLightDrain` units per second while active
+
+---
+
+## Battery & Lights
+
+Both light systems share the same battery drain rate. If both are on simultaneously, the drain doubles.
+
+| Setting | What it does | Default |
+|---------|-------------|---------|
+| `CZH_batteryLightDrain` | Battery units drained per second while any lights are on | `2.0` |
+
+Battery maximum charge is 500 units. With default settings, running both lights simultaneously drains the battery at 4.0 units/second — a fully charged battery would last approximately 2 minutes with both active. The engine recharges the battery at `CZH_batteryChargeRate` (default `5.0` units/second) while running, so lights during flight will typically not drain the battery.
+
+<Tip>
+  To disable battery drain from lights entirely, set `CZH_batteryLightDrain = 0` in the helicopter's JSON config. Lights will still require charge to **turn on**, but won't drain the battery while on.
+</Tip>
+
+---
+
+## HUD Indicators
+
+The HUD displays light status icons visible to both pilot and co-pilot, showing whether the spotlight and navigation lights are currently on or off.

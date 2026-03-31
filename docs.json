@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "almond",
+  "theme": "maple",
   "name": "CZ Autoz Helicopter Flight System",
   "colors": {
     "primary": "#0EA5E9",

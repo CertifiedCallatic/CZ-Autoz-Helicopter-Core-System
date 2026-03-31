@@ -67,7 +67,7 @@
     "links": [
       {
         "title": "CZ Autoz Helicopter Core System",
-        "links": [
+        "items": [
           {
             "label": "Created by Callatic",
             "href": "https://discord.gg/czautoz"
@@ -80,7 +80,7 @@
       },
       {
         "title": "Resources",
-        "links": [
+        "items": [
           {
             "label": "Server Status",
             "href": "https://status.czautoz.co.uk"

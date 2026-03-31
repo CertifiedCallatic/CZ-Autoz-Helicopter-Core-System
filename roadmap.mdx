@@ -1,0 +1,82 @@
+---
+title: "Roadmap"
+description: "Planned features and future development direction for CZ Autoz Helicopter Core System."
+icon: "map"
+---
+
+This page outlines features currently in planning or active development for CZ Autoz Helicopter Core System. Nothing listed here is guaranteed to ship in any specific order or timeframe — the roadmap reflects the direction we intend to take the mod, not a release schedule.
+
+<Note>
+  Have a feature idea or want to discuss priorities? Join the [CZ Autoz Discord](https://discord.gg/7qWZzPUuTq) and share it in the suggestions channel.
+</Note>
+
+---
+
+## Gameplay & Crew Systems
+
+<CardGroup cols={2}>
+  <Card title="Player Rappelling" icon="person-falling">
+    Crew members aboard the UH-1H and Blackhawk will be able to rappel from the aircraft while it holds a hover. Designed to work alongside Auto Hover — pilot locks position, crew deploy to the ground on ropes.
+  </Card>
+  <Card title="Pilot / Co-Pilot Control Handoff" icon="arrows-rotate">
+    Mid-flight transfer of flight controls between the pilot and co-pilot seats. Either crew member will be able to take or yield the active controls without landing — enabling crew coordination and handoff roleplay scenarios.
+  </Card>
+  <Card title="Winch System" icon="arrow-up-from-bracket">
+    A deployable winch for the UH-1H and Blackhawk that allows extraction of players or cargo from the ground while in a stable hover. Planned to integrate with the existing Cabin Mode crew system.
+  </Card>
+  <Card title="Sling Load" icon="link">
+    External underslung cargo transport — attach ground objects or containers to the helicopter's belly hook and carry them to a new location. Intended for logistics and base-building server playstyles.
+  </Card>
+</CardGroup>
+
+---
+
+## Flight Model
+
+<CardGroup cols={2}>
+  <Card title="Wind Physics" icon="wind">
+    Dynamic wind zones that affect helicopter handling — crosswinds, gusts, and turbulence layers that vary by altitude and terrain. Would apply directional force to the airframe and require active correction from the pilot.
+  </Card>
+  <Card title="Tail Rotor Authority vs. Speed" icon="gauge-high">
+    Refined tail rotor authority modelling where pedal effectiveness reduces at low airspeed and increases in forward flight, more closely matching real helicopter handling characteristics.
+  </Card>
+</CardGroup>
+
+---
+
+## Immersion & Visuals
+
+<CardGroup cols={2}>
+  <Card title="Survivor Animations Integration" icon="hands">
+    Optional integration with the Survivor Animations mod — when active, the pilot's hands will be visually positioned on the cyclic and collective in first-person cockpit view, rather than the default weapon hold animation.
+  </Card>
+  <Card title="Damage Visual States" icon="fire">
+    Visible smoke trails and fire effects tied to helicopter damage zone health — a heavily damaged engine zone produces visible smoke, escalating to fire before destruction. Component deformation is also under consideration.
+  </Card>
+</CardGroup>
+
+---
+
+## Content
+
+<CardGroup cols={2}>
+  <Card title="Additional Helicopter Variants" icon="helicopter">
+    New helicopter types to expand the core fleet. Candidates are evaluated against DayZ's physics constraints and the feasibility of cabin/seat/door systems within the existing architecture.
+  </Card>
+  <Card title="Door Gunner Positions" icon="crosshairs">
+    Dedicated weapon firing positions at open doors on applicable helicopters, with positional restrictions and limited arcs of fire matching the aircraft geometry.
+  </Card>
+</CardGroup>
+
+---
+
+## Server & Administration
+
+<CardGroup cols={2}>
+  <Card title="Loot Table Integration" icon="box-open">
+    A structured spawn table for `HelicopterBattery` and `HelicopterRepairKit` with configurable rarity tiers per map zone — removing the need for manual types.xml tuning.
+  </Card>
+  <Card title="Admin Spawn Menu Support" icon="terminal">
+    Native compatibility entries for popular admin tools, allowing all helicopter variants to appear correctly in third-party admin spawn menus without manual classname lookup.
+  </Card>
+</CardGroup>

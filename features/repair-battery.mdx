@@ -12,23 +12,21 @@ See [Damage Zones](/features/damage-zones) for zone health levels, zone-specific
 
 All repairs require:
 - **`HelicopterRepairKit`** held in the player's hands (not in inventory — must be actively held)
-- **Engine must be off**
-- **Helicopter must be grounded**
+- **Engine must be off** — or the main rotor must be destroyed (a destroyed main rotor allows repairs even if the engine is still spooling down)
+- **Rotor must not be spinning** — rotor spool must be below 50%
+- **Helicopter must be grounded** — within 5 m AGL
 - **Player must be standing** (not crouched or prone)
 
 ### Proximity Requirements
 
-Different repair zones have different proximity checks:
-
-| Zone Type | Max Distance (AGL) |
-|-----------|-------------------|
+| Zone Type | Max Distance |
+|-----------|-------------|
 | Main Rotor / Tail Rotor | Within 3 m |
-| Body / Chassis / Fuel | Within 5 m |
-| Engine | Within 5 m — **only repairable if the main rotor is destroyed** |
+| Body / Engine / Chassis / Fuel | Within 5 m |
 
-<Warning>
-  The Engine zone can only be accessed for repair when the main rotor is in a destroyed state. If the main rotor is intact, the engine repair action will not appear.
-</Warning>
+<Note>
+  All zone repairs share the same pre-conditions above. There are no additional restrictions specific to any individual zone.
+</Note>
 
 ### What Gets Repaired
 

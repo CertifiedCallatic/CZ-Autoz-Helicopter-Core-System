@@ -1,12 +1,12 @@
 ---
-title: "Autopilot & Auto-Hover"
-description: "Press X to engage autopilot — decelerates to a stable hover and holds altitude, heading, and position."
+title: "Auto Hover"
+description: "Press X to engage Auto Hover — decelerates to a stable hover and holds altitude, heading, and position."
 icon: "crosshairs"
 ---
 
-The autopilot system allows pilots and co-pilots to lock the helicopter into a stable, stationary hover at the press of a button.
+The Auto Hover system allows pilots and co-pilots to lock the helicopter into a stable, stationary hover at the press of a button.
 
-## Activating Autopilot
+## Activating Auto Hover
 
 Press **`X`** while in the pilot or co-pilot seat.
 
@@ -15,26 +15,26 @@ Press **`X`** while in the pilot or co-pilot seat.
 2. It transitions into a locked hover
 3. Once stable, it holds **altitude**, **heading**, and **XY position**
 
-The HUD displays autopilot status so both pilot and co-pilot can see whether it is active.
+The HUD displays Auto Hover status so both pilot and co-pilot can see whether it is active.
 
-## Disengaging Autopilot
+## Disengaging Auto Hover
 
-Press **`X`** again, or apply any control input — autopilot releases immediately and returns full control to the pilot.
+Press **`X`** again, or apply any control input — Auto Hover releases immediately and returns full control to the pilot.
 
-## Automatic Autopilot Engagement
+## Automatic Auto Hover Engagement
 
-Autopilot engages automatically if the **pilot voluntarily exits the helicopter while airborne**. This prevents the aircraft from flying away unmanned.
+Auto Hover engages automatically if the **pilot voluntarily exits the helicopter while airborne**. This prevents the aircraft from flying away unmanned.
 
 <Warning>
-  If the pilot is **killed while in their seat**, autopilot does **not** engage. The helicopter continues on its last heading until someone takes control or it crashes.
+  If the pilot is **killed while in their seat**, Auto Hover does **not** engage. The helicopter continues on its last heading until someone takes control or it crashes.
 </Warning>
 
 ## Server Configuration
 
 | Setting | What it does | Default |
 |---------|-------------|---------|
-| `CZH_autoPilotEnabled` | `1` = autopilot works normally. `0` = disabled server-wide — the `X` key does nothing. | `1` |
+| `CZH_autoPilotEnabled` | `1` = Auto Hover works normally. `0` = disabled server-wide — the `X` key does nothing. | `1` |
 
-Set `CZH_autoPilotEnabled = 0` in `mod_config.json` to disable autopilot on your server entirely.
+Set `CZH_autoPilotEnabled = 0` in `mod_config.json` to disable Auto Hover on your server entirely.
 
-See [Controls Reference](/features/controls) for the full list of flight keys including autopilot toggle.
+See [Controls Reference](/features/controls) for the full list of flight keys including the Auto Hover toggle.

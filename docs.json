@@ -53,7 +53,14 @@
               "server-config/quick-start",
               "server-config/per-helicopter-settings",
               "server-config/global-settings",
-              "server-config/required-items"
+              "server-config/required-items",
+              "server-config/types-events-xml"
+            ]
+          },
+          {
+            "group": "More",
+            "pages": [
+              "roadmap"
             ]
           }
         ]

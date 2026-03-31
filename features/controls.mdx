@@ -18,7 +18,7 @@ These controls apply while seated as **pilot or co-pilot**.
 | `E` | Yaw right (rotate right on pedals) |
 | `Shift` | Increase collective (climb) |
 | `Ctrl` | Decrease collective (descend) |
-| `X` | **Autopilot / Auto-hover toggle** — decelerates to a locked hover and holds altitude, heading, and position. Press again or apply input to disengage. Also used for [ground flip recovery](/features/flight-model#ground-flip-recovery) when grounded and inverted. |
+| `X` | **Auto Hover toggle** — decelerates to a locked hover and holds altitude, heading, and position. Press again or apply input to disengage. Also used for [ground flip recovery](/features/flight-model#ground-flip-recovery) when grounded and inverted. |
 
 ---
 
@@ -69,7 +69,9 @@ All repair actions require `HelicopterRepairKit` held in hands, engine off, and 
 
 | Action | Who | Notes |
 |--------|-----|-------|
-| Refuel | Any player | Hold a fuel container (e.g. Jerrycan) and approach within `CZH_refuelDistance` metres (default 4.2 m) of the helicopter |
+| Refuel | Any player | Hold a fuel container (e.g. Jerrycan), approach within `CZH_refuelDistance` metres (default 4.2 m), and look at the **fuel refill point** on the helicopter to trigger the action |
+
+The refuel action appears on a specific component on the helicopter's model — the physical fuel filler point. You must be holding a compatible fuel container (gasoline only), within range, and looking at that point for the action to show.
 
 ---
 

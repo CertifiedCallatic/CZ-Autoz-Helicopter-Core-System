@@ -64,7 +64,7 @@ All repairs require HelicopterRepairKit in hands, engine off, helicopter grounde
 | `CZH_rotorDiscCollision` | `1` = spinning rotor disc has physical collision. `0` = no disc collision. | `1` |
 | `CZH_rotorPlayerKillEnabled` | `1` = players entering a spinning rotor disc are instantly killed. `0` = disabled. | `1` |
 | `CZH_groundFlipRecovery` | `1` = pressing `X` while grounded and inverted flips the helicopter upright. `0` = disabled. | `0` |
-| `CZH_autoPilotEnabled` | `1` = autopilot works normally. `0` = disabled server-wide (`X` key does nothing). | `1` |
+| `CZH_autoPilotEnabled` | `1` = Auto Hover works normally. `0` = disabled server-wide (`X` key does nothing). | `1` |
 | `CZH_cabinModeEnabled` | `1` = Cabin Mode enabled. `0` = disabled server-wide for all helicopters. | `1` |
 
 ---
@@ -173,7 +173,9 @@ When `CZH_activityLogging = 1`, every event is recorded with a timestamp, the he
 | `LANDING_GEAR` | Player name, GUID, new state (deployed/retracted), helicopter type |
 
 <Tip>
-  **We strongly recommend enabling activity logging on all servers.** It has no meaningful performance impact and gives you the evidence you need to handle compensation requests, combat log reports, theft disputes, and any other helicopter-related situation fairly and accurately. Without it, you are relying entirely on player accounts of what happened.
+  **We strongly recommend enabling activity logging on all servers.** It has no meaningful performance impact and gives you the full picture you need to handle compensation requests, combat log reports, theft disputes, and any helicopter-related staff situation confidently and fairly. Without it, you are relying entirely on player accounts of what happened.
+
+  This mod logs all helicopter-specific interactions, but it does not cover general server-wide PvP kills. For complete kill accountability — including who shot who, with what weapon, and when — we recommend also running a dedicated **PvP logging mod** alongside this one. The two logs complement each other: helicopter activity records the context, a PvP logger records the kill chain.
 </Tip>
 
 ### Whitelist Logs

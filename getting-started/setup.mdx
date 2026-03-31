@@ -33,12 +33,71 @@ icon: "circle-play"
     </Note>
   </Step>
 
-  <Step title="Install the Mod on Your Server">
-    Add CZ Autoz Helicopter to your server via the Steam Workshop or your server management panel.
+  <Step title="Download the PBOs">
+    Navigate to the mod download channel in the CZ Autoz Discord and download the two PBO files.
 
-    - Add the mod to your server's **-mod=** startup parameter
-    - The mod must be loaded on both **client and server** side
-    - Ensure it is loading successfully before moving on — check your RPT log for errors
+    <Card title="Mod Download Channel" icon="download" href="https://discord.com/channels/768275677480353824/1473537683157680262">
+      Open the mod download channel in Discord
+    </Card>
+
+    You will receive **2 PBO files**:
+    - `CZAutozHelicopter_Scripts.pbo` — client and server scripts
+    - `CZAutozHelicopters.pbo` — helicopter assets (models, configs, textures)
+  </Step>
+
+  <Step title="Add the PBOs to Your Server Mod Pack">
+    Copy both PBO files into your server's mod pack. A server mod pack is a folder containing a collection of PBO files that gets loaded by your server — it typically already exists if you run other mods.
+
+    Place the PBOs inside the `Addons\` folder of your mod pack:
+
+    ```
+    @YourModPack\
+    └── Addons\
+        ├── CZAutozHelicopter_Scripts.pbo
+        └── CZAutozHelicopters.pbo
+    ```
+  </Step>
+
+  <Step title="Sign the PBOs with DS Utils">
+    DayZ servers require all PBOs to be signed with a private key before they are accepted. Use **DS Utils** to sign both PBO files with your server's private key.
+
+    1. Open DS Utils
+    2. Load your `.biprivatekey` file
+    3. Sign both PBO files — this generates a `.bisign` signature file alongside each PBO
+
+    <Warning>
+      **Your `.biprivatekey` must never be shared with anyone.** It is your private signing key — anyone who has it can sign PBOs as if they were you. Keep it private and back it up securely.
+
+      Your `.bikey` (public key) is safe to share and distribute — it is what players and servers use to verify signatures.
+    </Warning>
+
+    Copy your `.bikey` (public key) into the **`Keys\`** folder in the root of your server:
+
+    ```
+    DayZServer\
+    └── Keys\
+        └── YourKeyName.bikey
+    ```
+
+    Without the `.bikey` in the `Keys\` folder the server will reject the PBOs and the mod will not load.
+  </Step>
+
+  <Step title="Publish Your Mod Pack to Steam Workshop">
+    Update or publish your mod pack to the **Steam Workshop** using the **Publisher** tool inside **DayZ Tools**:
+
+    1. Open DayZ Tools → **Publisher**
+    2. Select your mod pack folder (`@YourModPack`)
+    3. Upload or update the Workshop item
+
+    <Note>
+      **If this is a brand new Workshop upload:** after the initial publish, you must run a second update immediately — select the same `@ModFolder` again in Publisher and push the update. This second upload generates the Workshop **Publisher ID**, which is required for the mod to function correctly across clients and servers. Without it, the mod may not be publicly downloadable, may fail to load on clients, or may not be recognised by the server correctly.
+    </Note>
+
+    Once published and the Publisher ID is confirmed, ensure the mod pack is loaded on both **client and server** side. How you load it depends on your setup — if you manage your server manually, add it to your `-mod=` startup parameter; if you use a server management panel (e.g. Nitrado, GTXGaming, PteroPanel, or **Architect Manager** by CF Tools), it will have its own mod management section where you can enable Workshop mods directly.
+
+    <Note>
+      If you are updating an existing Workshop mod pack, players will automatically receive the updated PBOs the next time they launch the game with your server selected.
+    </Note>
   </Step>
 
   <Step title="Start the Server">

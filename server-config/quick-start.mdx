@@ -4,8 +4,6 @@ description: "Get your server configured in minutes — where the config files a
 icon: "rocket"
 ---
 
-# Server Configuration Quick Start
-
 ## Where Are the Config Files?
 
 All config files are automatically generated on the first server start at:
@@ -40,6 +38,14 @@ $profile:\CZAutoz_Heli\
 2. Open the JSON file for the helicopter you want to adjust in any text editor
 3. Change the values
 4. **Restart the server** — changes only take effect on next start
+
+<Warning>
+  **Per-helicopter flight physics values** (`CZH_liftMultiplier`, `CZH_pitchStrength`, `CZH_bankStrength`, etc.) are pre-tuned by the development team and are **not recommended to change**. Modifying them can result in helicopters that are difficult or impossible to fly. Adjust at your own risk.
+</Warning>
+
+<Tip>
+  The **global settings** in `mod_config.json` (cargo modules, repair, toggles, logging) are completely safe to adjust — they don't affect flight behaviour.
+</Tip>
 
 ## How to Reset to Defaults
 

@@ -1,0 +1,210 @@
+---
+title: "Common Issues"
+description: "Solutions to the most common problems encountered with CZ Autoz Helicopter."
+icon: "triangle-exclamation"
+---
+
+<Note>
+  Before troubleshooting, always check your server's `.RPT` log file for error messages. Enable debug logging (`CZH_debugLogging = 1` in `mod_config.json`) for more detailed output when investigating issues.
+</Note>
+
+---
+
+## Installation & Whitelisting
+
+<AccordionGroup>
+  <Accordion title="Helicopters don't work / controls are unresponsive">
+    The most common cause is an **IP not being whitelisted**.
+
+    - Make sure you have submitted your server's **public IP** in the [#ip-whitelisting](https://discord.com/channels/768275677480353824/1168185657672356011) channel via the CZ Autoz Bot
+    - Verify the IP submitted matches your server's current public IP exactly — a single digit error will cause restricted operation
+    - If your server IP has changed (e.g. new host, new instance), you must re-whitelist the new IP
+    - After whitelisting, **restart the server** for changes to take effect
+  </Accordion>
+
+  <Accordion title="Config files are not being generated">
+    Config files are written to `$profile:\CZAutoz_Heli\` on the **first server start** after the mod is loaded.
+
+    - Confirm the mod is correctly added to your server's `-mod=` startup parameter
+    - Confirm the mod is loading successfully — check your RPT log for any mod load errors
+    - Make sure the server profile directory is writable
+    - Try a full server restart (not a crash recovery restart)
+  </Accordion>
+
+  <Accordion title="Mod loads but helicopters are not appearing in game">
+    Helicopters are not added to loot automatically — you need to add them to your server's economy:
+
+    - Add helicopter classnames to your `types.xml`, trader config, or event spawner
+    - All spawnable classnames are listed on the [Helicopter Overview](/helicopters/overview#all-spawnable-classnames) page
+    - After editing `types.xml`, restart the server for changes to take effect
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Engine & Battery
+
+<AccordionGroup>
+  <Accordion title="Cannot start the engine — no start action appears">
+    The engine start action requires a **charged HelicopterBattery** in the helicopter's battery slot.
+
+    - Check the helicopter's inventory for a `HelicopterBattery` item in the dedicated battery slot
+    - If the battery is present but has **zero charge**, it needs to be recharged or replaced
+    - If no battery is present at all, add `HelicopterBattery` to your `types.xml` so it can spawn
+    - To disable the battery requirement entirely: set `CZH_batteryStartDrain = 0` in the helicopter's JSON config
+  </Accordion>
+
+  <Accordion title="Battery drains very quickly">
+    Battery drain is controlled by three settings in the helicopter's JSON config:
+
+    | Setting | Effect |
+    |---------|--------|
+    | `CZH_batteryStartDrain` | Drained per engine start/stop (default: `10`) |
+    | `CZH_batteryLightDrain` | Drained per second with lights on (default: `2.0`) |
+    | `CZH_batteryChargeRate` | Recharged per second while engine running (default: `5.0`) |
+
+    Battery max charge is 500 units. Increase `CZH_batteryChargeRate` or reduce drain values to extend battery life.
+  </Accordion>
+
+  <Accordion title="Engine won't start even with a charged battery">
+    - Confirm the battery is in the correct **HelicopterBattery slot** (not general cargo)
+    - Make sure the battery charge is **greater than 0** — a battery at exactly 0 charge will not work
+    - Check your RPT log for any error messages related to engine start
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Flight & Physics
+
+<AccordionGroup>
+  <Accordion title="Helicopter feels too heavy / hard to lift off">
+    Increase `CZH_liftMultiplier` in the helicopter's JSON config. Each helicopter has a different default:
+
+    | Helicopter | Default Lift |
+    |------------|-------------|
+    | MD500 Civilian | 2.6 |
+    | MH-6 Little Bird | 2.8 |
+    | SA342M Gazelle | 2.7 |
+    | UH-1H Iroquois | 3.3 |
+    | MH-60L Blackhawk | 4.3 |
+    | AW101 Merlin | 4.3 |
+
+    Try increasing by 0.2–0.5 increments and restarting the server to test.
+  </Accordion>
+
+  <Accordion title="Controls feel sluggish or unresponsive">
+    Increase `CZH_inputSmoothRate` for snappier control response. Lower values = smoother/more sluggish, higher = more direct.
+
+    Also check `CZH_pitchStrength`, `CZH_bankStrength`, and `CZH_yawStrength` — these can all be increased independently.
+  </Accordion>
+
+  <Accordion title="Helicopter spins out of control after tail rotor damage">
+    This is intentional behaviour when the tail rotor is destroyed. To reduce the severity:
+
+    - Lower `CZH_tailRotorSpinRate` (degrees per second of uncontrolled yaw)
+    - Lower `CZH_tailRotorDescentRate` (forced descent rate in m/s²)
+    - Or disable tail rotor damage entirely: set `CZH_dmgZoneRotor2 = 0`
+  </Accordion>
+
+  <Accordion title="Autopilot X key does nothing">
+    Check `CZH_autoPilotEnabled` in `mod_config.json` — if this is set to `0`, autopilot is disabled server-wide. Set it to `1` and restart.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Repair & Damage
+
+<AccordionGroup>
+  <Accordion title="Cannot repair the helicopter">
+    All repairs require:
+    1. **HelicopterRepairKit** held in the player's hands (not in inventory — must be in hands)
+    2. **Engine must be off**
+    3. **Helicopter must be grounded**
+
+    If all three conditions are met and the repair action still doesn't appear, check that `HelicopterRepairKit` is in your `types.xml` and is spawning correctly.
+  </Accordion>
+
+  <Accordion title="Helicopter takes damage too easily / is too fragile">
+    Adjust these settings in the helicopter's JSON config:
+
+    | Setting | Effect |
+    |---------|--------|
+    | `CZH_dmgContactCoef` | Lower = tougher airframe (less damage per impact) |
+    | `CZH_crashThreshold` | Higher = harder hits needed before heavy damage occurs |
+
+    To make a helicopter completely invincible, set all damage zones to `0`:
+    ```json
+    "CZH_dmgZoneChassis": 0,
+    "CZH_dmgZoneBody": 0,
+    "CZH_dmgZoneEngine": 0,
+    "CZH_dmgZoneFuel": 0,
+    "CZH_dmgZoneRotor1": 0,
+    "CZH_dmgZoneRotor2": 0
+    ```
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Interior Walk
+
+<AccordionGroup>
+  <Accordion title="Move to Cabin action is not appearing">
+    - Interior Walk is only available on the **UH-1H Iroquois** and **MH-60L Blackhawk**
+    - You must be seated as **pilot or co-pilot** — cabin passengers do not have this action
+    - Check that `CZH_cabinModeEnabled` is set to `1` in `mod_config.json`
+  </Accordion>
+
+  <Accordion title="Interior Walk is disabled server-wide">
+    Set `CZH_cabinModeEnabled = 1` in `mod_config.json` and restart the server.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Configuration
+
+<AccordionGroup>
+  <Accordion title="Config changes are not taking effect">
+    All config changes require a **full server restart** — changes are only read on startup. There is no hot-reload.
+  </Accordion>
+
+  <Accordion title="Config file was reset / values were lost">
+    This usually happens if the `CZH_version` field in a JSON config was manually changed. The mod detects a version mismatch and resets that config file.
+
+    - **Do not manually edit `CZH_version`** in any JSON config
+    - Your old values are backed up to `$profile:\CZAutoz_Heli\backup\` before any reset
+  </Accordion>
+
+  <Accordion title="New config keys from a mod update are missing">
+    New keys are added automatically on the next server start — you do not need to do anything. If they are still missing after a restart, check your RPT log for errors during config loading.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Logging & Diagnostics
+
+Enable debug logging for detailed output when investigating an issue:
+
+1. Open `$profile:\CZAutoz_Heli\mod_config.json`
+2. Set `"CZH_debugLogging": 1`
+3. Restart the server
+4. Reproduce the issue
+5. Check `$profile:\CZAutoz_Heli_debug.log` for detailed output
+
+<Warning>
+  Always set `CZH_debugLogging` back to `0` after troubleshooting. Leaving it enabled on a live server will generate large log files and may impact performance.
+</Warning>
+
+---
+
+## Still Need Help?
+
+If your issue isn't covered here, visit the CZ Autoz Discord for community support.
+
+<Card title="CZ Autoz Discord" icon="discord" href="https://discord.gg/czautoz">
+  Get help from the community and the development team
+</Card>

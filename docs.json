@@ -15,7 +15,11 @@
         "groups": [
           {
             "group": "Getting Started",
-            "pages": ["introduction"]
+            "pages": [
+              "introduction",
+              "getting-started/setup",
+              "getting-started/common-issues"
+            ]
           },
           {
             "group": "Helicopters",

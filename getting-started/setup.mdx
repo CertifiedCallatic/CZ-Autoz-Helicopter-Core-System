@@ -1,0 +1,108 @@
+---
+title: "Setup & Installation"
+description: "How to get CZ Autoz Helicopter running on your server — purchasing, IP whitelisting, installation, and first boot."
+icon: "circle-play"
+---
+
+<Steps>
+  <Step title="Join the CZ Autoz Discord">
+    All purchasing and whitelisting is handled through the CZ Autoz Discord server. You must be a member before you can proceed.
+
+    <Card title="Join the CZ Autoz Discord" icon="discord" href="https://discord.gg/czautoz">
+      Click to join the CZ Autoz Discord server
+    </Card>
+  </Step>
+
+  <Step title="Purchase CZ Autoz Helicopter Core System">
+    Once you're in the Discord, head to the purchase channel and follow the bot's instructions to purchase the CZ Autoz Helicopter Core System.
+
+    <Card title="Purchase Channel" icon="cart-shopping" href="https://discord.com/channels/768275677480353824/1400284311000846457">
+      Open the purchase channel in Discord
+    </Card>
+  </Step>
+
+  <Step title="Whitelist Your Server IP">
+    After purchasing, navigate to the **IP whitelisting** channel and use the CZ Autoz Bot to register your server's public IP address. The mod will not function on non-whitelisted servers.
+
+    <Card title="IP Whitelisting Channel" icon="shield-check" href="https://discord.com/channels/768275677480353824/1168185657672356011">
+      Open the IP whitelisting channel in Discord
+    </Card>
+
+    <Note>
+      Make sure you submit your **server's public IP address**, not your home/local IP. If your server IP ever changes (e.g. you switch hosts), return here and re-whitelist the new IP.
+    </Note>
+  </Step>
+
+  <Step title="Install the Mod on Your Server">
+    Add CZ Autoz Helicopter to your server via the Steam Workshop or your server management panel.
+
+    - Add the mod to your server's **-mod=** startup parameter
+    - The mod must be loaded on both **client and server** side
+    - Ensure it is loading successfully before moving on — check your RPT log for errors
+  </Step>
+
+  <Step title="Start the Server">
+    Start your server. On the first boot the mod automatically generates all configuration files at:
+
+    ```
+    $profile:\CZAutoz_Heli\
+    ```
+
+    This includes one JSON config per helicopter type, `mod_config.json` for global settings, and a `Guide\` folder with configuration reference guides in 25+ languages.
+
+    <Tip>
+      Open `$profile:\CZAutoz_Heli\Guide\description_config_EN.md` in any Markdown viewer for a full formatted configuration reference.
+    </Tip>
+  </Step>
+
+  <Step title="Add Items to Your Loot Economy">
+    Add the two required item classnames to your server's `types.xml` so they can spawn in the world.
+
+    | Classname | Purpose |
+    |-----------|---------|
+    | `HelicopterBattery` | Required to start the engine |
+    | `HelicopterRepairKit` | Required to repair damage zones |
+
+    See [Required Items](/server-config/required-items) for ready-to-use `types.xml` entries.
+  </Step>
+
+  <Step title="Add Helicopters to Your Server">
+    Add helicopter classnames to your server's events, trader, or loot config. All 19 spawnable classnames are listed on the [Helicopter Overview](/helicopters/overview#all-spawnable-classnames) page.
+
+    **Example classnames:**
+    ```
+    MH60LBlackhawk
+    UH1H_Nasa
+    AW101Merlin_RoyalAirForce
+    MD500_Civilian
+    ```
+  </Step>
+
+  <Step title="Configure & Tune (Optional)">
+    Edit the JSON files in `$profile:\CZAutoz_Heli\` to tune flight physics, damage zones, fuel, and more to suit your server.
+
+    See [Quick Start](/server-config/quick-start) for a full walkthrough of the configuration system.
+  </Step>
+</Steps>
+
+---
+
+## Already Purchased?
+
+If you have already purchased and just need to whitelist a new or changed server IP, skip straight to step 3:
+
+<Card title="IP Whitelisting Channel" icon="shield-check" href="https://discord.com/channels/768275677480353824/1168185657672356011">
+  Whitelist your server IP via the CZ Autoz Bot
+</Card>
+
+---
+
+## After Installation
+
+- Config files **auto-update** when the mod updates — your custom values are always preserved
+- All config changes require a **server restart** to take effect
+- If anything isn't working, see the [Common Issues](/getting-started/common-issues) page
+
+<Warning>
+  If helicopters appear in-game but controls are unresponsive or the mod behaves incorrectly, your server IP is most likely not whitelisted or the whitelisted IP doesn't match your current server IP.
+</Warning>

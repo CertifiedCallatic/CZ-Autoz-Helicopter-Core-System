@@ -6,7 +6,7 @@ icon: "helicopter"
 
 # SA342M Gazelle
 
-The SA342M Gazelle is a sleek 4-seat helicopter with one unique characteristic: its cockpit is reversed compared to all other helicopters in the mod. The longer startup time reflects its more complex simulation.
+The SA342M Gazelle is a sleek 4-seat helicopter with one unique characteristic: its cockpit is reversed compared to all other helicopters in the mod. It has the lowest service ceiling of the fleet, reflecting its lighter airframe design.
 
 ## Specifications
 
@@ -17,15 +17,18 @@ The SA342M Gazelle is a sleek 4-seat helicopter with one unique characteristic: 
 | **Cabin** | 2 |
 | **Interior Walk** | No |
 | **Startup Time** | ~32 seconds |
+| **Mass** | 1,000 kg |
+| **Max Airspeed** | 241 km/h |
+| **Service Ceiling** | 3,100 m (lowest in the mod) |
 | **Config File** | `SA342M_config.json` |
 
 ## Variants
 
-| Variant | Description |
-|---------|-------------|
-| Standard | Default livery |
-| Woodland | Camouflage woodland scheme |
-| Tiger Meet | Tiger Meet special livery |
+| Classname | Livery |
+|-----------|--------|
+| `SA342M` | Standard olive military |
+| `SA342M_GreenBrownBlackWoodland` | Green/brown/black woodland camouflage |
+| `SA342M_TigerMeet` | NATO Tiger Meet — black and gold tiger stripe |
 
 ## Reversed Cockpit
 
@@ -40,12 +43,23 @@ The SA342M Gazelle is a sleek 4-seat helicopter with one unique characteristic: 
 
 ## Door Latching
 
-The Gazelle has a door latching system that affects the order in which doors can be opened:
+The Gazelle has a door interlock system that restricts the order doors can be opened:
 
 - **Right rear door** requires the **pilot (right front) door** to be removed first
 - **Left rear door** requires the **co-pilot (left front) door** to be removed first
 
-This is a physical constraint — you cannot open the rear doors without first removing the corresponding front door.
+You cannot open a rear door without first removing the corresponding front door.
+
+## Door Item Classnames
+
+| Door Item Classname | Position |
+|--------------------|----------|
+| `SA342M_Pilot` | Front right (pilot — reversed cockpit) |
+| `SA342M_CoPilot` | Front left (co-pilot — reversed cockpit) |
+| `SA342M_Cargo1` | Rear left |
+| `SA342M_Cargo2` | Rear right |
+
+Each variant has matching door classnames (e.g. `SA342M_TigerMeet_Pilot`).
 
 ## Default Flight Tuning
 

@@ -17,31 +17,36 @@ The MD500 Civilian is a lightweight, open-air helicopter. With no enclosed cabin
 | **Rear Cargo** | 2 (open-air) |
 | **Interior Walk** | No |
 | **Startup Time** | ~17 seconds |
+| **Mass** | 900 kg |
+| **Max Airspeed** | 235 km/h |
+| **Service Ceiling** | 4,900 m |
 | **Config File** | `MD500_Civilian_config.json` |
 
 ## Variants
 
-| Variant | Description |
-|---------|-------------|
-| Civilian White | Clean white civilian livery |
-| Classic Red/Silver | Classic utility colour scheme |
-| Blue Charter | Charter aviation blue |
-| Green Tour | Tour operator green |
+| Classname | Livery |
+|-----------|--------|
+| `MD500_Civilian` | Civilian white |
+| `MD500_Civilian_ClassicRedSilver` | Classic red/silver retro livery |
+| `MD500_Civilian_BlueCharter` | Blue charter / tour company |
+| `MD500_Civilian_GreenTour` | Green eco-tour / ranger |
 
 <Note>
-  Each variant has its own JSON config file (e.g. `MD500_Civilian_White_config.json`) with the same configurable fields as the base type.
+  Each variant has its own JSON config file (e.g. `MD500_Civilian_ClassicRedSilver_config.json`) with the same configurable fields as the base type.
 </Note>
 
 ## Doors
 
-The MD500 has 4 removable door panels — one per seat position:
+The MD500 has 4 removable door panels — one per seat position. Removing a door makes that seat accessible and leaves a physical door item that can be picked up or left behind.
 
-- Pilot door (front left)
-- Co-pilot door (front right)
-- Left rear door
-- Right rear door
+| Door Item Classname | Position |
+|--------------------|----------|
+| `MD500_Civilian_Pilot` | Front left (pilot) |
+| `MD500_Civilian_CoPilot` | Front right (co-pilot) |
+| `MD500_Civilian_Cargo1` | Rear left |
+| `MD500_Civilian_Cargo2` | Rear right |
 
-Doors are removed via the interaction action and become physical items that can be picked up or left at the landing site.
+Each variant has its own door classnames (e.g. `MD500_Civilian_ClassicRedSilver_Pilot`) — add these to your `types.xml` if you want doors to spawn with the helicopter.
 
 ## Default Flight Tuning
 

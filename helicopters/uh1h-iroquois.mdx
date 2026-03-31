@@ -8,6 +8,10 @@ icon: "helicopter"
 
 The iconic Huey. The UH-1H is a 5-seat medium helicopter and one of two aircraft in the mod with Interior Walk — the ability for the pilot or co-pilot to leave their cockpit seat and walk freely inside the cabin while the helicopter is in flight.
 
+<Note>
+  There is no plain `UH1H` classname — all four variants are named. Use one of the classnames from the table below.
+</Note>
+
 ## Specifications
 
 | Property | Value |
@@ -17,20 +21,30 @@ The iconic Huey. The UH-1H is a 5-seat medium helicopter and one of two aircraft
 | **Cabin** | 3 |
 | **Interior Walk** | ✓ Yes |
 | **Startup Time** | ~49 seconds |
+| **Mass** | 2,140 kg |
+| **Max Airspeed** | 195 km/h (slowest in the mod) |
+| **Service Ceiling** | 5,900 m (highest in the mod) |
 | **Config File** | `UH1H_config.json` |
 
 ## Variants
 
-| Variant | Description |
-|---------|-------------|
-| Nasa | NASA livery |
-| Military Police | Military Police markings |
-| Stealth Black | All-black stealth scheme |
-| White | Plain white livery |
+| Classname | Livery |
+|-----------|--------|
+| `UH1H_Nasa` | NASA white livery |
+| `UH1H_MilitaryPolice` | Military Police markings |
+| `UH1H_StealthBlack` | All-black stealth / special ops |
+| `UH1H_White` | Plain white civilian |
 
-<Note>
-  Each variant (e.g. `UH1H_Nasa`) has its own JSON config file with the same configurable fields.
-</Note>
+## Door Item Classnames
+
+| Door Item Classname | Position |
+|--------------------|----------|
+| `UH1H_Nasa_Pilot` | Pilot door |
+| `UH1H_Nasa_CoPilot` | Co-pilot door |
+| `UH1H_Nasa_Cargo1` | Left cargo door |
+| `UH1H_Nasa_Cargo2` | Right cargo door |
+
+Each variant has matching door classnames (e.g. `UH1H_MilitaryPolice_Pilot`, `UH1H_StealthBlack_Cargo1`).
 
 ## Interior Walk
 
@@ -39,13 +53,13 @@ The UH-1H supports the Interior Walk system:
 1. While seated as **pilot or co-pilot**, look for the **"Move to Cabin"** action
 2. The player exits their seat and is linked to the helicopter's coordinate space — they move with the helicopter during flight
 3. Full **WASD movement**, **weapon use**, and **ADS** are available inside the cabin
-4. Use the **"Return to Cockpit"** action to re-seat in the cockpit (returns to original seat if free, otherwise the alternate seat)
+4. Use the **"Return to Cockpit"** action to re-seat (returns to original seat if free, otherwise alternate)
 
 <Warning>
   Interior Walk can be disabled server-wide by setting `CZH_cabinModeEnabled = 0` in `mod_config.json`.
 </Warning>
 
-See [Interior Walk](/features/interior-walk) for full technical details.
+See [Interior Walk](/features/interior-walk) for full details.
 
 ## Default Flight Tuning
 

@@ -6,7 +6,7 @@ icon: "helicopter"
 
 # MH-60L Blackhawk
 
-The MH-60L Blackhawk is a capable 8-seat medium transport helicopter. Along with the UH-1H, it is one of two aircraft with full Interior Walk. It also features independently toggleable sliding cockpit windows for both pilot and co-pilot.
+The MH-60L Blackhawk is a capable 8-seat medium transport helicopter. Along with the UH-1H, it is one of two aircraft with full Interior Walk. It also features independently toggleable sliding cockpit windows for both pilot and co-pilot, synced across the network.
 
 ## Specifications
 
@@ -17,14 +17,17 @@ The MH-60L Blackhawk is a capable 8-seat medium transport helicopter. Along with
 | **Cabin** | 6 |
 | **Interior Walk** | ✓ Yes |
 | **Startup Time** | ~20 seconds |
+| **Mass** | 6,000 kg |
+| **Max Airspeed** | 236 km/h |
+| **Service Ceiling** | 5,800 m |
 | **Config File** | `MH60LBlackhawk_config.json` |
 
 ## Variants
 
-| Variant | Description |
-|---------|-------------|
-| Olive Drab | Standard military olive drab |
-| Desert Tan | Desert camouflage tan |
+| Classname | Livery |
+|-----------|--------|
+| `MH60LBlackhawk` | Standard olive drab |
+| `MH60LBlackhawk_Desert` | Desert tan camouflage |
 
 ## Interior Walk
 
@@ -40,9 +43,19 @@ See [Interior Walk](/features/interior-walk) for full details.
 
 The Blackhawk has independently toggleable sliding windows on each cockpit door:
 
-- **Pilot** and **co-pilot** each control their own window separately
+- **Pilot** and **co-pilot** each control their own window independently
 - Look at the **cockpit side glass** to get the toggle action
-- Windows can be opened or closed at any time, in flight or on the ground
+- Window state is **synced across the network** — all players see the same open/closed state
+- Can be opened or closed at any time, in flight or on the ground
+
+## Wheel / Skid Classnames
+
+| Item Classname | Position |
+|---------------|----------|
+| `MH60LBlackhawk_FrontWheel` | Front wheel |
+| `MH60LBlackhawk_RearWheel` | Rear wheels |
+| `MH60LBlackhawk_FrontWheel_Desert` | Front wheel (desert variant) |
+| `MH60LBlackhawk_RearWheel_Desert` | Rear wheels (desert variant) |
 
 ## Default Flight Tuning
 
@@ -59,5 +72,5 @@ The Blackhawk has independently toggleable sliding windows on each cockpit door:
 | `CZH_autoRotDescentCap` | 14.0 m/s |
 | `CZH_tailRotorSpinRate` | 110 deg/s |
 | `c_camDistance` | 17.5 m |
-| `CZH_maxFuel` | 1362 L |
+| `CZH_maxFuel` | 1,362 L |
 | `CZH_fuelBurnLPH` | 545 L/hr |

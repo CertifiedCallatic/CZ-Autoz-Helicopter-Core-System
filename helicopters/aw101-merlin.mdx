@@ -1,12 +1,12 @@
 ---
 title: "AW101 Merlin"
-description: "18-seat heavy transport — the largest helicopter in the mod. Rear loading ramp and automatic retractable landing gear."
+description: "18-seat heavy transport — the largest and heaviest helicopter in the mod. Rear loading ramp and automatic retractable tricycle landing gear."
 icon: "helicopter"
 ---
 
 # AW101 Merlin
 
-The AW101 Merlin is the largest helicopter in the mod, capable of carrying 18 people. With its rear loading ramp, retractable landing gear, and enclosed fuselage, it is purpose-built for large group transport. All passengers exit inside the fuselage, making the rear ramp essential for efficient boarding and disembarkation.
+The AW101 Merlin is the largest and heaviest helicopter in the mod, capable of carrying 18 people. With its rear loading ramp, retractable tricycle landing gear, and large enclosed fuselage, it is purpose-built for large group transport. All passengers exit inside the fuselage — the rear ramp is essential for efficient boarding.
 
 ## Specifications
 
@@ -17,43 +17,57 @@ The AW101 Merlin is the largest helicopter in the mod, capable of carrying 18 pe
 | **Interior** | 16 |
 | **Interior Walk** | No |
 | **Startup Time** | ~60 seconds |
+| **Mass** | 10,000 kg (heaviest in the mod) |
+| **Max Airspeed** | 232 km/h |
+| **Service Ceiling** | 4,575 m |
+| **Rotor Volume** | 1.5× (loudest in the mod) |
 | **Config File** | `AW101Merlin_config.json` |
 
 ## Variants
 
-| Variant | Description |
-|---------|-------------|
-| Royal Air Force | RAF livery |
-| Royal Navy | Royal Navy scheme |
-| Canada Rescue | Canadian search and rescue |
-| Portuguese Air Force | Portuguese Air Force livery |
+| Classname | Livery |
+|-----------|--------|
+| `AW101Merlin_RoyalAirForce` | Royal Air Force grey |
+| `AW101Merlin_RoyalNavy` | Royal Navy grey/white |
+| `AW101Merlin_CanadaRescue` | Canadian Search and Rescue red/white |
+| `AW101Merlin_PortugueseAirForce` | Portuguese Air Force grey/green |
 
 ## Rear Ramp
 
 The Merlin has an openable rear loading ramp:
 
 - Use the **ramp action** while grounded to open or close it
-- Practical for large group boarding — all passengers enter and exit through the rear
-- Ramp action is available to pilot and co-pilot
+- All 16 passengers enter and exit through the rear of the fuselage
+- Practical for large group boarding — open the ramp, load up, close and lift off
+- Ramp action available to pilot and co-pilot
 
 ## Retractable Landing Gear
 
-The Merlin's landing gear retracts and extends automatically — no manual input is required from the pilot. Gear state is managed by the flight system.
+The Merlin uses a tricycle landing gear setup that retracts and extends automatically — no manual input is required from the pilot. Gear is managed by the flight system.
+
+## Door / Wheel Item Classnames
+
+| Item Classname | Description |
+|---------------|-------------|
+| `AW101Merlin_FrontWheel` | Nose wheel (shared across all variants) |
+| `AW101Merlin_RearWheel` | Main gear wheels (shared across all variants) |
+
+Cargo door classnames are variant-specific (e.g. `AW101Merlin_RoyalAirForce_Cargo1`, `AW101Merlin_CanadaRescue_Cargo2`).
 
 ## Default Flight Tuning
 
 | Parameter | Default |
 |-----------|---------|
 | `CZH_liftMultiplier` | 4.3 |
-| `CZH_pitchStrength` | 1.0 |
-| `CZH_bankStrength` | 1.2 |
+| `CZH_pitchStrength` | 1.0 (lowest — very sluggish pitch) |
+| `CZH_bankStrength` | 1.2 (lowest — very sluggish roll) |
 | `CZH_yawStrength` | 0.8 |
 | `CZH_weathervaneStrength` | 0.3 |
 | `CZH_dragForward` | 0.30 |
-| `CZH_inputSmoothRate` | 25 |
+| `CZH_inputSmoothRate` | 25 (lowest — heaviest control feel) |
 | `CZH_autoRotGravityFactor` | 0.75 |
 | `CZH_autoRotDescentCap` | 16.0 m/s |
 | `CZH_tailRotorSpinRate` | 100 deg/s |
 | `c_camDistance` | 22 m |
-| `CZH_maxFuel` | 3222 L |
+| `CZH_maxFuel` | 3,222 L |
 | `CZH_fuelBurnLPH` | 644 L/hr |

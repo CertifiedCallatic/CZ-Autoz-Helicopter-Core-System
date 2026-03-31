@@ -74,13 +74,11 @@
     },
     "links": [
       {
-        "title": "CZ Autoz Helicopter Core System",
+        "title": "CZ Autoz Helicopter Flight System",
         "items": [
           {
-            "label": "Created by Callatic"
-          },
-          {
-            "label": "CZ Autoz Community"
+            "label": "Created by Callatic",
+            "href": "https://discord.gg/7qWZzPUuTq"
           }
         ]
       },

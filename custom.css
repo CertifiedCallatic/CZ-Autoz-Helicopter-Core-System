@@ -20,6 +20,12 @@ footer.advanced-footer > div {
   padding-bottom: 2.5rem !important;
 }
 
+/* Light mode: soft grey background instead of stark white */
+html:not(.dark) body,
+html:not(.dark) {
+  background-color: #f3f4f6 !important;
+}
+
 /* Dark mode toggle: sliding indicator is near-invisible on dark bg — use a subtle white glow */
 html.dark [aria-label="Toggle dark mode"] div.absolute.rounded-full {
   background-color: rgba(255, 255, 255, 0.15) !important;

@@ -1,12 +1,10 @@
 /* CZ Autoz brand theme overrides */
 
-/* Logo: fill the sidebar header gap cleanly */
+/* Logo: fill the sidebar header gap cleanly — do NOT override display (breaks light/dark toggle) */
 .nav-logo {
   height: 7rem !important;
   max-width: none !important;
   width: auto !important;
-  display: block !important;
-  margin: 0 auto !important;
 }
 
 /* Center the logo link in the sidebar */

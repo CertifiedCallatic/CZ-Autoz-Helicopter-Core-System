@@ -14,12 +14,15 @@ a:has(.nav-logo) {
   width: 100% !important;
 }
 
-/* Dark mode toggle: sliding indicator is bg-gray-900 in dark mode (invisible on dark bg) — make it visible */
+/* Dark mode toggle: sliding indicator is near-invisible on dark bg — use a subtle white glow */
 html.dark [aria-label="Toggle dark mode"] div.absolute.rounded-full {
-  background-color: rgba(204, 69, 0, 0.5) !important;
+  background-color: rgba(255, 255, 255, 0.15) !important;
 }
 
-/* Brighten the active icon in dark mode (moon) */
-html.dark [aria-label="Toggle dark mode"] svg {
+/* Highlight only the active icon: moon = brand orange in dark mode, sun = brand orange in light mode */
+html.dark [aria-label="Toggle dark mode"] svg:last-of-type {
+  color: #CC4500 !important;
+}
+html:not(.dark) [aria-label="Toggle dark mode"] svg:first-of-type {
   color: #CC4500 !important;
 }

@@ -101,7 +101,7 @@
   "logo": {
     "light": "/CZAutozNewLogo.svg",
     "dark": "/CZAutozNewLogo.svg",
-    "width": 180
+    "width": 300
   },
   "appearance": {
     "default": "dark"

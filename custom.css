@@ -1,0 +1,8 @@
+/* CZ Autoz brand theme overrides */
+
+/* Logo: increase from theme default 24px to a reasonable navbar size */
+.nav-logo {
+  height: 2.75rem !important;
+  max-width: 350px !important;
+  width: auto !important;
+}

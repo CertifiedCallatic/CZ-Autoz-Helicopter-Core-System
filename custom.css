@@ -9,9 +9,15 @@
 
 /* Footer logo — larger, remove Mintlify's max-w-48 cap */
 footer.advanced-footer .nav-logo {
-  height: 10rem !important;
+  height: 14rem !important;
   width: auto !important;
   max-width: none !important;
+}
+
+/* Footer inner wrapper — reduce Mintlify's lg:py-28 (112px) to something tighter */
+footer.advanced-footer > div {
+  padding-top: 2.5rem !important;
+  padding-bottom: 2.5rem !important;
 }
 
 /* Dark mode toggle: sliding indicator is near-invisible on dark bg — use a subtle white glow */

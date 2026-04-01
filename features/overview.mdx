@@ -1,11 +1,11 @@
 ---
 title: "What's Included"
 sidebarTitle: "What's Included"
-description: "Six unique helicopters, physics-based flight, interior cabin walk, autorotation, damage zones, and 45+ configurable parameters per aircraft — everything in a single pack."
+description: "Six unique helicopters, physics-based flight, interior cabin walk, particle effects, rotor kill zones, autorotation, damage zones, and 45+ configurable parameters per aircraft — everything in a single pack."
 icon: "star"
 ---
 
-CZ Autoz Helicopter is a complete helicopter simulation built from the ground up for DayZ. Six aircraft, each engineered around its own real-world weight, drag, and rotor characteristics. A damage model with consequences. A configuration system deep enough for any server's vision.
+CZ Autoz Helicopter is a complete helicopter simulation built from the ground up for DayZ. Six aircraft, each engineered around its own real-world weight, drag, and rotor characteristics. A physics engine that rewards skill. A damage model with real consequences. A configuration system deep enough for any server's vision.
 
 Nothing is shared across helicopters to cut corners — the Merlin feels nothing like the MD500, because it wasn't built to.
 
@@ -26,6 +26,8 @@ Nothing is shared across helicopters to cut corners — the Merlin feels nothing
 | **18** | Maximum passenger capacity (AW101 Merlin) |
 | **25** | Server guide languages auto-generated on startup |
 | **10** | Extra cargo module slots per helicopter (1,000 slots each) |
+| **4** | Real-time particle effect systems |
+| **8+** | Distinct audio event layers per helicopter |
 
 ---
 
@@ -60,44 +62,74 @@ Nothing is shared across helicopters to cut corners — the Merlin feels nothing
   <Card title="Physics Flight Model" icon="wind" href="/features/flight-model">
     Per-helicopter mass, drag, inertia, and rotor characteristics. Each aircraft handles differently by design.
   </Card>
-  <Card title="Auto Hover" icon="cpu-chip" href="/features/autopilot">
+  <Card title="Auto Hover" icon="bullseye" href="/features/autopilot">
     One key locks a stable hover — holds altitude, heading, and position simultaneously. Deactivates cleanly on cyclic input.
   </Card>
-  <Card title="Autorotation" icon="arrow-path" href="/features/flight-model">
+  <Card title="Autorotation" icon="arrows-rotate" href="/features/flight-model">
     Engine-off rotor inertia allows a controlled glide and landing. Collective flare, descent cap, gravity factor — all configurable.
   </Card>
-  <Card title="Damage Zones" icon="shield-exclamation" href="/features/damage-zones">
-    Six independent zones: Body, Engine, Chassis, Fuel, Main Rotor, Tail Rotor. Each zone can be individually toggled per server.
+  <Card title="Damage Zones" icon="shield-halved" href="/features/damage-zones">
+    Six independent zones: Body, Engine, Chassis, Fuel, Main Rotor, Tail Rotor. Each zone individually toggleable per server.
   </Card>
-  <Card title="Repair & Battery" icon="wrench-screwdriver" href="/features/repair-battery">
+  <Card title="Repair & Battery" icon="screwdriver-wrench" href="/features/repair-battery">
     HelicopterRepairKit repairs all six zones. HelicopterBattery drains on start, charges while running, drains slowly with lights.
   </Card>
-  <Card title="Interior Walk" icon="user" href="/features/interior-walk">
+  <Card title="Interior Walk" icon="person-walking" href="/features/interior-walk">
     Walk, aim, and fire from inside a moving helicopter. Available on the UH-1H and MH-60L Blackhawk.
   </Card>
-  <Card title="Cabin Mode" icon="cube" href="/features/cabin-mode">
-    Dedicated cockpit↔cabin workflow — action to leave the seat, walk the interior, and return to cockpit with a single prompt.
+  <Card title="Cabin Mode" icon="door-open" href="/features/cabin-mode">
+    Dedicated cockpit↔cabin workflow — single action to leave the seat, walk the interior, and return to cockpit.
   </Card>
-  <Card title="Cargo System" icon="archive-box" href="/features/cargo-system">
+  <Card title="Cargo System" icon="box" href="/features/cargo-system">
     Built-in storage on every helicopter, plus up to 10 optional extra cargo modules per aircraft (1,000 slots each).
   </Card>
-  <Card title="HUD & Instruments" icon="computer-desktop" href="/features/hud-fuel">
-    Airspeed in knots, altitude AGL, health bar, fuel level, and Auto Hover status — all visible from the cockpit.
+  <Card title="HUD & Instruments" icon="gauge-high" href="/features/hud-fuel">
+    Airspeed in knots, altitude AGL in feet, health bar, fuel gauge, autopilot status — cockpit-only display.
   </Card>
-  <Card title="Lighting" icon="light-bulb" href="/features/lights">
-    Spotlight and navigation lights, independently controlled. Battery-drain configurable per server.
+  <Card title="Particle Effects" icon="wand-magic-sparkles">
+    Rotor downwash dust cloud on approach to ground. Water spray when hovering over rivers and lakes. Engine damage smoke.
   </Card>
-  <Card title="Fuel System" icon="fire" href="/features/hud-fuel">
-    Configurable burn rate per helicopter. Audio fuel warnings that escalate in frequency as the tank empties.
+  <Card title="Sound System" icon="volume-high">
+    Eight distinct audio layers: engine, rotor, startup, shutdown, warning beep, crash, rotor shear, and impact tap. All volume-configurable per helicopter.
+  </Card>
+  <Card title="Lighting" icon="lightbulb" href="/features/lights">
+    Red/green navigation lights, anti-collision beacon, and forward spotlight. All independently controlled, battery-drain configurable.
+  </Card>
+  <Card title="Fuel System" icon="gas-pump" href="/features/hud-fuel">
+    Configurable burn rate per helicopter. Escalating audio warnings as the tank empties. Fuel tank leak when damaged.
+  </Card>
+  <Card title="Rotor Kill Zone" icon="skull">
+    Spinning rotor blades are lethal. Players entering the disc radius take fatal damage. Seated crew, cabin walkers, and grab-hold passengers are automatically exempted.
+  </Card>
+  <Card title="Water & Crash Detection" icon="water">
+    High-speed water entry deals impulse-scaled damage. Submerged helicopters take continuous engine and body damage. Crew take crash damage on hard impacts.
+  </Card>
+  <Card title="Camera System" icon="eye">
+    Lag-free camera anchor with configurable pull-back distance per helicopter. Free-look toggle keeps the aircraft responsive during manual orbit.
   </Card>
   <Card title="Controls" icon="keyboard" href="/features/controls">
-    Full key reference for flight, engine start/stop, lights, autopilot, repair, cabin mode, and cargo.
+    Full key reference for flight, engine, lights, autopilot, repair, cabin mode, cargo, and all crew actions.
+  </Card>
+  <Card title="Server Configuration" icon="sliders" href="/server-config/per-helicopter-settings">
+    45+ parameters per helicopter via auto-generated JSON files. Config is additive — updates never overwrite your values.
   </Card>
 </Columns>
 
 ---
 
 ## Standout Features
+
+### Particle Effects
+
+Three environmental particle systems respond in real time to the helicopter's state:
+
+- **Rotor downwash dust** — as the helicopter descends toward dry ground, a dust cloud billows outward from beneath the rotor disc. Scales with rotor speed and proximity to the surface.
+- **Water spray** — hovering low over rivers, lakes, or coastal water kicks up a spray effect directly beneath the aircraft.
+- **Engine damage smoke** — when the engine zone is damaged, smoke rises from the engine bay. Intensity scales with damage state.
+
+All three are purely visual and have no gameplay effect — but they make landings and low-level flight look and feel dramatically more alive.
+
+---
 
 ### Interior Cabin Walk
 
@@ -106,16 +138,8 @@ Players aboard the UH-1H Iroquois and MH-60L Blackhawk can do something no vanil
 The pilot or co-pilot triggers a seat exit that keeps them physically attached to the aircraft's coordinate space. From there they can walk the full cabin length with WASD, draw and aim weapons, interact with cargo, and return to the cockpit at any time via a prompt.
 
 <Tip>
-  Cargo seats have their own seat-exit walk behaviour — passengers can stand up while airborne and remain linked to the aircraft until landing.
+  Cargo seats have their own seat-exit walk behaviour — passengers can stand up while airborne and remain linked to the aircraft until they choose to disembark.
 </Tip>
-
----
-
-### Autorotation
-
-When the engine dies in flight, the rotor keeps spinning — rotor inertia carries the aircraft into a glide. A controlled descent, a collective flare at the right moment, and a heavy helicopter can be put down survivably.
-
-The autorotation model has configurable parameters: gravity reduction factor, flare strength, maximum descent speed cap, and the speed at which the rotor stops providing meaningful lift. Servers can tune it from forgiving to unforgiving.
 
 ---
 
@@ -127,26 +151,79 @@ No manual grab inputs. No risk of falling through geometry. The link is maintain
 
 ---
 
+### Autorotation
+
+When the engine dies in flight, the rotor keeps spinning — rotor inertia carries the aircraft into a glide. A controlled descent, a collective flare at the right moment, and a heavy helicopter can be put down survivably.
+
+The autorotation model has configurable parameters: gravity reduction factor, flare strength, maximum descent speed cap, and the speed at which ETL stops providing meaningful lift. Servers can tune it from forgiving to demanding.
+
+---
+
+### Sound System
+
+Every helicopter has **eight distinct audio event layers**, each independently volume-configurable per aircraft in the JSON config:
+
+| Layer | Trigger |
+|-------|---------|
+| **Engine** | Looping, volume driven by engine spool fraction |
+| **Rotor** | Looping, volume driven by rotor spool fraction |
+| **Startup** | One-shot transient on engine start |
+| **Shutdown** | One-shot transient on engine stop |
+| **Fuel Warning** | Looping beep tone when fuel below threshold |
+| **Crash** | One-shot on hard impact or high angular velocity |
+| **Rotor Shear** | One-shot when main or tail rotor blade shears off |
+| **Impact Tap** | Light contact sound on minor ground touches |
+
+The interior sound environment is also attenuated — cabin passengers hear a reduced mix compared to the external soundscape.
+
+---
+
+### Rotor Kill Zone
+
+The main rotor disc and tail rotor are **active kill zones** when spinning. Any player entering the disc radius takes fatal damage — making ground crew and bystanders genuinely at risk around a running helicopter.
+
+The system automatically exempts:
+- Seated crew members
+- Players in interior cabin walk mode
+- Players on grab-hold benches
+- Players in the seat-exit walk window (just dismounted)
+
+The rotor disc geometry is also **hidden from the physics scene** while spinning at altitude, preventing the visual mesh from clipping into terrain on low approaches. This can be toggled server-side.
+
+---
+
 ### Damage System
 
-All six zones can be enabled or disabled **per helicopter, per server** in the JSON config. A helicopter with all zones at `0` takes no damage at all — useful for PvE or event servers that want aircraft to be indestructible.
+All six zones can be enabled or disabled **per helicopter, per server** in the JSON config. A helicopter with all zones set to `0` takes no damage — useful for PvE or event servers that want indestructible aircraft.
 
 | Zone | Consequence when destroyed |
 |------|---------------------------|
-| **Body** | Progressive HP drain; cosmetic damage |
+| **Body** | Progressive HP drain |
 | **Engine** | Cannot restart; rotor spins down |
-| **Chassis** | Structural damage; impulse threshold lowered |
+| **Chassis** | Structural damage; impact threshold lowered |
 | **Fuel** | Tank leak; fuel drains continuously |
 | **Main Rotor** | Aircraft falls; no lift recovery |
 | **Tail Rotor** | Uncontrolled yaw spin; heading cannot be held |
 
-Hard-impact crash damage to crew is also configurable — enabled, disabled, or tuned by impulse threshold and severity scale.
+**Rotor blade shear** is a separate system — when the main or tail rotor health reaches zero, the blade physically detaches with an audio crack, the spool animation freezes, and the rotor geometry hides. The sheared state persists through server restarts.
+
+Hard-impact crash damage to crew is also configurable — the impulse threshold, maximum HP damage per impact, and whether crew damage is enabled at all are all server-controlled.
 
 ---
 
-## Server Configuration
+### Water & Crash Detection
 
-Every aircraft in the pack has its own JSON config file generated automatically on first server start. Parameters are applied immediately on respawn — no server restart required after editing.
+**Water impact:** High-speed entry into water deals impulse-scaled damage to the Body zone and crew members. A slam cooldown prevents rapid repeated damage on bounced impacts.
+
+**Drowning:** A helicopter that remains fully submerged takes continuous damage to the Engine (350/s) and Body (200/s) zones after a short grace period, ultimately destroying the aircraft.
+
+**Hard landing:** Impulse above the configured threshold triggers the crash sound, applies zone damage, and zeroes angular velocity to prevent spinning. A position correction is applied on the next tick to prevent floor clipping.
+
+---
+
+### Server Configuration
+
+Every aircraft in the pack has its own JSON config file generated automatically on first server start. Parameters are applied immediately on vehicle respawn — no server restart required after editing.
 
 ```
 $profile:\CZAutoz_Heli\
@@ -163,15 +240,18 @@ $profile:\CZAutoz_Heli\
 - Rotor spool rate, lift multiplier, altitude ceiling
 - Cyclic authority (pitch / bank / yaw strength)
 - Input smoothing, drag, mass-based inertia
-- Ground effect and ETL (effective translational lift) bonuses
+- Ground effect bonus and altitude, ETL bonus and speed
 - VNE airspeed and vertical speed caps
+- Autorotation gravity factor, flare strength, descent cap
+- Tail rotor dead spin rate and descent bleed rate
 - All six damage zone toggles plus contact damage coefficient
-- Battery drain/charge rates, fuel burn rate
-- Audio volume multipliers for engine, rotor, warning, and crash sounds
-- Camera distance, speed display unit factor
+- Crash threshold, player crash damage enable
+- Battery drain/charge rates, fuel burn rate, max fuel capacity
+- Audio volume multipliers for all eight sound layers
+- Camera pull-back distance, speed display unit factor
 
 <Tip>
-  The config system is additive — when a mod update adds new parameters, they are automatically appended to your existing files with their default values. Your custom values are never overwritten.
+  The config system is additive — when a mod update adds new parameters, they are automatically appended to your existing files with default values. Your custom values are never overwritten.
 </Tip>
 
 See [Per-Helicopter Settings](/server-config/per-helicopter-settings) for the full parameter reference.
@@ -186,7 +266,7 @@ When enabled in `mod_config.json`, the mod writes timestamped activity logs to t
 $profile:\CZAutoz_Heli\CZAutoz_Heli_Activity_YYYY-MM-DD.log
 ```
 
-Every log entry includes the **player display name**, **Steam GUID**, helicopter type, and world position. Logged events include engine start, engine stop, boarding, disembarking, and pilot-in-seat death.
+Every log entry includes the **player display name**, **Steam GUID**, helicopter type, and world position. Logged events include engine start, engine stop, boarding, disembarking, landing gear toggle, refuel, rotor kill, crew crash damage, and pilot death in seat.
 
 A separate debug log (`CZAutoz_Heli_debug.log`) can be enabled independently for detailed physics and config diagnostics without flooding the activity log.
 

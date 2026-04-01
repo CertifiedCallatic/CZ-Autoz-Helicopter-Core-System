@@ -7,7 +7,7 @@
     "light": "#38BDF8",
     "dark": "#0284C7"
   },
-  "favicon": "/CZAutoz_Logo.svg",
+  "favicon": "/CZAutozNewLogo.svg",
   "navigation": {
     "tabs": [
       {
@@ -98,7 +98,7 @@
       }
     ]
   },
-  "logo": "/CZAutoz_Logo.svg",
+  "logo": "/CZAutozNewLogo.svg",
   "appearance": {
     "default": "dark"
   }

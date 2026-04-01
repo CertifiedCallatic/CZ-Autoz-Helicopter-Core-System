@@ -36,6 +36,7 @@
           {
             "group": "Features",
             "pages": [
+              "features/overview",
               "features/flying-guide",
               "features/flight-model",
               "features/autopilot",

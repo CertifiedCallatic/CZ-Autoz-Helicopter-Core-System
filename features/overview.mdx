@@ -1,0 +1,193 @@
+---
+title: "What's Included"
+sidebarTitle: "What's Included"
+description: "Six unique helicopters, physics-based flight, interior cabin walk, autorotation, damage zones, and 45+ configurable parameters per aircraft — everything in a single pack."
+icon: "star"
+---
+
+CZ Autoz Helicopter is a complete helicopter simulation built from the ground up for DayZ. Six aircraft, each engineered around its own real-world weight, drag, and rotor characteristics. A damage model with consequences. A configuration system deep enough for any server's vision.
+
+Nothing is shared across helicopters to cut corners — the Merlin feels nothing like the MD500, because it wasn't built to.
+
+<Note>
+  Every feature on this page is included in the mod. No additional purchases, no DLC splits, no feature tiers.
+</Note>
+
+---
+
+## By the Numbers
+
+| | |
+|---|---|
+| **6** | Unique helicopter airframes |
+| **20** | Livery and variant combinations |
+| **6** | Independent damage zones per helicopter |
+| **45+** | Tunable flight parameters per helicopter via JSON |
+| **18** | Maximum passenger capacity (AW101 Merlin) |
+| **25** | Server guide languages auto-generated on startup |
+| **10** | Extra cargo module slots per helicopter (1,000 slots each) |
+
+---
+
+## The Fleet
+
+<Columns cols="2">
+  <Card title="MD500 Civilian" icon="helicopter" href="/helicopters/md500-civilian">
+    **4 seats** — 2 cockpit, 2 cargo. Open-air airframe with removable doors and a nimble, responsive flight character. Four liveries: White, Classic Red/Silver, Blue Charter, Green Tour.
+  </Card>
+  <Card title="MH-6 Little Bird" icon="helicopter" href="/helicopters/mh6-little-bird">
+    **6 seats** — 2 cockpit, 4 bench. Automatic **grab-hold system** attaches bench riders to the airframe — passengers travel with the aircraft even when seated outside the hull. Two variants.
+  </Card>
+  <Card title="SA342M Gazelle" icon="helicopter" href="/helicopters/sa342m-gazelle">
+    **4 seats** — 2 cockpit, 2 cabin. Reversed cockpit entry, latched rear doors. Three liveries: Standard Olive, Woodland Camo, Tiger Meet.
+  </Card>
+  <Card title="UH-1H Iroquois" icon="helicopter" href="/helicopters/uh1h-iroquois">
+    **5 seats** — 2 cockpit, 3 cabin. Full **interior cabin walk** — pilot or co-pilot can leave their seat, stand up, and move freely inside the cabin with WASD, weapon use, and ADS. Four liveries.
+  </Card>
+  <Card title="MH-60L Blackhawk" icon="helicopter" href="/helicopters/mh60l-blackhawk">
+    **8 seats** — 2 cockpit, 6 cabin. Full interior cabin walk plus **independently operable sliding windows** on both sides. Two liveries: Olive Drab and Desert.
+  </Card>
+  <Card title="AW101 Merlin" icon="helicopter" href="/helicopters/aw101-merlin">
+    **18 seats** — 2 cockpit, 16 interior. **Rear loading ramp**. **Retractable landing gear**. The heaviest airframe in the pack — sluggish, powerful, and built for mass transport. Four liveries.
+  </Card>
+</Columns>
+
+---
+
+## Feature Categories
+
+<Columns cols="3">
+  <Card title="Physics Flight Model" icon="wind" href="/features/flight-model">
+    Per-helicopter mass, drag, inertia, and rotor characteristics. Each aircraft handles differently by design.
+  </Card>
+  <Card title="Auto Hover" icon="cpu-chip" href="/features/autopilot">
+    One key locks a stable hover — holds altitude, heading, and position simultaneously. Deactivates cleanly on cyclic input.
+  </Card>
+  <Card title="Autorotation" icon="arrow-path" href="/features/flight-model">
+    Engine-off rotor inertia allows a controlled glide and landing. Collective flare, descent cap, gravity factor — all configurable.
+  </Card>
+  <Card title="Damage Zones" icon="shield-exclamation" href="/features/damage-zones">
+    Six independent zones: Body, Engine, Chassis, Fuel, Main Rotor, Tail Rotor. Each zone can be individually toggled per server.
+  </Card>
+  <Card title="Repair & Battery" icon="wrench-screwdriver" href="/features/repair-battery">
+    HelicopterRepairKit repairs all six zones. HelicopterBattery drains on start, charges while running, drains slowly with lights.
+  </Card>
+  <Card title="Interior Walk" icon="user" href="/features/interior-walk">
+    Walk, aim, and fire from inside a moving helicopter. Available on the UH-1H and MH-60L Blackhawk.
+  </Card>
+  <Card title="Cabin Mode" icon="cube" href="/features/cabin-mode">
+    Dedicated cockpit↔cabin workflow — action to leave the seat, walk the interior, and return to cockpit with a single prompt.
+  </Card>
+  <Card title="Cargo System" icon="archive-box" href="/features/cargo-system">
+    Built-in storage on every helicopter, plus up to 10 optional extra cargo modules per aircraft (1,000 slots each).
+  </Card>
+  <Card title="HUD & Instruments" icon="computer-desktop" href="/features/hud-fuel">
+    Airspeed in knots, altitude AGL, health bar, fuel level, and Auto Hover status — all visible from the cockpit.
+  </Card>
+  <Card title="Lighting" icon="light-bulb" href="/features/lights">
+    Spotlight and navigation lights, independently controlled. Battery-drain configurable per server.
+  </Card>
+  <Card title="Fuel System" icon="fire" href="/features/hud-fuel">
+    Configurable burn rate per helicopter. Audio fuel warnings that escalate in frequency as the tank empties.
+  </Card>
+  <Card title="Controls" icon="keyboard" href="/features/controls">
+    Full key reference for flight, engine start/stop, lights, autopilot, repair, cabin mode, and cargo.
+  </Card>
+</Columns>
+
+---
+
+## Standout Features
+
+### Interior Cabin Walk
+
+Players aboard the UH-1H Iroquois and MH-60L Blackhawk can do something no vanilla DayZ vehicle supports — get up and move around inside a **moving helicopter**.
+
+The pilot or co-pilot triggers a seat exit that keeps them physically attached to the aircraft's coordinate space. From there they can walk the full cabin length with WASD, draw and aim weapons, interact with cargo, and return to the cockpit at any time via a prompt.
+
+<Tip>
+  Cargo seats have their own seat-exit walk behaviour — passengers can stand up while airborne and remain linked to the aircraft until landing.
+</Tip>
+
+---
+
+### Autorotation
+
+When the engine dies in flight, the rotor keeps spinning — rotor inertia carries the aircraft into a glide. A controlled descent, a collective flare at the right moment, and a heavy helicopter can be put down survivably.
+
+The autorotation model has configurable parameters: gravity reduction factor, flare strength, maximum descent speed cap, and the speed at which the rotor stops providing meaningful lift. Servers can tune it from forgiving to unforgiving.
+
+---
+
+### Grab-Hold System (MH-6 Little Bird)
+
+The MH-6's bench seats work differently from every other helicopter in the pack. When a player sits on a bench, they are physically **linked to the helicopter's local space**. The aircraft can bank, pitch, and accelerate — bench riders move with it automatically.
+
+No manual grab inputs. No risk of falling through geometry. The link is maintained from takeoff to landing and detaches cleanly when the player dismounts.
+
+---
+
+### Damage System
+
+All six zones can be enabled or disabled **per helicopter, per server** in the JSON config. A helicopter with all zones at `0` takes no damage at all — useful for PvE or event servers that want aircraft to be indestructible.
+
+| Zone | Consequence when destroyed |
+|------|---------------------------|
+| **Body** | Progressive HP drain; cosmetic damage |
+| **Engine** | Cannot restart; rotor spins down |
+| **Chassis** | Structural damage; impulse threshold lowered |
+| **Fuel** | Tank leak; fuel drains continuously |
+| **Main Rotor** | Aircraft falls; no lift recovery |
+| **Tail Rotor** | Uncontrolled yaw spin; heading cannot be held |
+
+Hard-impact crash damage to crew is also configurable — enabled, disabled, or tuned by impulse threshold and severity scale.
+
+---
+
+## Server Configuration
+
+Every aircraft in the pack has its own JSON config file generated automatically on first server start. Parameters are applied immediately on respawn — no server restart required after editing.
+
+```
+$profile:\CZAutoz_Heli\
+├── MD500_Civilian_config.json
+├── UH1H_Nasa_config.json
+├── MH60LBlackhawk_config.json
+├── AW101Merlin_RoyalAirForce_config.json
+├── ... (20 files total across all variants)
+└── mod_config.json          ← global settings
+```
+
+**45+ parameters per helicopter** cover:
+
+- Rotor spool rate, lift multiplier, altitude ceiling
+- Cyclic authority (pitch / bank / yaw strength)
+- Input smoothing, drag, mass-based inertia
+- Ground effect and ETL (effective translational lift) bonuses
+- VNE airspeed and vertical speed caps
+- All six damage zone toggles plus contact damage coefficient
+- Battery drain/charge rates, fuel burn rate
+- Audio volume multipliers for engine, rotor, warning, and crash sounds
+- Camera distance, speed display unit factor
+
+<Tip>
+  The config system is additive — when a mod update adds new parameters, they are automatically appended to your existing files with their default values. Your custom values are never overwritten.
+</Tip>
+
+See [Per-Helicopter Settings](/server-config/per-helicopter-settings) for the full parameter reference.
+
+---
+
+## Logging & Administration
+
+When enabled in `mod_config.json`, the mod writes timestamped activity logs to the server profile directory:
+
+```
+$profile:\CZAutoz_Heli\CZAutoz_Heli_Activity_YYYY-MM-DD.log
+```
+
+Every log entry includes the **player display name**, **Steam GUID**, helicopter type, and world position. Logged events include engine start, engine stop, boarding, disembarking, and pilot-in-seat death.
+
+A separate debug log (`CZAutoz_Heli_debug.log`) can be enabled independently for detailed physics and config diagnostics without flooding the activity log.
+
+Both logs are opt-in and disabled by default.

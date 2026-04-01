@@ -8,14 +8,14 @@ CZ Autoz Helicopter includes six distinct aircraft. Each has its own flight char
 
 ## Quick Reference
 
-| Helicopter | Seats | Cabin Mode | Interior Walk | Variants | Startup |
-|------------|-------|:----------:|:-------------:|----------|---------|
+| Helicopter | Seats | Cabin Mode | Free Walk / Seat Exit | Variants | Startup |
+|------------|-------|:----------:|:---------------------:|----------|---------|
 | [MD500 Civilian](/helicopters/md500-civilian) | 4 | ✗ | ✗ | 4 | ~17 s |
 | [MH-6 Little Bird](/helicopters/mh6-little-bird) | 6 | ✗ | Walk-on | 2 | ~17 s |
 | [SA342M Gazelle](/helicopters/sa342m-gazelle) | 4 | ✗ | ✗ | 3 | ~32 s |
-| [UH-1H Iroquois](/helicopters/uh1h-iroquois) | 5 | ✓ | Walk-on | 4 | ~49 s |
-| [MH-60L Blackhawk](/helicopters/mh60l-blackhawk) | 8 | ✓ | Walk-on | 2 | ~20 s |
-| [AW101 Merlin](/helicopters/aw101-merlin) | 18 | ✗ | Seat Exit | 4 | ~60 s |
+| [UH-1H Iroquois](/helicopters/uh1h-iroquois) | 5 | ✓ | Walk-on · Seat Exit | 4 | ~49 s |
+| [MH-60L Blackhawk](/helicopters/mh60l-blackhawk) | 8 | ✓ | Walk-on · Seat Exit | 2 | ~20 s |
+| [AW101 Merlin](/helicopters/aw101-merlin) | 18 | ✗ | Walk-on · Seat Exit (all seats) | 4 | ~60 s |
 
 ## Performance Comparison
 
@@ -77,14 +77,14 @@ CZ Autoz Helicopter includes six distinct aircraft. Each has its own flight char
 
 ---
 
-## Cabin Mode & Interior Walk
+## Cabin Mode & Free Walk
 
 Three systems allow players to move freely inside a moving helicopter:
 
-**Cabin Mode** (UH-1H, Blackhawk) — pilot or co-pilot uses the **Move to Cabin** action to leave their cockpit seat and walk the cabin with full WASD, weapon use, and ADS. **Return to Cockpit** puts them straight back in their seat. Server owners can disable it globally via `CZH_cabinModeEnabled = 0` in `mod_config.json`.
+**Cabin Mode** (UH-1H, MH-60L Blackhawk) — the pilot or co-pilot exits their cockpit seat outward by default. Cabin Mode provides an alternative: use the **Move to Cabin** action to leave the cockpit and walk freely inside the cabin with full WASD, weapon use, and ADS. **Return to Cockpit** puts them straight back. Server owners can disable it globally via `CZH_cabinModeEnabled = 0` in `mod_config.json`.
 
-**Seat Exit Free Walk** (AW101 Merlin) — all seats exit into the enclosed fuselage via the standard "Get Out" action. Players link to the aircraft automatically and can walk freely mid-flight. The rear ramp must be open to actually leave.
+**Seat Exit Free Walk** (UH-1H, MH-60L, AW101 Merlin) — cabin passenger seats on the UH-1H and Blackhawk exit into the enclosed interior via the standard DayZ "Get Out" action; players link to the aircraft automatically. On the AW101 Merlin this applies to **all seats including pilot and co-pilot** — the entire fuselage is enclosed, so Get Out always places the player inside. The rear ramp must be open to actually disembark.
 
-**Walk-On Linking** (UH-1H, Blackhawk, MH-6) — stepping onto the rear cabin opening or bench platform automatically links a player to the aircraft. They travel with it until they step off.
+**Walk-On Linking** (UH-1H, MH-60L, MH-6 Little Bird, AW101 Merlin) — stepping onto the rear cabin opening, the MH-6's external side bench platform, or the Merlin's rear ramp area automatically links a player to the aircraft. They travel with it until they step off. No action required.
 
 See [Cabin Mode](/features/cabin-mode) for full details on all three systems.

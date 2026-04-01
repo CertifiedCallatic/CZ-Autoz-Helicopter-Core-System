@@ -1,8 +1,17 @@
 /* CZ Autoz brand theme overrides */
 
-/* Logo: increase from theme default 24px to a reasonable navbar size */
+/* Logo: fill the sidebar header gap cleanly */
 .nav-logo {
-  height: 2.75rem !important;
-  max-width: 350px !important;
+  height: 7rem !important;
+  max-width: none !important;
   width: auto !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+
+/* Center the logo link in the sidebar */
+a:has(.nav-logo) {
+  display: flex !important;
+  justify-content: center !important;
+  width: 100% !important;
 }

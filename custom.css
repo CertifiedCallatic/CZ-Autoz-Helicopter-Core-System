@@ -13,3 +13,13 @@ a:has(.nav-logo) {
   justify-content: center !important;
   width: 100% !important;
 }
+
+/* Dark mode toggle: sliding indicator is bg-gray-900 in dark mode (invisible on dark bg) — make it visible */
+html.dark [aria-label="Toggle dark mode"] div.absolute.rounded-full {
+  background-color: rgba(204, 69, 0, 0.5) !important;
+}
+
+/* Brighten the active icon in dark mode (moon) */
+html.dark [aria-label="Toggle dark mode"] svg {
+  color: #CC4500 !important;
+}

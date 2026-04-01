@@ -13,7 +13,7 @@ The AW101 Merlin is the largest and heaviest helicopter in the mod, capable of c
 | **Total Seats** | 18 |
 | **Cockpit** | 2 (pilot + co-pilot) |
 | **Interior** | 16 |
-| **Interior Walk** | No |
+| **Cabin Mode** | Seat Exit Free Walk |
 | **Startup Time** | ~60 seconds |
 | **Mass** | 10,000 kg (heaviest in the mod) |
 | **Max Airspeed** | 232 km/h |
@@ -50,9 +50,11 @@ The Merlin has a retractable tricycle landing gear operated by the **pilot** usi
   Landing gear deploy/retract events are recorded in the activity log as `LANDING_GEAR` when `CZH_activityLogging = 1`.
 </Note>
 
-## Native Cabin Behaviour
+## Seat Exit Free Walk
 
-The Merlin does not use the Cabin Mode system (no "Move to Cabin" / "Return to Cockpit" actions). However, because the Merlin has a **fully enclosed fuselage**, exiting any seat places the player **inside the aircraft** rather than outside — they are automatically linked to the helicopter and travel with it. This applies even mid-flight. The rear ramp must be open for players to board or leave the aircraft.
+The Merlin does not use the Move to Cabin / Return to Cockpit system. Instead, because it has a **fully enclosed fuselage**, the standard "Get Out" action from **any seat** — including pilot and co-pilot — exits the player into the aircraft interior rather than outside. The DayZ engine automatically links them to the helicopter's coordinate space, and they can walk freely mid-flight. Getting back into any available seat works normally mid-flight.
+
+To actually leave the aircraft, the **rear ramp must be open**. Players who exit into the interior with the ramp closed remain inside until it is opened.
 
 ## Door / Wheel Item Classnames
 

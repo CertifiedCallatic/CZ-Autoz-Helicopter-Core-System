@@ -98,7 +98,11 @@
       }
     ]
   },
-  "logo": "/CZAutozNewLogo.svg",
+  "logo": {
+    "light": "/CZAutozNewLogo.svg",
+    "dark": "/CZAutozNewLogo.svg",
+    "width": 180
+  },
   "appearance": {
     "default": "dark"
   }

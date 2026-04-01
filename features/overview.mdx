@@ -44,13 +44,13 @@ Nothing is shared across helicopters to cut corners — the Merlin feels nothing
     **4 seats** — 2 cockpit, 2 cabin. Reversed cockpit entry, latched rear doors. Three liveries: Standard Olive, Woodland Camo, Tiger Meet.
   </Card>
   <Card title="UH-1H Iroquois" icon="helicopter" href="/helicopters/uh1h-iroquois">
-    **5 seats** — 2 cockpit, 3 cabin. Full **interior cabin walk** — pilot or co-pilot can leave their seat, stand up, and move freely inside the cabin with WASD, weapon use, and ADS. Four liveries.
+    **5 seats** — 2 cockpit, 3 cabin. Full **Cabin Mode** — pilot or co-pilot can leave their seat, move freely inside the cabin with WASD, weapon use, and ADS, and return to cockpit at any time. Four liveries.
   </Card>
   <Card title="MH-60L Blackhawk" icon="helicopter" href="/helicopters/mh60l-blackhawk">
-    **8 seats** — 2 cockpit, 6 cabin. Full interior cabin walk plus **independently operable sliding windows** on both sides. Two liveries: Olive Drab and Desert.
+    **8 seats** — 2 cockpit, 6 cabin. Full **Cabin Mode** plus **independently operable sliding windows** on both sides. Two liveries: Olive Drab and Desert.
   </Card>
   <Card title="AW101 Merlin" icon="helicopter" href="/helicopters/aw101-merlin">
-    **18 seats** — 2 cockpit, 16 interior. **Rear loading ramp**. **Retractable landing gear**. The heaviest airframe in the pack — sluggish, powerful, and built for mass transport. Four liveries.
+    **18 seats** — 2 cockpit, 16 interior. **Rear loading ramp**. **Retractable landing gear**. **Seat Exit Free Walk** — all seats exit into the enclosed fuselage, players link natively mid-flight. Four liveries.
   </Card>
 </Columns>
 
@@ -74,11 +74,8 @@ Nothing is shared across helicopters to cut corners — the Merlin feels nothing
   <Card title="Repair & Battery" icon="screwdriver-wrench" href="/features/repair-battery">
     HelicopterRepairKit repairs all six zones. HelicopterBattery drains on start, charges while running, drains slowly with lights.
   </Card>
-  <Card title="Interior Walk" icon="person-walking" href="/features/interior-walk">
-    Walk, aim, and fire from inside a moving helicopter. Available on the UH-1H and MH-60L Blackhawk.
-  </Card>
   <Card title="Cabin Mode" icon="door-open" href="/features/cabin-mode">
-    Dedicated cockpit↔cabin workflow — single action to leave the seat, walk the interior, and return to cockpit.
+    Walk, aim, and fire from inside a moving helicopter. Cabin Mode on UH-1H and Blackhawk. Seat Exit Free Walk on the AW101 Merlin. Walk-on linking on UH-1H, Blackhawk, and MH-6.
   </Card>
   <Card title="Cargo System" icon="box" href="/features/cargo-system">
     Built-in storage on every helicopter, plus up to 10 optional extra cargo modules per aircraft (1,000 slots each).
@@ -99,7 +96,7 @@ Nothing is shared across helicopters to cut corners — the Merlin feels nothing
     Configurable burn rate per helicopter. Escalating audio warnings as the tank empties. Fuel tank leak when damaged.
   </Card>
   <Card title="Rotor Kill Zone" icon="skull">
-    Spinning rotor blades are lethal. Players entering the disc radius take fatal damage. Seated crew, cabin walkers, and grab-hold passengers are automatically exempted.
+    Spinning rotor blades are lethal. Players entering the disc radius take fatal damage. Seated crew, Cabin Mode players, Seat Exit Free Walk players, and grab-hold passengers are automatically exempted.
   </Card>
   <Card title="Water & Crash Detection" icon="water">
     High-speed water entry deals impulse-scaled damage. Submerged helicopters take continuous engine and body damage. Crew take crash damage on hard impacts.
@@ -131,15 +128,17 @@ All three are purely visual and have no gameplay effect — but they make landin
 
 ---
 
-### Interior Cabin Walk
+### Cabin Mode
 
-Players aboard the UH-1H Iroquois and MH-60L Blackhawk can do something no vanilla DayZ vehicle supports — get up and move around inside a **moving helicopter**.
+Players aboard supported helicopters can do something no vanilla DayZ vehicle supports — get up and move around inside a **moving helicopter**.
 
-The pilot or co-pilot triggers a seat exit that keeps them physically attached to the aircraft's coordinate space. From there they can walk the full cabin length with WASD, draw and aim weapons, interact with cargo, and return to the cockpit at any time via a prompt.
+**Cabin Mode** (UH-1H, Blackhawk) — the pilot or co-pilot uses the **Move to Cabin** action to leave their cockpit seat and walk freely inside the cabin with full WASD, weapon use, and ADS. The **Return to Cockpit** action puts them straight back in their seat at any time.
 
-<Tip>
-  Cargo seats have their own seat-exit walk behaviour — passengers can stand up while airborne and remain linked to the aircraft until they choose to disembark.
-</Tip>
+**Seat Exit Free Walk** (AW101 Merlin) — because the Merlin has a fully enclosed fuselage, the standard "Get Out" action exits any seat into the interior rather than outside. Players link automatically and walk freely mid-flight. The rear ramp must be open to actually leave the aircraft.
+
+**Walk-On Linking** (UH-1H, Blackhawk, MH-6) — stepping onto the rear cabin opening or bench platform automatically links a player to the aircraft's coordinate space. They travel with it until they step off.
+
+See [Cabin Mode](/features/cabin-mode) for full details on all three systems.
 
 ---
 

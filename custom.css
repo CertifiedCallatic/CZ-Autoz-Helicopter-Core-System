@@ -1,10 +1,17 @@
 /* CZ Autoz brand theme overrides */
 
-/* Logo: fill the sidebar header gap cleanly */
+/* Sidebar / top-bar logo */
 .nav-logo {
   height: 7rem !important;
-  max-width: none !important;
   width: auto !important;
+  max-width: none !important;
+}
+
+/* Footer logo — larger, remove Mintlify's max-w-48 cap */
+footer.advanced-footer .nav-logo {
+  height: 10rem !important;
+  width: auto !important;
+  max-width: none !important;
 }
 
 /* Dark mode toggle: sliding indicator is near-invisible on dark bg — use a subtle white glow */

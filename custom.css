@@ -1,40 +1,287 @@
-/* CZ Autoz brand theme overrides */
+/* =============================================
+   CZ AUTOZ — Military Aviation HUD Theme
+   ============================================= */
 
-/* Sidebar / top-bar logo */
+/* --- Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+
+/* ============================================================
+   DARK MODE BASE
+   ============================================================ */
+
+html.dark,
+html.dark body {
+  background-color: #0d0f11 !important;
+  color: #c8cdd4 !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 1.05rem !important;
+}
+
+/* Subtle amber grid overlay — HUD targeting reticle feel */
+html.dark body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(204, 69, 0, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(204, 69, 0, 0.035) 1px, transparent 1px);
+  background-size: 52px 52px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+/* ============================================================
+   HEADINGS
+   ============================================================ */
+
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6 {
+  font-family: 'Orbitron', sans-serif !important;
+  letter-spacing: 0.04em !important;
+  text-shadow: 0 0 20px rgba(204, 69, 0, 0.28) !important;
+}
+
+html.dark h1 { color: #e0e4e8 !important; }
+html.dark h2 { color: #d4d8dc !important; }
+html.dark h3 { color: #c8cdd4 !important; }
+
+
+/* ============================================================
+   TOP NAVIGATION BAR
+   ============================================================ */
+
+html.dark header {
+  background-color: #090b0d !important;
+  border-bottom: 1px solid rgba(204, 69, 0, 0.25) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
+
+html.dark nav,
+html.dark aside {
+  background-color: #090b0d !important;
+  border-right: 1px solid rgba(204, 69, 0, 0.2) !important;
+}
+
+/* Nav group labels */
+html.dark nav p,
+html.dark aside p {
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 0.65rem !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: #CC4500 !important;
+  opacity: 0.8 !important;
+}
+
+/* Nav links */
+html.dark nav a,
+html.dark aside a {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.02em !important;
+  transition: color 0.15s, padding-left 0.15s !important;
+}
+
+/* Active nav item */
+html.dark [aria-current="page"] {
+  color: #CC4500 !important;
+  font-weight: 700 !important;
+  border-left: 2px solid #CC4500 !important;
+  padding-left: 0.6rem !important;
+}
+
+
+/* ============================================================
+   LINKS
+   ============================================================ */
+
+html.dark a {
+  color: #d96030 !important;
+  transition: color 0.15s ease, text-shadow 0.15s ease !important;
+}
+
+html.dark a:hover {
+  color: #ff7040 !important;
+  text-shadow: 0 0 8px rgba(204, 69, 0, 0.5) !important;
+}
+
+
+/* ============================================================
+   CODE BLOCKS
+   ============================================================ */
+
+html.dark code,
+html.dark pre,
+html.dark kbd {
+  font-family: 'Share Tech Mono', monospace !important;
+}
+
+html.dark pre {
+  background-color: #080a0c !important;
+  border: 1px solid rgba(204, 69, 0, 0.2) !important;
+  border-radius: 4px !important;
+}
+
+/* Inline code */
+html.dark :not(pre) > code {
+  background-color: rgba(204, 69, 0, 0.1) !important;
+  color: #e8a070 !important;
+  border: 1px solid rgba(204, 69, 0, 0.22) !important;
+  border-radius: 3px !important;
+  padding: 0.1em 0.35em !important;
+}
+
+
+/* ============================================================
+   TABLES
+   ============================================================ */
+
+html.dark table {
+  border: 1px solid rgba(204, 69, 0, 0.18) !important;
+  border-collapse: collapse !important;
+  width: 100% !important;
+}
+
+html.dark th {
+  background-color: rgba(204, 69, 0, 0.1) !important;
+  color: #CC4500 !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 0.68rem !important;
+  letter-spacing: 0.09em !important;
+  text-transform: uppercase !important;
+  border-bottom: 1px solid rgba(204, 69, 0, 0.3) !important;
+  padding: 0.6rem 0.75rem !important;
+}
+
+html.dark td {
+  border-color: rgba(204, 69, 0, 0.08) !important;
+  padding: 0.5rem 0.75rem !important;
+}
+
+html.dark tr:hover td {
+  background-color: rgba(204, 69, 0, 0.05) !important;
+}
+
+
+/* ============================================================
+   CARDS & CALLOUT PANELS
+   ============================================================ */
+
+html.dark [class*="card"],
+html.dark [class*="Card"],
+html.dark [class*="callout"],
+html.dark [class*="Callout"],
+html.dark [class*="note"],
+html.dark [class*="warning"],
+html.dark [class*="tip"] {
+  border: 1px solid rgba(204, 69, 0, 0.18) !important;
+  background-color: #111418 !important;
+}
+
+
+/* ============================================================
+   DIVIDERS
+   ============================================================ */
+
+html.dark hr {
+  border-color: rgba(204, 69, 0, 0.2) !important;
+}
+
+
+/* ============================================================
+   SEARCH
+   ============================================================ */
+
+html.dark [type="search"],
+html.dark input[type="text"],
+html.dark [role="combobox"] {
+  background-color: #111418 !important;
+  border: 1px solid rgba(204, 69, 0, 0.3) !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  color: #c8cdd4 !important;
+}
+
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #CC4500 #0d0f11;
+}
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: #0d0f11; }
+::-webkit-scrollbar-thumb { background: #CC4500; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #e85500; }
+
+
+/* ============================================================
+   LOGO
+   ============================================================ */
+
 .nav-logo {
   height: 7rem !important;
   width: auto !important;
   max-width: none !important;
 }
 
-/* Footer logo — larger, remove Mintlify's max-w-48 cap */
 footer.advanced-footer .nav-logo {
   height: 14rem !important;
   width: auto !important;
   max-width: none !important;
 }
 
-/* Footer inner wrapper — reduce Mintlify's lg:py-28 (112px) to something tighter */
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
 footer.advanced-footer > div {
   padding-top: 2.5rem !important;
   padding-bottom: 2.5rem !important;
 }
 
-/* Light mode: soft grey background instead of stark white */
+html.dark footer {
+  background-color: #090b0d !important;
+  border-top: 1px solid rgba(204, 69, 0, 0.2) !important;
+}
+
+
+/* ============================================================
+   LIGHT MODE
+   ============================================================ */
+
 html:not(.dark) body,
 html:not(.dark) {
   background-color: #f3f4f6 !important;
 }
 
-/* Dark mode toggle: sliding indicator is near-invisible on dark bg — use a subtle white glow */
+
+/* ============================================================
+   DARK MODE TOGGLE
+   ============================================================ */
+
 html.dark [aria-label="Toggle dark mode"] div.absolute.rounded-full {
   background-color: rgba(255, 255, 255, 0.15) !important;
 }
 
-/* Highlight only the active icon in brand orange */
 html.dark [aria-label="Toggle dark mode"] svg:last-of-type {
   color: #CC4500 !important;
 }
+
 html:not(.dark) [aria-label="Toggle dark mode"] svg:first-of-type {
   color: #CC4500 !important;
 }

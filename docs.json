@@ -106,5 +106,8 @@
   "appearance": {
     "default": "dark"
   },
+  "background": {
+    "style": "grid"
+  },
   "css": "/custom.css"
 }

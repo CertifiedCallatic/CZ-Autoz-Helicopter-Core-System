@@ -284,9 +284,180 @@ html.dark footer {
    LIGHT MODE
    ============================================================ */
 
-html:not(.dark) body,
-html:not(.dark) {
-  background-color: #f3f4f6 !important;
+html:not(.dark),
+html:not(.dark) body {
+  background-color: #f7f5f2 !important;
+  color: #1a1c1f !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 1.08rem !important;
+  font-weight: 600 !important;
+}
+
+/* Cascade Rajdhani 600 to all prose elements in light mode */
+html:not(.dark) p,
+html:not(.dark) li,
+html:not(.dark) span,
+html:not(.dark) label,
+html:not(.dark) td,
+html:not(.dark) blockquote,
+html:not(.dark) summary,
+html:not(.dark) figcaption,
+html:not(.dark) [class*="prose"] {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-weight: 600 !important;
+  color: #2a2d32 !important;
+  line-height: 1.65 !important;
+}
+
+/* Subtle warm grid overlay */
+html:not(.dark) body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(204, 69, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(204, 69, 0, 0.04) 1px, transparent 1px);
+  background-size: 52px 52px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Headings */
+html:not(.dark) h1,
+html:not(.dark) h2,
+html:not(.dark) h3,
+html:not(.dark) h4,
+html:not(.dark) h5,
+html:not(.dark) h6 {
+  font-family: 'Orbitron', sans-serif !important;
+  letter-spacing: 0.04em !important;
+  color: #1a1c1f !important;
+  text-shadow: 0 0 16px rgba(204, 69, 0, 0.15) !important;
+}
+
+/* Top navigation bar */
+html:not(.dark) header {
+  background-color: #faf8f5 !important;
+  border-bottom: 1px solid rgba(204, 69, 0, 0.2) !important;
+}
+
+/* Sidebar */
+html:not(.dark) nav,
+html:not(.dark) aside {
+  background-color: #faf8f5 !important;
+  border-right: 1px solid rgba(204, 69, 0, 0.18) !important;
+}
+
+/* Nav group labels */
+html:not(.dark) nav p,
+html:not(.dark) aside p {
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 0.65rem !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: #CC4500 !important;
+  opacity: 0.85 !important;
+}
+
+/* Nav links */
+html:not(.dark) nav a,
+html:not(.dark) aside a {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  color: #2a2d32 !important;
+  letter-spacing: 0.03em !important;
+}
+
+/* Active nav item */
+html:not(.dark) [aria-current="page"] {
+  color: #CC4500 !important;
+  font-weight: 700 !important;
+  border-left: 2px solid #CC4500 !important;
+  padding-left: 0.6rem !important;
+}
+
+/* Links */
+html:not(.dark) a {
+  color: #b83d00 !important;
+  transition: color 0.15s ease, text-shadow 0.15s ease !important;
+}
+
+html:not(.dark) a:hover {
+  color: #CC4500 !important;
+  text-shadow: 0 0 6px rgba(204, 69, 0, 0.25) !important;
+}
+
+/* Code */
+html:not(.dark) code,
+html:not(.dark) pre,
+html:not(.dark) kbd {
+  font-family: 'Share Tech Mono', monospace !important;
+}
+
+html:not(.dark) pre {
+  background-color: #f0ede8 !important;
+  border: 1px solid rgba(204, 69, 0, 0.15) !important;
+  border-radius: 4px !important;
+}
+
+html:not(.dark) :not(pre) > code {
+  background-color: rgba(204, 69, 0, 0.08) !important;
+  color: #a33000 !important;
+  border: 1px solid rgba(204, 69, 0, 0.18) !important;
+  border-radius: 3px !important;
+  padding: 0.1em 0.35em !important;
+}
+
+/* Tables */
+html:not(.dark) table {
+  border: 1px solid rgba(204, 69, 0, 0.15) !important;
+  border-collapse: collapse !important;
+  width: 100% !important;
+}
+
+html:not(.dark) th {
+  background-color: rgba(204, 69, 0, 0.08) !important;
+  color: #CC4500 !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.09em !important;
+  text-transform: uppercase !important;
+  border-bottom: 1px solid rgba(204, 69, 0, 0.25) !important;
+  padding: 0.65rem 0.75rem !important;
+}
+
+html:not(.dark) td {
+  border-color: rgba(204, 69, 0, 0.07) !important;
+  padding: 0.55rem 0.75rem !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  color: #2a2d32 !important;
+}
+
+html:not(.dark) tr:hover td {
+  background-color: rgba(204, 69, 0, 0.04) !important;
+}
+
+/* Dividers */
+html:not(.dark) hr {
+  border-color: rgba(204, 69, 0, 0.15) !important;
+}
+
+/* Cards */
+html:not(.dark) [class*="card"],
+html:not(.dark) [class*="Card"],
+html:not(.dark) [class*="callout"],
+html:not(.dark) [class*="Callout"] {
+  border: 1px solid rgba(204, 69, 0, 0.15) !important;
+  background-color: #fefcfa !important;
+}
+
+/* Footer */
+html:not(.dark) footer {
+  background-color: #faf8f5 !important;
+  border-top: 1px solid rgba(204, 69, 0, 0.15) !important;
 }
 
 

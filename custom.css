@@ -66,17 +66,16 @@ html.dark h1 { color: #e0e4e8 !important; }
 html.dark h2 { color: #d4d8dc !important; }
 html.dark h3 { color: #c8cdd4 !important; }
 
-/* Page group label above the page title (e.g. "Getting Started") */
-html.dark [class*="eyebrow"],
-html.dark [class*="Eyebrow"],
-html.dark [class*="label"],
-html.dark [class*="Label"],
-html.dark [class*="category"],
-html.dark [class*="Category"],
-html.dark [class*="breadcrumb"],
-html.dark [class*="Breadcrumb"] {
+/* Card titles — h2.not-prose sits inside <a> tags, inherits link orange. Fix explicitly. */
+html.dark h2.not-prose {
+  color: #d4d8dc !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  letter-spacing: 0.02em !important;
+}
+
+/* Page eyebrow label above page title (e.g. "Getting Started", "Helicopters") */
+html.dark div.eyebrow {
   color: #6b7280 !important;
-  margin-bottom: 0.5rem !important;
 }
 
 
@@ -133,6 +132,31 @@ html.dark [aria-current="page"] {
 
 
 /* ============================================================
+   RIGHT PANEL — "ON THIS PAGE" TOC
+   ============================================================ */
+
+/* All TOC links: muted grey by default */
+html.dark .toc-item a {
+  color: #6b7280 !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
+  transition: color 0.15s, border-color 0.15s !important;
+}
+
+/* Hover */
+html.dark .toc-item a:hover {
+  color: #c8cdd4 !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Active TOC item — subtle orange accent, not full blast */
+html.dark .toc-item a.text-primary,
+html.dark .toc-item a.font-medium {
+  color: #c8602a !important;
+  border-color: #c8602a !important;
+}
+
+
+/* ============================================================
    LINKS
    ============================================================ */
 
@@ -142,6 +166,17 @@ html.dark a {
 }
 
 html.dark a:hover {
+  color: #e07040 !important;
+}
+
+/* Body prose links should look like links but not everything orange */
+html.dark .prose a,
+html.dark [class*="prose"] a {
+  color: #c8602a !important;
+}
+
+html.dark .prose a:hover,
+html.dark [class*="prose"] a:hover {
   color: #e07040 !important;
 }
 
@@ -221,32 +256,20 @@ html.dark [class*="tip"] {
   background-color: #111418 !important;
 }
 
-/* Card titles — override Mintlify's primary-colour forced colouring */
-html.dark [class*="card"] p,
-html.dark [class*="Card"] p,
-html.dark [class*="card"] span,
-html.dark [class*="Card"] span {
-  color: #d4d8dc !important;
-}
-
-/* Card group outer padding so cards don't sit flush to the page edge */
-html.dark [class*="CardGroup"],
-html.dark [class*="card-group"],
-html.dark [class*="cardGroup"] {
-  padding: 0 0.25rem !important;
-}
-
 
 /* ============================================================
-   MAIN CONTENT PADDING
+   CONTENT AREA — subtle lift from page background
    ============================================================ */
 
-html.dark main,
-html.dark [class*="content"],
-html.dark [class*="Content"],
-html.dark article {
-  padding-left: 1.5rem !important;
-  padding-right: 1.5rem !important;
+html.dark .mdx-content {
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+}
+
+/* Give the main content column a very slightly lighter background
+   so it reads as distinct from the pure-black sidebar/page */
+html.dark .relative.antialiased {
+  background-color: #0f1215 !important;
 }
 
 
@@ -373,6 +396,15 @@ html.light h6 {
   color: #1a1c1f !important;
 }
 
+html.light h2.not-prose {
+  color: #1a1c1f !important;
+  font-family: 'Rajdhani', sans-serif !important;
+}
+
+html.light div.eyebrow {
+  color: #9ca3af !important;
+}
+
 /* Top navigation bar */
 html.light header {
   background-color: #faf8f5 !important;
@@ -413,6 +445,22 @@ html.light [aria-current="page"] {
   font-weight: 700 !important;
   border-left: 2px solid #CC4500 !important;
   padding-left: 0.6rem !important;
+}
+
+/* TOC right panel */
+html.light .toc-item a {
+  color: #9ca3af !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+html.light .toc-item a:hover {
+  color: #1a1c1f !important;
+}
+
+html.light .toc-item a.text-primary,
+html.light .toc-item a.font-medium {
+  color: #CC4500 !important;
+  border-color: #CC4500 !important;
 }
 
 /* Links */

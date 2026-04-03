@@ -245,32 +245,19 @@ html.dark tr:hover td {
    CARDS & CALLOUT PANELS
    ============================================================ */
 
-html.dark [class*="card"],
-html.dark [class*="Card"],
+/* Target individual cards only — NOT card-group wrapper */
+html.dark div.card {
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background-color: #111418 !important;
+}
+
 html.dark [class*="callout"],
-html.dark [class*="Callout"],
-html.dark [class*="note"],
-html.dark [class*="warning"],
-html.dark [class*="tip"] {
+html.dark [class*="Callout"] {
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
   background-color: #111418 !important;
 }
 
 
-/* ============================================================
-   CONTENT AREA — subtle lift from page background
-   ============================================================ */
-
-html.dark .mdx-content {
-  padding-left: 0.5rem !important;
-  padding-right: 0.5rem !important;
-}
-
-/* Give the main content column a very slightly lighter background
-   so it reads as distinct from the pure-black sidebar/page */
-html.dark .relative.antialiased {
-  background-color: #0f1215 !important;
-}
 
 
 /* ============================================================

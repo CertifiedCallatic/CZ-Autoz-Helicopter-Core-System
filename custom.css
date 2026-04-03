@@ -208,6 +208,21 @@ html.dark [class*="tip"] {
   background-color: #111418 !important;
 }
 
+/* Card titles — override Mintlify's primary-colour forced colouring */
+html.dark [class*="card"] p,
+html.dark [class*="Card"] p,
+html.dark [class*="card"] span,
+html.dark [class*="Card"] span {
+  color: #d4d8dc !important;
+}
+
+/* Card group outer padding so cards don't sit flush to the page edge */
+html.dark [class*="CardGroup"],
+html.dark [class*="card-group"],
+html.dark [class*="cardGroup"] {
+  padding: 0 0.25rem !important;
+}
+
 
 /* ============================================================
    DIVIDERS

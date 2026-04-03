@@ -66,6 +66,19 @@ html.dark h1 { color: #e0e4e8 !important; }
 html.dark h2 { color: #d4d8dc !important; }
 html.dark h3 { color: #c8cdd4 !important; }
 
+/* Page group label above the page title (e.g. "Getting Started") */
+html.dark [class*="eyebrow"],
+html.dark [class*="Eyebrow"],
+html.dark [class*="label"],
+html.dark [class*="Label"],
+html.dark [class*="category"],
+html.dark [class*="Category"],
+html.dark [class*="breadcrumb"],
+html.dark [class*="Breadcrumb"] {
+  color: #6b7280 !important;
+  margin-bottom: 0.5rem !important;
+}
+
 
 /* ============================================================
    TOP NAVIGATION BAR

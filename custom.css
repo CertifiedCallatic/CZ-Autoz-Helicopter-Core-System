@@ -238,6 +238,19 @@ html.dark [class*="cardGroup"] {
 
 
 /* ============================================================
+   MAIN CONTENT PADDING
+   ============================================================ */
+
+html.dark main,
+html.dark [class*="content"],
+html.dark [class*="Content"],
+html.dark article {
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
+
+
+/* ============================================================
    DIVIDERS
    ============================================================ */
 

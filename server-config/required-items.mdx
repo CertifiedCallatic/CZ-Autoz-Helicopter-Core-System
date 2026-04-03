@@ -1,10 +1,10 @@
 ---
 title: "Required Items"
-description: "Classnames for HelicopterBattery and HelicopterRepairKit — both required for normal helicopter operation."
+description: "Classnames for HelicopterBattery, HelicopterRepairKit, and HeliDrum — items required for normal helicopter operation."
 icon: "battery-full"
 ---
 
-Two items are required for full helicopter functionality. Both are custom items added by the CZ Autoz Helicopter mod and need to be added to your server's loot economy.
+The following items are added by the CZ Autoz Helicopter mod and need to be added to your server's loot economy for full functionality.
 
 ---
 
@@ -34,7 +34,7 @@ Two items are required for full helicopter functionality. Both are custom items 
 
 | Property | Value |
 |----------|-------|
-| **Classname** | `HelicopterRepairKit` |
+| **Classname** | `CZ_HelicopterRepairKit` |
 | **Must be held** | In the player's hands |
 | **Engine state** | Must be off |
 | **Helicopter state** | Must be grounded |
@@ -49,9 +49,28 @@ A single kit can perform `CZH_repairKitUses` repairs (default: **5**) before goi
 
 ---
 
+---
+
+## Helicopter Fuel Drum
+
+| Property | Value |
+|----------|-------|
+| **Classname** | `CZH_HeliDrum` |
+| **Parent** | `CanisterGasoline` |
+| **Capacity** | 100,000 ml |
+| **Default fill** | 50% of any helicopter tank per full drum (2 drums to fill from empty) |
+
+A large fuel drum designed for helicopter refuelling. Holds significantly more fuel than a standard jerry can. The fill percentage and drain speed are configurable in `mod_config.json` via `CZH_refuelPctDrum` and `CZH_refuelRateDrum`.
+
+<Tip>
+  The default drain rate (`CZH_refuelRateDrum = 5.0`) is set so a full drum takes the same wall-clock time to empty as a full jerry can, despite holding 5× the fuel. Adjust `CZH_refuelRateDrum` if you want a different fill speed.
+</Tip>
+
+---
+
 ## Adding Items to Your Server
 
-Add both classnames to your server's `types.xml` to control spawn rates. Example entries:
+Add classnames to your server's `types.xml` to control spawn rates. Example entries:
 
 ```xml
 <type name="CZ_HelicopterBattery">
@@ -66,11 +85,23 @@ Add both classnames to your server's `types.xml` to control spawn rates. Example
     <category name="tools"/>
 </type>
 
-<type name="HelicopterRepairKit">
+<type name="CZ_HelicopterRepairKit">
     <nominal>5</nominal>
     <lifetime>14400</lifetime>
     <restock>1800</restock>
     <min>2</min>
+    <quantmin>-1</quantmin>
+    <quantmax>-1</quantmax>
+    <cost>100</cost>
+    <flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+    <category name="tools"/>
+</type>
+
+<type name="CZH_HeliDrum">
+    <nominal>3</nominal>
+    <lifetime>14400</lifetime>
+    <restock>1800</restock>
+    <min>1</min>
     <quantmin>-1</quantmin>
     <quantmax>-1</quantmax>
     <cost>100</cost>

@@ -54,6 +54,34 @@ All repairs require HelicopterRepairKit in hands, engine off, helicopter grounde
 
 ---
 
+## Refuelling
+
+Controls how much fuel each container type adds and how quickly it drains during the refuel action.
+
+### Refuel Amounts
+
+The amount of fuel added is expressed as a fraction of the helicopter's total tank capacity — so the same setting applies consistently regardless of which helicopter is being refuelled.
+
+| Setting | What it does | Default |
+|---------|-------------|---------|
+| `CZH_refuelPctCanister` | Fraction of tank added per full `CanisterGasoline` (jerry can). `0.10` = 10% per can, 10 cans to fill any helicopter. | `0.10` |
+| `CZH_refuelPctDrum` | Fraction of tank added per full `CZH_HeliDrum`. `0.50` = 50% per drum, 2 drums to fill any helicopter from empty. | `0.50` |
+| `CZH_refuelPctBottle` | Fraction of tank added per full `Bottle_Base` item (water bottles, glass bottles, etc.). | `0.005` |
+| `CZH_refuelPctDefault` | Fraction of tank added per full unrecognised container (catch-all for modded fuel items). | `0.005` |
+
+### Refuel Drain Speed
+
+Controls how fast the container empties during the refuel action. Higher values drain the container faster, reducing the wall-clock time to complete a fill.
+
+| Setting | What it does | Default |
+|---------|-------------|---------|
+| `CZH_refuelRateCanister` | Drain speed multiplier for `CanisterGasoline`. `1.0` = ~40 s for a full can. `2.0` = ~20 s. | `1.0` |
+| `CZH_refuelRateDrum` | Drain speed multiplier for `CZH_HeliDrum`. Default `5.0` makes a full drum take the same wall-clock time as a full canister despite holding 5× the fuel. | `5.0` |
+| `CZH_refuelRateBottle` | Drain speed multiplier for `Bottle_Base` items. | `1.0` |
+| `CZH_refuelRateDefault` | Drain speed multiplier for unrecognised containers (catch-all). | `1.0` |
+
+---
+
 ## Thresholds & Toggles
 
 | Setting | What it does | Default |
@@ -66,6 +94,7 @@ All repairs require HelicopterRepairKit in hands, engine off, helicopter grounde
 | `CZH_groundFlipRecovery` | `1` = pressing `X` while grounded and inverted flips the helicopter upright. `0` = disabled. | `0` |
 | `CZH_autoPilotEnabled` | `1` = Auto Hover works normally. `0` = disabled server-wide (`X` key does nothing). | `1` |
 | `CZH_cabinModeEnabled` | `1` = Cabin Mode enabled. `0` = disabled server-wide for all helicopters. | `1` |
+| `CZH_freeLookAlwaysOn` | `1` = free look is always active for the pilot (no need to hold the key). `0` = default DayZ hold-to-free-look behaviour. | `0` |
 
 ---
 

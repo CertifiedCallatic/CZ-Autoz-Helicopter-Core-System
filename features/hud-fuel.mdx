@@ -48,13 +48,24 @@ CZH_fuelBurnLPH = (833 / 120) * 60 = 416.5
 
 ### How to Refuel
 
-Hold a fuel container (such as a **Jerrycan**), approach within `CZH_refuelDistance` metres of the helicopter, and look at the **fuel refill point** on the helicopter's model. The refuel action will appear on that component — activate it to transfer fuel from the container into the tank. Only gasoline-type containers are accepted.
+Hold a fuel container, approach within `CZH_refuelDistance` metres of the helicopter, and look at the **fuel refill point** on the helicopter's model. The refuel action will appear — activate it to transfer fuel from the container into the tank.
+
+**Accepted fuel sources:**
+
+| Source | Notes |
+|--------|-------|
+| `CanisterGasoline` (jerry can) | Standard refuel. Default: fills 10% of any tank per full can. |
+| `CZH_HeliDrum` (Helicopter Fuel Drum) | Large drum. Default: fills 50% per drum — 2 drums to fill any helicopter from empty. |
+| `Bottle_Base` items | Water bottles, glass bottles, etc. Very small fill per bottle. |
+| Fuel pump mods | `Simple_Refueling` and `Gas-Pump-Refueling` are both supported — land near a pump and refuel directly without carrying containers. |
+
+Refuel amounts and drain speed per container type are configurable in `mod_config.json`. See [Global Settings](/server-config/global-settings#refuelling) for the full table.
 
 ### Refuel Settings
 
 | Setting | What it does | Default |
 |---------|-------------|---------|
-| `CZH_refuelOnRestart` | `1` = helicopter refuels to full on each server restart | `1` |
+| `CZH_refuelOnRestart` | `1` = helicopter refuels to full on each server restart. Does not affect fresh spawns — admin-spawned helicopters always respect the spawner's fluid choice. | `1` |
 | `CZH_refuelDistance` | Max distance in metres for the refuel action to appear | `4.2` |
 
 ### Fuel Warning System

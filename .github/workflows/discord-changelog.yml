@@ -11,6 +11,8 @@ on:
 jobs:
   notify:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -18,3 +20,13 @@ jobs:
         run: python .github/scripts/send_changelog.py
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+
+      - name: Save Discord message ID
+        run: |
+          git add .github/discord_messages.json 2>/dev/null || true
+          git diff --cached --quiet || (
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git commit -m "ci: update Discord message ID [skip ci]"
+            git push
+          )

@@ -69,4 +69,36 @@ icon: "clock"
 
 ---
 
-*PBOs in their designated location. Report any issues.*
+## HOTFIX — v0.1.2 | 02 April 2026
+
+**:package: Cargo**
+> `Fixed` Cargo modules not appearing as extra cargo space
+> `Fixed` Cargo modules respawning empty on server restart — contents are now preserved across restarts
+
+**:sound: Audio**
+> `Fixed` Engine startup and shutdown sounds not heard by players outside the helicopter — remote clients now correctly receive engine transition sounds
+
+**:helicopter: MH-60L Blackhawk**
+> `Fixed` Pilot and co-pilot seats could not be entered from outside when the helicopter was on a natural slope
+
+**:warning: Breaking Change — Classname Rename**
+> All helicopter classnames now use the `CZ_` prefix (e.g. `CZ_UH1H`, `CZ_MH60LBlackhawk`). Any existing `types.xml` entries, trader configs, or persistence saves referencing old classnames must be updated. Pre-existing helicopters on the map will despawn if classnames are not updated before loading this version.
+
+---
+
+## HOTFIX — v0.1.1 | 02 April 2026
+
+**:red_circle: Flight System**
+> `Fixed` Flight system conflicting with cars causing them to jitter on the spot
+
+**:mountain: Slopes**
+> `Fixed` Opening a door or leaving a seat while landed on a slope caused the helicopter to reset position into the ground
+
+**:helicopter: Rotor Shear**
+> `Fixed` When using no-damage mods (e.g. Hunter's Improved Vehicles), a sheared rotor would instantly respawn — now fully controlled by CZH and toggleable via `CZH_rotorBladeShear` in `mod_config.json`
+
+---
+
+## v0.1.0 | 01 April 2026
+
+Initial public early release of CZ Autoz Helicopter Flight System.

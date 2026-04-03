@@ -124,9 +124,9 @@ html.dark aside a {
 
 /* Active nav item — orange only here */
 html.dark [aria-current="page"] {
-  color: #CC4500 !important;
+  color: #C8601E !important;
   font-weight: 700 !important;
-  border-left: 2px solid #CC4500 !important;
+  border-left: 2px solid #C8601E !important;
   padding-left: 0.6rem !important;
 }
 
@@ -151,8 +151,8 @@ html.dark .toc-item a:hover {
 /* Active TOC item — subtle orange accent, not full blast */
 html.dark .toc-item a.text-primary,
 html.dark .toc-item a.font-medium {
-  color: #c8602a !important;
-  border-color: #c8602a !important;
+  color: #C8601E !important;
+  border-color: #C8601E !important;
 }
 
 
@@ -161,23 +161,23 @@ html.dark .toc-item a.font-medium {
    ============================================================ */
 
 html.dark a {
-  color: #c8602a !important;
+  color: #C8601E !important;
   transition: color 0.15s ease !important;
 }
 
 html.dark a:hover {
-  color: #e07040 !important;
+  color: #DC7A3A !important;
 }
 
 /* Body prose links should look like links but not everything orange */
 html.dark .prose a,
 html.dark [class*="prose"] a {
-  color: #c8602a !important;
+  color: #C8601E !important;
 }
 
 html.dark .prose a:hover,
 html.dark [class*="prose"] a:hover {
-  color: #e07040 !important;
+  color: #DC7A3A !important;
 }
 
 
@@ -308,7 +308,7 @@ html.dark [role="combobox"] {
 ::-webkit-scrollbar { width: 4px; height: 4px; }
 ::-webkit-scrollbar-track { background: #0d0f11; }
 ::-webkit-scrollbar-thumb { background: #3a3f46; border-radius: 2px; }
-::-webkit-scrollbar-thumb:hover { background: #CC4500; }
+::-webkit-scrollbar-thumb:hover { background: #C8601E; }
 
 
 /* ============================================================
@@ -441,9 +441,9 @@ html.light aside a {
 
 /* Active nav item */
 html.light [aria-current="page"] {
-  color: #CC4500 !important;
+  color: #C8601E !important;
   font-weight: 700 !important;
-  border-left: 2px solid #CC4500 !important;
+  border-left: 2px solid #C8601E !important;
   padding-left: 0.6rem !important;
 }
 
@@ -459,8 +459,8 @@ html.light .toc-item a:hover {
 
 html.light .toc-item a.text-primary,
 html.light .toc-item a.font-medium {
-  color: #CC4500 !important;
-  border-color: #CC4500 !important;
+  color: #C8601E !important;
+  border-color: #C8601E !important;
 }
 
 /* Links */
@@ -470,7 +470,7 @@ html.light a {
 }
 
 html.light a:hover {
-  color: #CC4500 !important;
+  color: #C8601E !important;
 }
 
 /* Code */
@@ -555,9 +555,9 @@ html.dark [aria-label="Toggle dark mode"] div.absolute.rounded-full {
 }
 
 html.dark [aria-label="Toggle dark mode"] svg:last-of-type {
-  color: #CC4500 !important;
+  color: #C8601E !important;
 }
 
 html.light [aria-label="Toggle dark mode"] svg:first-of-type {
-  color: #CC4500 !important;
+  color: #C8601E !important;
 }

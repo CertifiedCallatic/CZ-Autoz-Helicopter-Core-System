@@ -3,9 +3,9 @@
   "theme": "maple",
   "name": "CZ Autoz Mods",
   "colors": {
-    "primary": "#CC4500",
-    "light": "#E8651A",
-    "dark": "#A33300"
+    "primary": "#C8601E",
+    "light": "#DC7A3A",
+    "dark": "#9A4010"
   },
   "favicon": "/CZAutozNewLogo.svg",
   "navigation": {

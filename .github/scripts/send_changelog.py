@@ -1,9 +1,8 @@
 import re
 import json
-import urllib.request
-import urllib.error
 import os
 import sys
+import subprocess
 
 webhook_url = os.environ.get("DISCORD_WEBHOOK_URL")
 if not webhook_url:
@@ -50,23 +49,29 @@ else:
         ],
     }
 
-print(f"Payload size: {len(json.dumps(payload))} bytes")
+payload_json = json.dumps(payload)
+print(f"Payload size: {len(payload_json)} bytes")
 
-data = json.dumps(payload).encode("utf-8")
-req = urllib.request.Request(
-    webhook_url,
-    data=data,
-    headers={"Content-Type": "application/json"},
-    method="POST",
+# Use curl — Python's urllib is blocked by Cloudflare on GitHub Actions (error 1010)
+result = subprocess.run(
+    [
+        "curl", "-s", "-o", "/dev/null", "-w", "%{http_code}",
+        "-X", "POST",
+        "-H", "Content-Type: application/json",
+        "-d", payload_json,
+        webhook_url,
+    ],
+    capture_output=True,
+    text=True,
 )
 
-try:
-    with urllib.request.urlopen(req) as resp:
-        print(f"SUCCESS — HTTP {resp.status}")
-except urllib.error.HTTPError as e:
-    body = e.read().decode("utf-8", errors="replace")
-    print(f"ERROR — HTTP {e.code}: {body}")
-    sys.exit(1)
-except urllib.error.URLError as e:
-    print(f"ERROR — URL error: {e.reason}")
+http_code = result.stdout.strip()
+print(f"HTTP {http_code}")
+
+if http_code in ("200", "204"):
+    print("SUCCESS")
+else:
+    print(f"ERROR — HTTP {http_code}")
+    if result.stderr:
+        print(f"curl stderr: {result.stderr}")
     sys.exit(1)

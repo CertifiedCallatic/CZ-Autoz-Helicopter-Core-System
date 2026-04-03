@@ -19,7 +19,7 @@ html.dark body {
   font-weight: 600 !important;
 }
 
-/* Cascade Rajdhani 600 to all prose elements — prevents Mintlify components resetting to thin system font */
+/* Cascade Rajdhani 600 to all prose elements */
 html.dark p,
 html.dark li,
 html.dark span,
@@ -34,14 +34,14 @@ html.dark [class*="prose"] {
   line-height: 1.65 !important;
 }
 
-/* Subtle amber grid overlay — HUD targeting reticle feel */
+/* Very subtle grid overlay */
 html.dark body::after {
   content: '';
   position: fixed;
   inset: 0;
   background-image:
-    linear-gradient(rgba(204, 69, 0, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(204, 69, 0, 0.035) 1px, transparent 1px);
+    linear-gradient(rgba(204, 69, 0, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(204, 69, 0, 0.018) 1px, transparent 1px);
   background-size: 52px 52px;
   pointer-events: none;
   z-index: 0;
@@ -60,7 +60,6 @@ html.dark h5,
 html.dark h6 {
   font-family: 'Orbitron', sans-serif !important;
   letter-spacing: 0.04em !important;
-  text-shadow: 0 0 20px rgba(204, 69, 0, 0.28) !important;
 }
 
 html.dark h1 { color: #e0e4e8 !important; }
@@ -74,7 +73,7 @@ html.dark h3 { color: #c8cdd4 !important; }
 
 html.dark header {
   background-color: #090b0d !important;
-  border-bottom: 1px solid rgba(204, 69, 0, 0.25) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
   backdrop-filter: blur(8px) !important;
 }
 
@@ -86,18 +85,18 @@ html.dark header {
 html.dark nav,
 html.dark aside {
   background-color: #090b0d !important;
-  border-right: 1px solid rgba(204, 69, 0, 0.2) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.06) !important;
 }
 
-/* Nav group labels */
+/* Nav group labels — muted, not orange */
 html.dark nav p,
 html.dark aside p {
   font-family: 'Orbitron', sans-serif !important;
   font-size: 0.65rem !important;
   letter-spacing: 0.1em !important;
   text-transform: uppercase !important;
-  color: #CC4500 !important;
-  opacity: 0.8 !important;
+  color: #6b7280 !important;
+  opacity: 1 !important;
 }
 
 /* Nav links */
@@ -106,11 +105,12 @@ html.dark aside a {
   font-family: 'Rajdhani', sans-serif !important;
   font-weight: 600 !important;
   font-size: 1rem !important;
+  color: #9ca3af !important;
   letter-spacing: 0.03em !important;
   transition: color 0.15s, padding-left 0.15s !important;
 }
 
-/* Active nav item */
+/* Active nav item — orange only here */
 html.dark [aria-current="page"] {
   color: #CC4500 !important;
   font-weight: 700 !important;
@@ -124,13 +124,12 @@ html.dark [aria-current="page"] {
    ============================================================ */
 
 html.dark a {
-  color: #d96030 !important;
-  transition: color 0.15s ease, text-shadow 0.15s ease !important;
+  color: #c8602a !important;
+  transition: color 0.15s ease !important;
 }
 
 html.dark a:hover {
-  color: #ff7040 !important;
-  text-shadow: 0 0 8px rgba(204, 69, 0, 0.5) !important;
+  color: #e07040 !important;
 }
 
 
@@ -146,15 +145,15 @@ html.dark kbd {
 
 html.dark pre {
   background-color: #080a0c !important;
-  border: 1px solid rgba(204, 69, 0, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.07) !important;
   border-radius: 4px !important;
 }
 
 /* Inline code */
 html.dark :not(pre) > code {
-  background-color: rgba(204, 69, 0, 0.1) !important;
+  background-color: rgba(204, 69, 0, 0.08) !important;
   color: #e8a070 !important;
-  border: 1px solid rgba(204, 69, 0, 0.22) !important;
+  border: 1px solid rgba(204, 69, 0, 0.18) !important;
   border-radius: 3px !important;
   padding: 0.1em 0.35em !important;
 }
@@ -165,24 +164,24 @@ html.dark :not(pre) > code {
    ============================================================ */
 
 html.dark table {
-  border: 1px solid rgba(204, 69, 0, 0.18) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
   border-collapse: collapse !important;
   width: 100% !important;
 }
 
 html.dark th {
-  background-color: rgba(204, 69, 0, 0.1) !important;
-  color: #CC4500 !important;
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  color: #9ca3af !important;
   font-family: 'Orbitron', sans-serif !important;
   font-size: 0.72rem !important;
   letter-spacing: 0.09em !important;
   text-transform: uppercase !important;
-  border-bottom: 1px solid rgba(204, 69, 0, 0.3) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
   padding: 0.65rem 0.75rem !important;
 }
 
 html.dark td {
-  border-color: rgba(204, 69, 0, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
   padding: 0.55rem 0.75rem !important;
   font-family: 'Rajdhani', sans-serif !important;
   font-weight: 600 !important;
@@ -190,7 +189,7 @@ html.dark td {
 }
 
 html.dark tr:hover td {
-  background-color: rgba(204, 69, 0, 0.05) !important;
+  background-color: rgba(255, 255, 255, 0.03) !important;
 }
 
 
@@ -205,7 +204,7 @@ html.dark [class*="Callout"],
 html.dark [class*="note"],
 html.dark [class*="warning"],
 html.dark [class*="tip"] {
-  border: 1px solid rgba(204, 69, 0, 0.18) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
   background-color: #111418 !important;
 }
 
@@ -215,7 +214,7 @@ html.dark [class*="tip"] {
    ============================================================ */
 
 html.dark hr {
-  border-color: rgba(204, 69, 0, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
 }
 
 
@@ -227,7 +226,7 @@ html.dark [type="search"],
 html.dark input[type="text"],
 html.dark [role="combobox"] {
   background-color: #111418 !important;
-  border: 1px solid rgba(204, 69, 0, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
   font-family: 'Rajdhani', sans-serif !important;
   color: #c8cdd4 !important;
 }
@@ -239,13 +238,13 @@ html.dark [role="combobox"] {
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #CC4500 #0d0f11;
+  scrollbar-color: #3a3f46 #0d0f11;
 }
 
 ::-webkit-scrollbar { width: 4px; height: 4px; }
 ::-webkit-scrollbar-track { background: #0d0f11; }
-::-webkit-scrollbar-thumb { background: #CC4500; border-radius: 2px; }
-::-webkit-scrollbar-thumb:hover { background: #e85500; }
+::-webkit-scrollbar-thumb { background: #3a3f46; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #CC4500; }
 
 
 /* ============================================================
@@ -276,7 +275,7 @@ footer.advanced-footer > div {
 
 html.dark footer {
   background-color: #090b0d !important;
-  border-top: 1px solid rgba(204, 69, 0, 0.2) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
 }
 
 
@@ -293,7 +292,6 @@ html.light body {
   font-weight: 600 !important;
 }
 
-/* Cascade Rajdhani 600 to all prose elements in light mode */
 html.light p,
 html.light li,
 html.light span,
@@ -309,14 +307,14 @@ html.light [class*="prose"] {
   line-height: 1.65 !important;
 }
 
-/* Subtle warm grid overlay */
+/* Very subtle grid overlay */
 html.light body::after {
   content: '';
   position: fixed;
   inset: 0;
   background-image:
-    linear-gradient(rgba(204, 69, 0, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(204, 69, 0, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(0, 0, 0, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.025) 1px, transparent 1px);
   background-size: 52px 52px;
   pointer-events: none;
   z-index: 0;
@@ -332,31 +330,30 @@ html.light h6 {
   font-family: 'Orbitron', sans-serif !important;
   letter-spacing: 0.04em !important;
   color: #1a1c1f !important;
-  text-shadow: 0 0 16px rgba(204, 69, 0, 0.15) !important;
 }
 
 /* Top navigation bar */
 html.light header {
   background-color: #faf8f5 !important;
-  border-bottom: 1px solid rgba(204, 69, 0, 0.2) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
 }
 
 /* Sidebar */
 html.light nav,
 html.light aside {
   background-color: #faf8f5 !important;
-  border-right: 1px solid rgba(204, 69, 0, 0.18) !important;
+  border-right: 1px solid rgba(0, 0, 0, 0.07) !important;
 }
 
-/* Nav group labels */
+/* Nav group labels — muted */
 html.light nav p,
 html.light aside p {
   font-family: 'Orbitron', sans-serif !important;
   font-size: 0.65rem !important;
   letter-spacing: 0.1em !important;
   text-transform: uppercase !important;
-  color: #CC4500 !important;
-  opacity: 0.85 !important;
+  color: #9ca3af !important;
+  opacity: 1 !important;
 }
 
 /* Nav links */
@@ -365,7 +362,7 @@ html.light aside a {
   font-family: 'Rajdhani', sans-serif !important;
   font-weight: 600 !important;
   font-size: 1rem !important;
-  color: #2a2d32 !important;
+  color: #4b5563 !important;
   letter-spacing: 0.03em !important;
 }
 
@@ -380,12 +377,11 @@ html.light [aria-current="page"] {
 /* Links */
 html.light a {
   color: #b83d00 !important;
-  transition: color 0.15s ease, text-shadow 0.15s ease !important;
+  transition: color 0.15s ease !important;
 }
 
 html.light a:hover {
   color: #CC4500 !important;
-  text-shadow: 0 0 6px rgba(204, 69, 0, 0.25) !important;
 }
 
 /* Code */
@@ -397,38 +393,38 @@ html.light kbd {
 
 html.light pre {
   background-color: #f0ede8 !important;
-  border: 1px solid rgba(204, 69, 0, 0.15) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
   border-radius: 4px !important;
 }
 
 html.light :not(pre) > code {
-  background-color: rgba(204, 69, 0, 0.08) !important;
+  background-color: rgba(204, 69, 0, 0.07) !important;
   color: #a33000 !important;
-  border: 1px solid rgba(204, 69, 0, 0.18) !important;
+  border: 1px solid rgba(204, 69, 0, 0.15) !important;
   border-radius: 3px !important;
   padding: 0.1em 0.35em !important;
 }
 
 /* Tables */
 html.light table {
-  border: 1px solid rgba(204, 69, 0, 0.15) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
   border-collapse: collapse !important;
   width: 100% !important;
 }
 
 html.light th {
-  background-color: rgba(204, 69, 0, 0.08) !important;
-  color: #CC4500 !important;
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  color: #6b7280 !important;
   font-family: 'Orbitron', sans-serif !important;
   font-size: 0.72rem !important;
   letter-spacing: 0.09em !important;
   text-transform: uppercase !important;
-  border-bottom: 1px solid rgba(204, 69, 0, 0.25) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
   padding: 0.65rem 0.75rem !important;
 }
 
 html.light td {
-  border-color: rgba(204, 69, 0, 0.07) !important;
+  border-color: rgba(0, 0, 0, 0.05) !important;
   padding: 0.55rem 0.75rem !important;
   font-family: 'Rajdhani', sans-serif !important;
   font-weight: 600 !important;
@@ -437,12 +433,12 @@ html.light td {
 }
 
 html.light tr:hover td {
-  background-color: rgba(204, 69, 0, 0.04) !important;
+  background-color: rgba(0, 0, 0, 0.025) !important;
 }
 
 /* Dividers */
 html.light hr {
-  border-color: rgba(204, 69, 0, 0.15) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
 }
 
 /* Cards */
@@ -450,14 +446,14 @@ html.light [class*="card"],
 html.light [class*="Card"],
 html.light [class*="callout"],
 html.light [class*="Callout"] {
-  border: 1px solid rgba(204, 69, 0, 0.15) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
   background-color: #fefcfa !important;
 }
 
 /* Footer */
 html.light footer {
   background-color: #faf8f5 !important;
-  border-top: 1px solid rgba(204, 69, 0, 0.15) !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.07) !important;
 }
 
 

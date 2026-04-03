@@ -6,10 +6,10 @@ icon: "clock"
 
 ## HOTFIX — v0.1.3 | 03 April 2026
 
-**:red_circle: Suspension / FPS**
+**🔴 Suspension / FPS**
 > `Fixed` SA342M, UH1H, MD500 and MH-6 suspension constraint was collapsing server FPS to 1–6 during flight
 
-**:fuelpump: Refuelling**
+**⛽ Refuelling**
 > `Fixed` Action not always appearing or completing correctly
 > `Fixed` Jerry can refuelling instantly on second use instead of gradually
 > `Fixed` Fuel drum draining at the same rate as a jerry can
@@ -20,49 +20,49 @@ icon: "clock"
 > `Added` **Helicopter Fuel Drum** (`CZH_HeliDrum`) — 2 drums fill any helicopter from empty by default
 > `Added` Refuel amounts and drain speed per container type now configurable in `mod_config.json`
 
-**:zap: Ground Contact**
+**⚡ Ground Contact**
 > `Fixed` Clipping terrain at speed caused a full instant stop
 > `Fixed` Helicopter spinning to 90° on engine start after landing
 
-**:mountain: Parked on Slopes**
+**⛰️ Parked on Slopes**
 > `Fixed` Helicopter jumping or tilting when interacted with while parked on a slope
 
-**:eye: Free Look**
+**👁️ Free Look**
 > `Added` New `CZH_freeLookAlwaysOn` option in `mod_config.json`
 
-**:link: Ground Snap on Reconnect**
+**🔗 Ground Snap on Reconnect**
 > `Fixed` Safety snap firing every second near any helicopter — now fires once on connect only
 
-**:helicopter: Rotor Hub**
+**🚁 Rotor Hub**
 > `Fixed` No hub spin on startup with sheared rotors
 > `Fixed` Admin repair now correctly restores blade geometry
 
-**:arrows_counterclockwise: Remote Rotor Sync**
+**🔄 Remote Rotor Sync**
 > `Fixed` Remote players saw rotors instantly jump to full speed on startup and shutdown
 
-**:person_walking: Free-Walk Hover Shake**
+**🚶 Free-Walk Hover Shake**
 > `Fixed` Standing on a hovering helicopter caused constant camera shake — 50/50, awaiting confirmation
 
-**:sound: Audio**
+**🔊 Audio**
 > `Fixed` Helicopter nearly inaudible when facing away from it
 
-**:droplet: Fuel Leak**
+**💧 Fuel Leak**
 > `Added` Damaged fuel zone now shows a drip particle at the fill point
 
-**:arrows_counterclockwise: Autorotation**
+**🔄 Autorotation**
 > `Fixed` Running out of fuel froze all simulation — now enters autorotation with full control
 
-**:upside_down: Inverted Flight**
+**🙃 Inverted Flight**
 > `Added` Going past 90° bank applies downward force — full cyclic retained to flip back
 
-**:airplane_arriving: Landing Stability**
+**🛬 Landing Stability**
 > `Fixed` Bounce on touchdown after autorotation
 > `Fixed` Opening a door with engine off jolted the helicopter post-autorotation
 
-**:information_source: HUD**
+**ℹ️ HUD**
 > `Fixed` Damage HUD now shows base name only — variant suffix no longer squishes text
 
-**:gear: Config**
+**⚙️ Config**
 > `Fixed` JSON float values writing at full IEEE 754 precision — now clean
 > `Fixed` New config keys from updates now appear automatically on restart without deleting files
 > **Recommend deleting all JSONs in `$profile:\CZAutoz_Heli\` to regenerate clean — we are still in early builds**
@@ -71,30 +71,30 @@ icon: "clock"
 
 ## HOTFIX — v0.1.2 | 02 April 2026
 
-**:package: Cargo**
+**📦 Cargo**
 > `Fixed` Cargo modules not appearing as extra cargo space
 > `Fixed` Cargo modules respawning empty on server restart — contents are now preserved across restarts
 
-**:sound: Audio**
+**🔊 Audio**
 > `Fixed` Engine startup and shutdown sounds not heard by players outside the helicopter — remote clients now correctly receive engine transition sounds
 
-**:helicopter: MH-60L Blackhawk**
+**🚁 MH-60L Blackhawk**
 > `Fixed` Pilot and co-pilot seats could not be entered from outside when the helicopter was on a natural slope
 
-**:warning: Breaking Change — Classname Rename**
+**⚠️ Breaking Change — Classname Rename**
 > All helicopter classnames now use the `CZ_` prefix (e.g. `CZ_UH1H`, `CZ_MH60LBlackhawk`). Any existing `types.xml` entries, trader configs, or persistence saves referencing old classnames must be updated. Pre-existing helicopters on the map will despawn if classnames are not updated before loading this version.
 
 ---
 
 ## HOTFIX — v0.1.1 | 02 April 2026
 
-**:red_circle: Flight System**
+**🔴 Flight System**
 > `Fixed` Flight system conflicting with cars causing them to jitter on the spot
 
-**:mountain: Slopes**
+**⛰️ Slopes**
 > `Fixed` Opening a door or leaving a seat while landed on a slope caused the helicopter to reset position into the ground
 
-**:helicopter: Rotor Shear**
+**🚁 Rotor Shear**
 > `Fixed` When using no-damage mods (e.g. Hunter's Improved Vehicles), a sheared rotor would instantly respawn — now fully controlled by CZH and toggleable via `CZH_rotorBladeShear` in `mod_config.json`
 
 ---
@@ -102,4 +102,3 @@ icon: "clock"
 ## v0.1.0 | 01 April 2026
 
 Initial public early release of CZ Autoz Helicopter Flight System.
-

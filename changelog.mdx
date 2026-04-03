@@ -1,0 +1,72 @@
+---
+title: "Changelog"
+description: "Version history and release notes for CZ Autoz Helicopter Flight System."
+icon: "clock"
+---
+
+## HOTFIX — v0.1.3 | 03 April 2026
+
+**:red_circle: Suspension / FPS**
+> `Fixed` SA342M, UH1H, MD500 and MH-6 suspension constraint was collapsing server FPS to 1–6 during flight
+
+**:fuelpump: Refuelling**
+> `Fixed` Action not always appearing or completing correctly
+> `Fixed` Jerry can refuelling instantly on second use instead of gradually
+> `Fixed` Fuel drum draining at the same rate as a jerry can
+> `Fixed` Fuel leak not draining correctly with engine off
+> `Fixed` Repairing the fuel tank now fully stops the drain — fuel was continuing to drop silently after the effect stopped
+> `Fixed` Helicopters spawned via admin tools with no fluids selected were spawning with a full tank
+> `Added` Fuel pump mods (Simple\_Refueling, Gas-Pump-Refueling) now work with CZH helicopters
+> `Added` **Helicopter Fuel Drum** (`CZH_HeliDrum`) — 2 drums fill any helicopter from empty by default
+> `Added` Refuel amounts and drain speed per container type now configurable in `mod_config.json`
+
+**:zap: Ground Contact**
+> `Fixed` Clipping terrain at speed caused a full instant stop
+> `Fixed` Helicopter spinning to 90° on engine start after landing
+
+**:mountain: Parked on Slopes**
+> `Fixed` Helicopter jumping or tilting when interacted with while parked on a slope
+
+**:eye: Free Look**
+> `Added` New `CZH_freeLookAlwaysOn` option in `mod_config.json`
+
+**:link: Ground Snap on Reconnect**
+> `Fixed` Safety snap firing every second near any helicopter — now fires once on connect only
+
+**:helicopter: Rotor Hub**
+> `Fixed` No hub spin on startup with sheared rotors
+> `Fixed` Admin repair now correctly restores blade geometry
+
+**:arrows_counterclockwise: Remote Rotor Sync**
+> `Fixed` Remote players saw rotors instantly jump to full speed on startup and shutdown
+
+**:person_walking: Free-Walk Hover Shake**
+> `Fixed` Standing on a hovering helicopter caused constant camera shake — 50/50, awaiting confirmation
+
+**:sound: Audio**
+> `Fixed` Helicopter nearly inaudible when facing away from it
+
+**:droplet: Fuel Leak**
+> `Added` Damaged fuel zone now shows a drip particle at the fill point
+
+**:arrows_counterclockwise: Autorotation**
+> `Fixed` Running out of fuel froze all simulation — now enters autorotation with full control
+
+**:upside_down: Inverted Flight**
+> `Added` Going past 90° bank applies downward force — full cyclic retained to flip back
+
+**:airplane_arriving: Landing Stability**
+> `Fixed` Bounce on touchdown after autorotation
+> `Fixed` Opening a door with engine off jolted the helicopter post-autorotation
+
+**:information_source: HUD**
+> `Fixed` Damage HUD now shows base name only — variant suffix no longer squishes text
+
+**:gear: Config**
+> `Fixed` JSON float values writing at full IEEE 754 precision — now clean
+> `Fixed` New config keys from updates now appear automatically on restart without deleting files
+> **Recommend deleting all JSONs in `$profile:\CZAutoz_Heli\` to regenerate clean — we are still in early builds**
+
+---
+
+*PBOs in their designated location. Report any issues.*

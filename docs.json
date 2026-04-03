@@ -62,7 +62,8 @@
           {
             "group": "More",
             "pages": [
-              "roadmap"
+              "roadmap",
+              "changelog"
             ]
           }
         ]

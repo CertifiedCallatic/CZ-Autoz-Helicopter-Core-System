@@ -4,6 +4,47 @@ description: "Version history and release notes for CZ Autoz Helicopter Flight S
 icon: "clock"
 ---
 
+## HOTFIX — v0.1.4 | 04 April 2026
+
+**⚙️ Config**
+- `Added` `CZH_autoShutdownOnExit` in `mod_config.json` — when set to 1, the engine shuts off automatically when the pilot exits their seat while the helicopter is grounded and the engine is running. Default: 0 (off)
+- `Added` `CZH_engineHoldTime` in `mod_config.json` — controls the hold duration in seconds for the Start Engine and Stop Engine action circles. Default: 1.0
+
+**🕹️ Seated Actions**
+- `Added` Ramp, landing gear, and exit actions on doorless pilot and co-pilot seats now display on the side of the screen — removes centre-screen clutter during flight
+
+**🚪 Doors**
+- `Changed` Door open/close action while seated now only appears in 1st-person view — prevents the action cluttering the screen during 3rd-person flight
+
+**🚁 AW101 Merlin**
+- `Fixed` Suspension compression animation playing in the wrong direction on takeoff and landing
+- `Fixed` Cargo ramp auto-closing the moment the pilot entered the seat after a server restart
+- `Fixed` Cargo ramp showing "Open Ramp" when the ramp was already open after a server restart
+- `Fixed` Cargo ramp state now correctly restores after a server restart — open stays open, closed stays closed
+- `Fixed` Landing gear spawning retracted on server restart — gear now always lowers on server boot regardless of its state at shutdown
+
+**🛬 Grounded Physics**
+- `Fixed` Wheeled helicopters (Merlin, Blackhawk) rolling down slopes during engine spin-up
+- `Fixed` Suspension and wheels not settling correctly when the engine is stopped during landing — the helicopter would freeze mid-settle with wheels at uneven heights
+- `Fixed` Wheeled helicopters (Merlin, Blackhawk) no longer snap level when landed on a slope
+- `Fixed` Stationary helicopters no longer jitter or shift when a nearby helicopter spins up or flies past
+- `Fixed` Damping and ground contact stability improvements across all variants
+
+**🔴 Performance**
+- `Fixed` Severe FPS drops on spawn — simulation module adjustments applied across all helicopter variants
+- `Fixed` Client FPS drop during engine spin-up — a broken startup effect was silently failing 60 times per second throughout the entire startup sequence
+
+**🎡 Wheels**
+- `Changed` Wheel radius and wheel hub radius adjusted across affected variants
+
+**🚶 Cabin Mode**
+- `Changed` Move to Cabin and Return to Cockpit actions changed from press to hold — prevents accidental activation while moving around inside the cabin
+
+**🔄 Switch Seats**
+- `Removed` Switch seats temporarily removed — will return fully working in a future update
+
+---
+
 ## HOTFIX — v0.1.3 | 03 April 2026
 
 **🔴 Suspension / FPS**

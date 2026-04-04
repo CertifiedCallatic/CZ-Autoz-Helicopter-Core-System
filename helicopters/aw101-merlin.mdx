@@ -48,6 +48,10 @@ The Merlin has an openable rear loading ramp:
 The Merlin has a retractable tricycle landing gear operated by the **pilot** using the `F` key (landing gear action) from the pilot seat. Raise the gear after takeoff and lower it before landing.
 
 <Note>
+  Landing gear always deploys to the **lowered position on server boot**, regardless of its state at shutdown. Pilots must raise the gear manually after each takeoff.
+</Note>
+
+<Note>
   Landing gear deploy/retract events are recorded in the activity log as `LANDING_GEAR` when `CZH_activityLogging = 1`.
 </Note>
 

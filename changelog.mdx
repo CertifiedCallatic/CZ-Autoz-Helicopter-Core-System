@@ -4,6 +4,49 @@ description: "Version history and release notes for CZ Autoz Helicopter Flight S
 icon: "clock"
 ---
 
+## HOTFIX — v0.1.5 | 05 April 2026
+
+**⚙️ Config**
+- `Added` `CZH_autoHoverOnExit` — controls whether autopilot automatically engages when the pilot exits their seat while the helicopter is airborne. Default: 1 (on — existing behaviour, no change for current servers)
+- `Changed` Default refuel action distance increased from **4.2 m to 5.0 m** — the action now triggers from slightly further away, making it easier to refuel without needing to stand directly against the airframe. Note: servers with existing per-helicopter config files must delete them and restart once to pick up the new default, or manually update `CZH_refuelDistance` in each file
+
+**🔧 Architecture**
+- `Changed` JSON configuration system, internal class structure, variable naming conventions, and config map pipeline have been fully rebuilt from scratch — the CZH config architecture is now entirely distinct and independently authored with no structural overlap with any third-party helicopter mod implementation
+
+**🔗 Reconnect Safety**
+- `Fixed` Players reconnecting after a mid-flight crash over ocean were being snapped to the ocean floor
+- `Fixed` Players reconnecting after a mid-flight crash above a rock, cliff or building were snapped to terrain level and placed inside or below the object — they are now correctly placed on top of it
+
+**🚁 Server Restart — Mid-Air Helicopters**
+- `Fixed` Helicopters that were airborne at the time of a server restart now land safely on the nearest terrain or geometry surface on the first simulation tick after restart — engine and rotor are shut down, physics are reset, the helicopter settles as if it had been parked
+- `Fixed` Helicopters that were airborne over ocean at restart no longer fall into the water — autopilot is automatically engaged to hold their position until a pilot returns
+- `Fixed` Helicopters parked on the ground bouncing for several seconds immediately after a server restart
+
+**🆘 Emergency Recovery**
+- `Added` Pilots who reconnect after a game crash or server restart while their helicopter is airborne now receive an **Emergency Recovery** hold action (3-second hold)
+- `Added` The action is exclusive to the pilot who was last in control — tracked by a persisted GUID on the helicopter that survives server restarts; no other player ever sees it
+- `Added` On activation, the pilot is placed directly into the pilot seat with no extra button press required
+- `Added` The action disappears automatically the moment another player enters the pilot seat, the helicopter lands, or the helicopter is destroyed — it is never permanently visible
+
+**🎮 War Dogs 3PP Compatibility**
+- `Fixed` Servers using the War Dogs 3PP mod crashed when a player held the native free-look key inside a CZH helicopter — no effect on servers not running War Dogs
+
+**✈️ Flight**
+- `Fixed` Turning the engine off while airborne caused the helicopter to freeze completely in place — it now correctly enters autorotation and descends under its own mass
+- `Added` Autorotation descent rate now scales with helicopter mass — heavier helicopters descend significantly faster than light scouts, reflecting real rotor disc loading behaviour. The existing `CZH_autoRotGravityFactor` preset still lets admins tune the base rate per aircraft
+
+**💨 Effects**
+- `Updated` Ground wash particle effect — rotor downwash now kicks up dirt and dust when flying close to the ground, replacing the previous effect
+
+**🚁 AW101 Merlin**
+- `Updated` Simulation module adjusted — suspension and wheel behaviour improvements
+- `Fixed` Geometry adjustments to reduce entry blocking on both sides of the helicopter — players could previously get stuck or prevented from climbing in
+
+**🔊 Audio**
+- `Fixed` Landing gear and cargo ramp sounds remaining fixed at the location where they were first triggered instead of following the helicopter — audible when flying away after activating them mid-flight
+
+---
+
 ## HOTFIX — v0.1.4 | 04 April 2026
 
 **⚙️ Config**

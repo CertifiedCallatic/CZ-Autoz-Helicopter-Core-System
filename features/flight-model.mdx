@@ -45,6 +45,8 @@ If the engine stops (fuel out, engine destroyed, or manually shut down), the rot
 - `CZH_autoRotDescentCap` sets the maximum descent rate in m/s
 - A skilled pilot can perform a survivable landing using autorotation technique
 
+**Descent rate scales with helicopter mass.** Heavier helicopters have higher rotor disc loading, so their rotors provide proportionally less lift during autorotation — they descend significantly faster than light scouts. The gravity factor and descent cap set the baseline, but the actual descent rate at any given rotor spool is heavier for larger aircraft. This reflects real-world rotor disc loading behaviour.
+
 | Helicopter | Gravity Factor | Max Descent |
 |------------|---------------|-------------|
 | MD500 Civilian | 0.60 | 8.5 m/s |
@@ -53,6 +55,10 @@ If the engine stops (fuel out, engine destroyed, or manually shut down), the rot
 | UH-1H Iroquois | 0.67 | 11.5 m/s |
 | MH-60L Blackhawk | 0.70 | 14.0 m/s |
 | AW101 Merlin | 0.75 | 16.0 m/s |
+
+<Note>
+  The descent rates above are the configured maximums. In practice, a heavier helicopter will reach its cap much faster than a lighter one at the same rotor spool level — a Merlin will drop noticeably faster than an MD500 even with a higher gravity factor. Plan accordingly: heavier helicopters require earlier and more aggressive flare inputs to arrest descent before landing.
+</Note>
 
 ## Service Ceiling
 
